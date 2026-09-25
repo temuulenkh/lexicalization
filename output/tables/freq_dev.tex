@@ -1,0 +1,37 @@
+\begin{table}[ht]
+\centering
+\begin{tabular}{llrrrlrrl}
+  \hline
+predictor & variable & BIC & AIC & estimate & ci & chisq & df & p.value \\ 
+  \hline
+null model & intercept & 21 & 25 & 2.43 & [NA, NA] &  &  & NA \\ 
+  mean usage (Worldlex) &  & 0 & 0 & 0.28 & [0.17, 0.39] & 27.19 & 1 & $<$ 0.001 \\ 
+  mean + CV (Worldlex) & mean & 5 & 1 & 0.27 & [0.16, 0.38] & 28.11 & 2 & $<$ 0.001 \\ 
+  mean + CV (Worldlex) & CV & 5 & 1 & -0.05 & [-0.15, 0.05] & 28.11 & 2 & $<$ 0.001 \\ 
+  usage (English only) &  & 8 & 8 & 0.24 & [0.13, 0.34] & 19.24 & 1 & $<$ 0.001 \\ 
+  mean usage (DoReCo) &  & 10 & 10 & 0.24 & [0.12, 0.35] & 17.18 & 1 & $<$ 0.001 \\ 
+  mean + CV (DoReCo) & mean & 13 & 9 & 0.24 & [0.13, 0.36] & 19.87 & 2 & $<$ 0.001 \\ 
+  mean + CV (DoReCo) & CV & 13 & 9 & -0.09 & [-0.21, 0.02] & 19.87 & 2 & $<$ 0.001 \\ 
+  association in-strength &  & 6 & 6 & 0.26 & [0.14, 0.37] & 21.29 & 1 & $<$ 0.001 \\ 
+  contextual diversity &  & 9 & 9 & 0.23 & [0.13, 0.34] & 18.35 & 1 & $<$ 0.001 \\ 
+  concreteness &  & 13 & 13 & -0.20 & [-0.30, -0.09] & 13.96 & 1 & $<$ 0.001 \\ 
+  AoA (self reported) &  & 15 & 15 & -0.17 & [-0.26, -0.08] & 12.48 & 1 & $<$ 0.001 \\ 
+  AoA (parent reported) &  & 24 & 24 & -0.09 & [-0.19, 0.01] & 3.04 & 1 & 0.081 \\ 
+  sensorimotor strength &  & 25 & 25 & 0.07 & [-0.03, 0.18] & 2.03 & 1 & 0.154 \\ 
+  null model & intercept & 17 & 25 & 2.41 & [NA, NA] &  &  & NA \\ 
+  mean + CV (DoReCo) & mean & 0 & 0 & 0.19 & [0.03, 0.34] & 28.57 & 2 & $<$ 0.001 \\ 
+  mean + CV (DoReCo) & CV & 0 & 0 & -0.29 & [-0.40, -0.18] & 28.57 & 2 & $<$ 0.001 \\ 
+  mean usage (Worldlex) &  & 4 & 8 & 0.28 & [0.15, 0.41] & 18.74 & 1 & $<$ 0.001 \\ 
+  usage (English only) &  & 5 & 9 & 0.27 & [0.14, 0.39] & 17.80 & 1 & $<$ 0.001 \\ 
+  mean + CV (Worldlex) & mean & 9 & 9 & 0.27 & [0.13, 0.40] & 19.56 & 2 & $<$ 0.001 \\ 
+  mean + CV (Worldlex) & CV & 9 & 9 & -0.06 & [-0.18, 0.07] & 19.56 & 2 & $<$ 0.001 \\ 
+  mean usage (DoReCo) &  & 19 & 23 & 0.12 & [-0.01, 0.26] & 3.44 & 1 & 0.064 \\ 
+  contextual diversity &  & 6 & 10 & 0.26 & [0.13, 0.39] & 16.63 & 1 & $<$ 0.001 \\ 
+  concreteness &  & 10 & 14 & -0.23 & [-0.36, -0.10] & 12.90 & 1 & $<$ 0.001 \\ 
+  association in-strength &  & 14 & 18 & 0.27 & [0.07, 0.47] & 9.06 & 1 & 0.003 \\ 
+  AoA (self reported) &  & 16 & 20 & -0.15 & [-0.26, -0.04] & 6.97 & 1 & 0.008 \\ 
+  AoA (parent reported) &  & 18 & 22 & -0.13 & [-0.25, -0.01] & 4.54 & 1 & 0.033 \\ 
+  sensorimotor strength &  & 23 & 27 & 0.01 & [-0.10, 0.12] & 0.01 & 1 & 0.903 \\ 
+   \hline
+\end{tabular}
+\end{table}

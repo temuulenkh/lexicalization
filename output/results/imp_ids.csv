@@ -1,0 +1,2402 @@
+semantic_field,concepticon_id1,concepticon_gloss1,concepticon_id2,concepticon_gloss2,evidence
+Agriculture and vegetation,1077,wheat,23,rye,42
+Agriculture and vegetation,1204,bark,410,yam,122
+Agriculture and vegetation,1418,dig,23,rye,96
+Agriculture and vegetation,1541,cultivate,968,acorn,98
+Agriculture and vegetation,1689,smoke,346,banyan,75
+Agriculture and vegetation,1690,fence,346,banyan,81
+Agriculture and vegetation,190,mow,1950,beech,67
+Agriculture and vegetation,190,mow,223,threshing-floor,48
+Agriculture and vegetation,190,mow,23,rye,78
+Agriculture and vegetation,190,mow,346,banyan,72
+Agriculture and vegetation,1921,plough,23,rye,63
+Agriculture and vegetation,212,field,1950,beech,80
+Agriculture and vegetation,2132,sickle or scythe,1950,beech,49
+Agriculture and vegetation,239,flower,1124,pipe,43
+Agriculture and vegetation,239,flower,1740,pine,64
+Agriculture and vegetation,239,flower,1855,birch,105
+Agriculture and vegetation,239,flower,1915,fir,87
+Agriculture and vegetation,239,flower,1950,beech,87
+Agriculture and vegetation,239,flower,346,banyan,92
+Agriculture and vegetation,239,flower,644,oak,97
+Agriculture and vegetation,239,flower,925,cassava,135
+Agriculture and vegetation,239,flower,968,acorn,108
+Agriculture and vegetation,239,flower,970,coconut,71
+Agriculture and vegetation,284,hoe,346,banyan,62
+Agriculture and vegetation,285,thresh,1950,beech,58
+Agriculture and vegetation,3223,branch or twig,1124,pipe,43
+Agriculture and vegetation,3223,branch or twig,1689,smoke,17
+Agriculture and vegetation,3223,branch or twig,1740,pine,64
+Agriculture and vegetation,3223,branch or twig,1855,birch,105
+Agriculture and vegetation,3223,branch or twig,1915,fir,87
+Agriculture and vegetation,3223,branch or twig,1927,bamboo,29
+Agriculture and vegetation,3223,branch or twig,1950,beech,87
+Agriculture and vegetation,3223,branch or twig,33,nettle,52
+Agriculture and vegetation,3223,branch or twig,345,sap,25
+Agriculture and vegetation,3223,branch or twig,346,banyan,92
+Agriculture and vegetation,3223,branch or twig,410,yam,129
+Agriculture and vegetation,3223,branch or twig,411,gourd,21
+Agriculture and vegetation,3223,branch or twig,641,mushroom,14
+Agriculture and vegetation,3223,branch or twig,644,oak,97
+Agriculture and vegetation,3223,branch or twig,864,pumpkin,20
+Agriculture and vegetation,3223,branch or twig,925,cassava,135
+Agriculture and vegetation,3223,branch or twig,968,acorn,108
+Agriculture and vegetation,3223,branch or twig,970,coconut,71
+Agriculture and vegetation,3223,branch or twig,974,tobacco,16
+Agriculture and vegetation,342,hay,1855,birch,62
+Agriculture and vegetation,586,garden,1950,beech,68
+Agriculture and vegetation,586,garden,346,banyan,73
+Agriculture and vegetation,606,grass,1740,pine,64
+Agriculture and vegetation,606,grass,1855,birch,105
+Agriculture and vegetation,606,grass,1915,fir,87
+Agriculture and vegetation,606,grass,1950,beech,87
+Agriculture and vegetation,606,grass,342,hay,43
+Agriculture and vegetation,606,grass,346,banyan,92
+Agriculture and vegetation,606,grass,410,yam,129
+Agriculture and vegetation,606,grass,644,oak,97
+Agriculture and vegetation,606,grass,968,acorn,108
+Agriculture and vegetation,606,grass,970,coconut,71
+Agriculture and vegetation,628,leaf,1855,birch,105
+Agriculture and vegetation,628,leaf,1950,beech,87
+Agriculture and vegetation,628,leaf,346,banyan,92
+Agriculture and vegetation,628,leaf,410,yam,129
+Agriculture and vegetation,628,leaf,644,oak,97
+Agriculture and vegetation,628,leaf,925,cassava,135
+Agriculture and vegetation,628,leaf,968,acorn,108
+Agriculture and vegetation,628,leaf,970,coconut,71
+Agriculture and vegetation,748,sow seeds,1950,beech,75
+Agriculture and vegetation,748,sow seeds,223,threshing-floor,56
+Agriculture and vegetation,748,sow seeds,932,barley,76
+Agriculture and vegetation,239,flower,1077,wheat,56
+Agriculture and vegetation,3223,branch or twig,1077,wheat,56
+Agriculture and vegetation,239,flower,1176,spade,35
+Agriculture and vegetation,3223,branch or twig,1176,spade,35
+Agriculture and vegetation,606,grass,1176,spade,35
+Agriculture and vegetation,628,leaf,1486,plant,8
+Agriculture and vegetation,3223,branch or twig,1541,cultivate,10
+Agriculture and vegetation,3223,branch or twig,1690,fence,11
+Agriculture and vegetation,3223,branch or twig,1794,furrow,52
+Agriculture and vegetation,606,grass,1794,furrow,52
+Agriculture and vegetation,3223,branch or twig,190,mow,20
+Agriculture and vegetation,239,flower,1901,shovel,25
+Agriculture and vegetation,3223,branch or twig,1901,shovel,25
+Agriculture and vegetation,606,grass,1901,shovel,25
+Agriculture and vegetation,606,grass,1921,plough,35
+Agriculture and vegetation,3223,branch or twig,199,famine,33
+Agriculture and vegetation,606,grass,199,famine,33
+Agriculture and vegetation,239,flower,2002,ditch,18
+Agriculture and vegetation,3223,branch or twig,2132,sickle or scythe,38
+Agriculture and vegetation,606,grass,2132,sickle or scythe,38
+Agriculture and vegetation,3223,branch or twig,223,threshing-floor,68
+Agriculture and vegetation,606,grass,223,threshing-floor,68
+Agriculture and vegetation,239,flower,23,rye,98
+Agriculture and vegetation,3223,branch or twig,23,rye,98
+Agriculture and vegetation,606,grass,23,rye,98
+Agriculture and vegetation,239,flower,284,hoe,30
+Agriculture and vegetation,606,grass,284,hoe,30
+Agriculture and vegetation,3223,branch or twig,285,thresh,29
+Agriculture and vegetation,606,grass,285,thresh,29
+Agriculture and vegetation,3223,branch or twig,337,pitchfork,58
+Agriculture and vegetation,606,grass,337,pitchfork,58
+Agriculture and vegetation,628,leaf,337,pitchfork,58
+Agriculture and vegetation,3223,branch or twig,338,rake,36
+Agriculture and vegetation,239,flower,342,hay,43
+Agriculture and vegetation,3223,branch or twig,586,garden,19
+Agriculture and vegetation,239,flower,60,oat,80
+Agriculture and vegetation,3223,branch or twig,60,oat,80
+Agriculture and vegetation,606,grass,60,oat,80
+Agriculture and vegetation,606,grass,605,grain,26
+Agriculture and vegetation,3223,branch or twig,653,plant,36
+Agriculture and vegetation,628,leaf,653,plant,36
+Agriculture and vegetation,3223,branch or twig,714,seed,6
+Agriculture and vegetation,3223,branch or twig,748,sow seeds,12
+Agriculture and vegetation,3223,branch or twig,926,rice,22
+Agriculture and vegetation,239,flower,932,barley,88
+Agriculture and vegetation,3223,branch or twig,932,barley,88
+Agriculture and vegetation,3223,branch or twig,979,farmer,40
+Animals,1007,cow,1110,shark,91
+Animals,1136,rabbit,957,whale,75
+Animals,1219,worm,1910,stingray,116
+Animals,1337,pig,1110,shark,94
+Animals,1337,pig,1479,dolphin,90
+Animals,1337,pig,1862,donkey,33
+Animals,1337,pig,1871,camel,72
+Animals,1337,pig,1972,young goat,40
+Animals,1337,pig,2475,male goat,39
+Animals,1337,pig,890,mule,46
+Animals,1337,pig,938,mare,21
+Animals,1337,pig,957,whale,89
+Animals,1502,goat,1871,camel,51
+Animals,1511,rooster,1290,elephant,48
+Animals,1514,hen,1479,dolphin,88
+Animals,1791,butterfly,1910,stingray,118
+Animals,1791,butterfly,309,opossum,171
+Animals,1793,bat,1910,stingray,118
+Animals,1853,dove,1910,stingray,109
+Animals,1936,deer,309,opossum,167
+Animals,2139,muroid,1110,shark,97
+Animals,2139,muroid,1290,elephant,53
+Animals,2139,muroid,1312,fox,32
+Animals,2139,muroid,1350,monkey,16
+Animals,2139,muroid,1386,lion,38
+Animals,2139,muroid,1509,mosquito,11
+Animals,2139,muroid,1820,bear,45
+Animals,2139,muroid,1871,camel,75
+Animals,2139,muroid,1910,stingray,125
+Animals,2139,muroid,232,flea,13
+Animals,2139,muroid,266,scale,17
+Animals,2139,muroid,522,wolf,39
+Animals,2139,muroid,620,insect,46
+Animals,2139,muroid,88,beehive,30
+Animals,2139,muroid,957,whale,92
+Animals,2263,male,1110,shark,87
+Animals,307,hawk,1110,shark,81
+Animals,539,nest,1110,shark,92
+Animals,539,nest,1479,dolphin,88
+Animals,539,nest,1910,stingray,120
+Animals,539,nest,95,sandfly,30
+Animals,539,nest,957,whale,87
+Animals,615,horse,1290,elephant,48
+Animals,615,horse,1647,foal,23
+Animals,615,horse,1862,donkey,31
+Animals,615,horse,1871,camel,70
+Animals,615,horse,890,mule,44
+Animals,615,horse,957,whale,87
+Animals,665,bee,309,opossum,174
+Animals,665,bee,88,beehive,26
+Animals,730,snake,1543,snail,14
+Animals,730,snake,1857,crocodile,40
+Animals,730,snake,1910,stingray,124
+Animals,730,snake,206,firefly,35
+Animals,730,snake,309,opossum,177
+Animals,730,snake,607,grasshopper,17
+Animals,843,spider,1791,butterfly,3
+Animals,843,spider,1910,stingray,121
+Animals,843,spider,1916,gill,87
+Animals,843,spider,1931,beeswax,27
+Animals,843,spider,206,firefly,32
+Animals,843,spider,309,opossum,174
+Animals,843,spider,503,frog,2
+Animals,843,spider,607,grasshopper,14
+Animals,843,spider,88,beehive,26
+Animals,882,parrot,1479,dolphin,76
+Animals,937,bird,1871,camel,72
+Animals,937,bird,950,seagull,81
+Animals,2139,muroid,1136,rabbit,17
+Animals,843,spider,1136,rabbit,13
+Animals,2139,muroid,1169,ox,34
+Animals,843,spider,1185,vulture,41
+Animals,2139,muroid,1187,goose,40
+Animals,730,snake,1290,elephant,52
+Animals,1337,pig,1331,sheep,22
+Animals,2139,muroid,1331,sheep,25
+Animals,1337,pig,1344,ram,37
+Animals,2139,muroid,1344,ram,40
+Animals,615,horse,1344,ram,35
+Animals,1337,pig,1345,ewe,37
+Animals,2139,muroid,1345,ewe,40
+Animals,730,snake,1386,lion,37
+Animals,1219,worm,1479,dolphin,84
+Animals,1791,butterfly,1479,dolphin,86
+Animals,503,frog,1479,dolphin,87
+Animals,730,snake,1479,dolphin,92
+Animals,843,spider,1479,dolphin,89
+Animals,2139,muroid,1502,goat,24
+Animals,2139,muroid,1647,foal,28
+Animals,843,spider,1793,bat,3
+Animals,2139,muroid,1853,dove,16
+Animals,730,snake,1853,dove,15
+Animals,2139,muroid,1862,donkey,36
+Animals,730,snake,1871,camel,74
+Animals,2139,muroid,1905,eagle,55
+Animals,843,spider,1905,eagle,51
+Animals,730,snake,1931,beeswax,30
+Animals,2139,muroid,1972,young goat,43
+Animals,615,horse,1972,young goat,38
+Animals,730,snake,1974,centipede,32
+Animals,843,spider,1974,centipede,29
+Animals,2139,muroid,1989,calf,17
+Animals,615,horse,1989,calf,12
+Animals,843,spider,213,fin,29
+Animals,2139,muroid,2475,male goat,42
+Animals,615,horse,2475,male goat,37
+Animals,2139,muroid,263,herdsman,31
+Animals,615,horse,263,herdsman,26
+Animals,2139,muroid,265,fowl,54
+Animals,843,spider,267,nit,14
+Animals,843,spider,598,shell,20
+Animals,2139,muroid,615,horse,5
+Animals,843,spider,620,insect,42
+Animals,730,snake,631,livestock,41
+Animals,2139,muroid,649,pasture,36
+Animals,615,horse,649,pasture,31
+Animals,2139,muroid,735,owl,12
+Animals,503,frog,735,owl,6
+Animals,843,spider,735,owl,8
+Animals,730,snake,758,heron,48
+Animals,843,spider,758,heron,45
+Animals,1337,pig,820,lamb,42
+Animals,2139,muroid,820,lamb,45
+Animals,615,horse,820,lamb,40
+Animals,2139,muroid,851,stable,32
+Animals,730,snake,851,stable,31
+Animals,503,frog,88,beehive,24
+Animals,730,snake,88,beehive,29
+Animals,730,snake,882,parrot,16
+Animals,2139,muroid,890,mule,49
+Animals,730,snake,890,mule,48
+Animals,2139,muroid,913,crow,37
+Animals,503,frog,913,crow,31
+Animals,843,spider,913,crow,33
+Animals,2139,muroid,936,stallion,28
+Animals,2139,muroid,938,mare,24
+Animals,1219,worm,950,seagull,75
+Animals,1517,wasp,950,seagull,75
+Animals,1791,butterfly,950,seagull,77
+Animals,2139,muroid,950,seagull,84
+Animals,503,frog,950,seagull,78
+Animals,735,owl,950,seagull,72
+Animals,843,spider,950,seagull,80
+Animals,1517,wasp,957,whale,83
+Animals,1791,butterfly,957,whale,85
+Animals,843,spider,957,whale,88
+Basic actions and technology,1218,rope,1361,tool,42
+Basic actions and technology,1218,rope,1481,hammer,15
+Basic actions and technology,1218,rope,211,cast,73
+Basic actions and technology,1218,rope,3217,tin or tinplate,61
+Basic actions and technology,1218,rope,621,iron,19
+Basic actions and technology,1218,rope,627,lead,52
+Basic actions and technology,1369,gold,914,sculptor,71
+Basic actions and technology,1414,squeeze,1971,fan,17
+Basic actions and technology,1414,squeeze,360,fan,15
+Basic actions and technology,1437,split,1002,statue,60
+Basic actions and technology,1437,split,1648,anvil,66
+Basic actions and technology,1437,split,1979,chisel,50
+Basic actions and technology,1437,split,2001,painting,18
+Basic actions and technology,1437,split,234,paddle,60
+Basic actions and technology,1437,split,289,mold,50
+Basic actions and technology,1437,split,359,potter,63
+Basic actions and technology,1437,split,914,sculptor,86
+Basic actions and technology,1453,wash,1001,blacksmith,47
+Basic actions and technology,1453,wash,1002,statue,65
+Basic actions and technology,1453,wash,1042,carpenter,39
+Basic actions and technology,1453,wash,1361,tool,43
+Basic actions and technology,1453,wash,1399,clay,6
+Basic actions and technology,1453,wash,1481,hammer,16
+Basic actions and technology,1453,wash,1501,bore,7
+Basic actions and technology,1453,wash,1539,basket,7
+Basic actions and technology,1453,wash,1648,anvil,71
+Basic actions and technology,1453,wash,1979,chisel,55
+Basic actions and technology,1453,wash,211,cast,74
+Basic actions and technology,1453,wash,228,carve,41
+Basic actions and technology,1453,wash,288,forge,61
+Basic actions and technology,1453,wash,289,mold,55
+Basic actions and technology,1453,wash,292,rug,73
+Basic actions and technology,1453,wash,3137,oar,36
+Basic actions and technology,1453,wash,3217,tin or tinplate,62
+Basic actions and technology,1453,wash,604,glass,24
+Basic actions and technology,1453,wash,627,lead,53
+Basic actions and technology,1453,wash,647,paint,23
+Basic actions and technology,1453,wash,914,sculptor,91
+Basic actions and technology,1487,pour,1002,statue,63
+Basic actions and technology,1487,pour,161,miss,29
+Basic actions and technology,1487,pour,1648,anvil,69
+Basic actions and technology,1487,pour,1979,chisel,53
+Basic actions and technology,1487,pour,211,cast,72
+Basic actions and technology,1487,pour,228,carve,39
+Basic actions and technology,1487,pour,234,paddle,63
+Basic actions and technology,1487,pour,288,forge,59
+Basic actions and technology,1487,pour,289,mold,53
+Basic actions and technology,1487,pour,293,netbag,50
+Basic actions and technology,1487,pour,914,sculptor,89
+Basic actions and technology,1501,bore,211,cast,67
+Basic actions and technology,1501,bore,914,sculptor,84
+Basic actions and technology,1719,bury,1001,blacksmith,47
+Basic actions and technology,1719,bury,1002,statue,65
+Basic actions and technology,1719,bury,1042,carpenter,39
+Basic actions and technology,1719,bury,1069,glue,30
+Basic actions and technology,1719,bury,1361,tool,43
+Basic actions and technology,1719,bury,1369,gold,20
+Basic actions and technology,1719,bury,1414,squeeze,6
+Basic actions and technology,1719,bury,1437,split,5
+Basic actions and technology,1719,bury,1481,hammer,16
+Basic actions and technology,1719,bury,161,miss,31
+Basic actions and technology,1719,bury,1627,chain,27
+Basic actions and technology,1719,bury,1648,anvil,71
+Basic actions and technology,1719,bury,1948,saw,14
+Basic actions and technology,1719,bury,195,mat,42
+Basic actions and technology,1719,bury,1971,fan,23
+Basic actions and technology,1719,bury,1979,chisel,55
+Basic actions and technology,1719,bury,2001,painting,23
+Basic actions and technology,1719,bury,211,cast,74
+Basic actions and technology,1719,bury,2131,torch or lamp,8
+Basic actions and technology,1719,bury,228,carve,41
+Basic actions and technology,1719,bury,234,paddle,65
+Basic actions and technology,1719,bury,245,broom,5
+Basic actions and technology,1719,bury,288,forge,61
+Basic actions and technology,1719,bury,289,mold,55
+Basic actions and technology,1719,bury,293,netbag,52
+Basic actions and technology,1719,bury,3137,oar,36
+Basic actions and technology,1719,bury,3294,braid,10
+Basic actions and technology,1719,bury,354,pound,20
+Basic actions and technology,1719,bury,359,potter,68
+Basic actions and technology,1719,bury,360,fan,21
+Basic actions and technology,1719,bury,604,glass,24
+Basic actions and technology,1719,bury,621,iron,20
+Basic actions and technology,1719,bury,647,paint,23
+Basic actions and technology,1719,bury,760,knot,13
+Basic actions and technology,1719,bury,914,sculptor,91
+Basic actions and technology,1735,tear,1002,statue,65
+Basic actions and technology,1735,tear,1361,tool,43
+Basic actions and technology,1735,tear,1481,hammer,16
+Basic actions and technology,1735,tear,1648,anvil,71
+Basic actions and technology,1735,tear,1979,chisel,55
+Basic actions and technology,1735,tear,228,carve,41
+Basic actions and technology,1735,tear,234,paddle,65
+Basic actions and technology,1735,tear,288,forge,61
+Basic actions and technology,1735,tear,289,mold,55
+Basic actions and technology,1735,tear,291,pull off,10
+Basic actions and technology,1735,tear,292,rug,73
+Basic actions and technology,1735,tear,604,glass,24
+Basic actions and technology,1735,tear,621,iron,20
+Basic actions and technology,1735,tear,627,lead,53
+Basic actions and technology,1735,tear,914,sculptor,91
+Basic actions and technology,1767,scrape,234,paddle,57
+Basic actions and technology,1913,press,1648,anvil,63
+Basic actions and technology,1913,press,914,sculptor,83
+Basic actions and technology,1917,tie,1002,statue,65
+Basic actions and technology,1917,tie,1361,tool,43
+Basic actions and technology,1917,tie,1487,pour,2
+Basic actions and technology,1917,tie,1539,basket,7
+Basic actions and technology,1917,tie,161,miss,31
+Basic actions and technology,1917,tie,1648,anvil,71
+Basic actions and technology,1917,tie,195,mat,42
+Basic actions and technology,1917,tie,1971,fan,23
+Basic actions and technology,1917,tie,1979,chisel,55
+Basic actions and technology,1917,tie,2001,painting,23
+Basic actions and technology,1917,tie,211,cast,74
+Basic actions and technology,1917,tie,228,carve,41
+Basic actions and technology,1917,tie,234,paddle,65
+Basic actions and technology,1917,tie,288,forge,61
+Basic actions and technology,1917,tie,289,mold,55
+Basic actions and technology,1917,tie,290,adze,74
+Basic actions and technology,1917,tie,291,pull off,10
+Basic actions and technology,1917,tie,293,netbag,52
+Basic actions and technology,1917,tie,3137,oar,36
+Basic actions and technology,1917,tie,3217,tin or tinplate,62
+Basic actions and technology,1917,tie,3294,braid,10
+Basic actions and technology,1917,tie,354,pound,20
+Basic actions and technology,1917,tie,360,fan,21
+Basic actions and technology,1917,tie,627,lead,53
+Basic actions and technology,1917,tie,760,knot,13
+Basic actions and technology,1917,tie,914,sculptor,91
+Basic actions and technology,2004,bend,1001,blacksmith,47
+Basic actions and technology,2004,bend,1002,statue,65
+Basic actions and technology,2004,bend,1042,carpenter,39
+Basic actions and technology,2004,bend,1069,glue,30
+Basic actions and technology,2004,bend,1369,gold,20
+Basic actions and technology,2004,bend,1481,hammer,16
+Basic actions and technology,2004,bend,1487,pour,2
+Basic actions and technology,2004,bend,1501,bore,7
+Basic actions and technology,2004,bend,155,chop,15
+Basic actions and technology,2004,bend,161,miss,31
+Basic actions and technology,2004,bend,1648,anvil,71
+Basic actions and technology,2004,bend,1840,build,8
+Basic actions and technology,2004,bend,1948,saw,14
+Basic actions and technology,2004,bend,1979,chisel,55
+Basic actions and technology,2004,bend,211,cast,74
+Basic actions and technology,2004,bend,228,carve,41
+Basic actions and technology,2004,bend,234,paddle,65
+Basic actions and technology,2004,bend,288,forge,61
+Basic actions and technology,2004,bend,289,mold,55
+Basic actions and technology,2004,bend,290,adze,74
+Basic actions and technology,2004,bend,291,pull off,10
+Basic actions and technology,2004,bend,292,rug,73
+Basic actions and technology,2004,bend,293,netbag,52
+Basic actions and technology,2004,bend,3217,tin or tinplate,62
+Basic actions and technology,2004,bend,352,untie,6
+Basic actions and technology,2004,bend,354,pound,20
+Basic actions and technology,2004,bend,359,potter,68
+Basic actions and technology,2004,bend,647,paint,23
+Basic actions and technology,2004,bend,914,sculptor,91
+Basic actions and technology,2131,torch or lamp,914,sculptor,83
+Basic actions and technology,2133,strike or beat,1002,statue,65
+Basic actions and technology,2133,strike or beat,1361,tool,43
+Basic actions and technology,2133,strike or beat,1487,pour,2
+Basic actions and technology,2133,strike or beat,1539,basket,7
+Basic actions and technology,2133,strike or beat,161,miss,31
+Basic actions and technology,2133,strike or beat,1648,anvil,71
+Basic actions and technology,2133,strike or beat,195,mat,42
+Basic actions and technology,2133,strike or beat,1971,fan,23
+Basic actions and technology,2133,strike or beat,1979,chisel,55
+Basic actions and technology,2133,strike or beat,2001,painting,23
+Basic actions and technology,2133,strike or beat,211,cast,74
+Basic actions and technology,2133,strike or beat,228,carve,41
+Basic actions and technology,2133,strike or beat,234,paddle,65
+Basic actions and technology,2133,strike or beat,288,forge,61
+Basic actions and technology,2133,strike or beat,289,mold,55
+Basic actions and technology,2133,strike or beat,290,adze,74
+Basic actions and technology,2133,strike or beat,291,pull off,10
+Basic actions and technology,2133,strike or beat,293,netbag,52
+Basic actions and technology,2133,strike or beat,3137,oar,36
+Basic actions and technology,2133,strike or beat,3217,tin or tinplate,62
+Basic actions and technology,2133,strike or beat,3294,braid,10
+Basic actions and technology,2133,strike or beat,354,pound,20
+Basic actions and technology,2133,strike or beat,360,fan,21
+Basic actions and technology,2133,strike or beat,627,lead,53
+Basic actions and technology,2133,strike or beat,914,sculptor,91
+Basic actions and technology,228,carve,914,sculptor,50
+Basic actions and technology,230,sweep,1001,blacksmith,47
+Basic actions and technology,230,sweep,1002,statue,65
+Basic actions and technology,230,sweep,1042,carpenter,39
+Basic actions and technology,230,sweep,1361,tool,43
+Basic actions and technology,230,sweep,1648,anvil,71
+Basic actions and technology,230,sweep,1979,chisel,55
+Basic actions and technology,230,sweep,211,cast,74
+Basic actions and technology,230,sweep,245,broom,5
+Basic actions and technology,230,sweep,292,rug,73
+Basic actions and technology,230,sweep,293,netbag,52
+Basic actions and technology,230,sweep,3137,oar,36
+Basic actions and technology,230,sweep,3217,tin or tinplate,62
+Basic actions and technology,230,sweep,359,potter,68
+Basic actions and technology,230,sweep,502,nail,10
+Basic actions and technology,230,sweep,604,glass,24
+Basic actions and technology,230,sweep,621,iron,20
+Basic actions and technology,230,sweep,627,lead,53
+Basic actions and technology,230,sweep,914,sculptor,91
+Basic actions and technology,245,broom,914,sculptor,86
+Basic actions and technology,291,pull off,1648,anvil,61
+Basic actions and technology,291,pull off,1979,chisel,45
+Basic actions and technology,291,pull off,288,forge,51
+Basic actions and technology,291,pull off,914,sculptor,81
+Basic actions and technology,352,untie,290,adze,68
+Basic actions and technology,352,untie,292,rug,67
+Basic actions and technology,677,axe,1001,blacksmith,47
+Basic actions and technology,677,axe,1361,tool,43
+Basic actions and technology,677,axe,1369,gold,20
+Basic actions and technology,677,axe,1399,clay,6
+Basic actions and technology,677,axe,1481,hammer,16
+Basic actions and technology,677,axe,161,miss,31
+Basic actions and technology,677,axe,1648,anvil,71
+Basic actions and technology,677,axe,1913,press,8
+Basic actions and technology,677,axe,1979,chisel,55
+Basic actions and technology,677,axe,228,carve,41
+Basic actions and technology,677,axe,234,paddle,65
+Basic actions and technology,677,axe,2866,drop,17
+Basic actions and technology,677,axe,288,forge,61
+Basic actions and technology,677,axe,289,mold,55
+Basic actions and technology,677,axe,290,adze,74
+Basic actions and technology,677,axe,291,pull off,10
+Basic actions and technology,677,axe,292,rug,73
+Basic actions and technology,677,axe,293,netbag,52
+Basic actions and technology,677,axe,3137,oar,36
+Basic actions and technology,677,axe,3217,tin or tinplate,62
+Basic actions and technology,677,axe,359,potter,68
+Basic actions and technology,677,axe,627,lead,53
+Basic actions and technology,677,axe,759,silver,23
+Basic actions and technology,677,axe,914,sculptor,91
+Basic actions and technology,680,break,1001,blacksmith,47
+Basic actions and technology,680,break,1501,bore,7
+Basic actions and technology,680,break,1648,anvil,71
+Basic actions and technology,680,break,1913,press,8
+Basic actions and technology,680,break,1979,chisel,55
+Basic actions and technology,680,break,2001,painting,23
+Basic actions and technology,680,break,211,cast,74
+Basic actions and technology,680,break,288,forge,61
+Basic actions and technology,680,break,289,mold,55
+Basic actions and technology,680,break,3294,braid,10
+Basic actions and technology,680,break,359,potter,68
+Basic actions and technology,680,break,360,fan,21
+Basic actions and technology,680,break,604,glass,24
+Basic actions and technology,680,break,914,sculptor,91
+Basic actions and technology,760,knot,1648,anvil,58
+Basic actions and technology,760,knot,914,sculptor,78
+Basic actions and technology,984,work,1361,tool,40
+Basic actions and technology,984,work,1648,anvil,68
+Basic actions and technology,984,work,234,paddle,62
+Basic actions and technology,984,work,288,forge,58
+Basic actions and technology,984,work,289,mold,52
+Basic actions and technology,984,work,290,adze,71
+Basic actions and technology,984,work,359,potter,65
+Basic actions and technology,984,work,914,sculptor,88
+Basic actions and technology,3072,misplace,1002,statue,64
+Basic actions and technology,1453,wash,1449,rub,3
+Basic actions and technology,1735,tear,155,chop,15
+Basic actions and technology,680,break,155,chop,15
+Basic actions and technology,230,sweep,1627,chain,27
+Basic actions and technology,677,axe,1627,chain,27
+Basic actions and technology,3072,misplace,1648,anvil,70
+Basic actions and technology,1917,tie,1767,scrape,8
+Basic actions and technology,2133,strike or beat,1767,scrape,8
+Basic actions and technology,3072,misplace,211,cast,73
+Basic actions and technology,230,sweep,2131,torch or lamp,8
+Basic actions and technology,1453,wash,214,stretch,9
+Basic actions and technology,1487,pour,290,adze,72
+Basic actions and technology,3072,misplace,3217,tin or tinplate,61
+Basic actions and technology,1735,tear,354,pound,20
+Basic actions and technology,680,break,354,pound,20
+Basic actions and technology,230,sweep,356,shears,6
+Basic actions and technology,3072,misplace,359,potter,67
+Basic actions and technology,2133,strike or beat,760,knot,13
+Basic actions and technology,3072,misplace,760,knot,12
+Basic actions and technology,3072,misplace,914,sculptor,90
+Clothing and grooming,1161,thread,1021,towel,33
+Clothing and grooming,1161,thread,1029,jewel,75
+Clothing and grooming,1161,thread,1043,braid,19
+Clothing and grooming,1161,thread,1151,veil,69
+Clothing and grooming,1161,thread,1754,bracelet,23
+Clothing and grooming,1161,thread,1821,brush,54
+Clothing and grooming,1161,thread,2012,collar,30
+Clothing and grooming,1161,thread,327,poncho,171
+Clothing and grooming,1161,thread,328,grass-skirt,122
+Clothing and grooming,1161,thread,68,tattoo,125
+Clothing and grooming,121,spin,1787,loom,40
+Clothing and grooming,133,weave,1787,loom,45
+Clothing and grooming,1381,shoe,1151,veil,62
+Clothing and grooming,1381,shoe,585,boot,62
+Clothing and grooming,1381,shoe,875,shoemaker,50
+Clothing and grooming,1382,needle,1021,towel,34
+Clothing and grooming,1382,needle,1029,jewel,76
+Clothing and grooming,1382,needle,1043,braid,20
+Clothing and grooming,1382,needle,1151,veil,70
+Clothing and grooming,1382,needle,1161,thread,1
+Clothing and grooming,1382,needle,1171,mirror,7
+Clothing and grooming,1382,needle,1374,ring,17
+Clothing and grooming,1382,needle,1381,shoe,8
+Clothing and grooming,1382,needle,151,razor,29
+Clothing and grooming,1382,needle,1600,skirt,24
+Clothing and grooming,1382,needle,1622,shirt,16
+Clothing and grooming,1382,needle,1754,bracelet,24
+Clothing and grooming,1382,needle,1821,brush,55
+Clothing and grooming,1382,needle,1851,pocket,27
+Clothing and grooming,1382,needle,1926,ointment,45
+Clothing and grooming,1382,needle,1961,necklace,14
+Clothing and grooming,1382,needle,2012,collar,31
+Clothing and grooming,1382,needle,326,cloak,58
+Clothing and grooming,1382,needle,327,poncho,172
+Clothing and grooming,1382,needle,328,grass-skirt,123
+Clothing and grooming,1382,needle,329,stocking,37
+Clothing and grooming,1382,needle,585,boot,70
+Clothing and grooming,1382,needle,603,coat,45
+Clothing and grooming,1382,needle,64,pin,50
+Clothing and grooming,1382,needle,68,tattoo,126
+Clothing and grooming,1382,needle,809,trousers,7
+Clothing and grooming,1382,needle,867,glove,55
+Clothing and grooming,1382,needle,875,shoemaker,58
+Clothing and grooming,1457,sew,328,grass-skirt,121
+Clothing and grooming,1457,sew,585,boot,68
+Clothing and grooming,1457,sew,917,ornament,52
+Clothing and grooming,1475,comb,1821,brush,53
+Clothing and grooming,1616,cloth,327,poncho,167
+Clothing and grooming,1895,clothes,1021,towel,34
+Clothing and grooming,1895,clothes,1029,jewel,76
+Clothing and grooming,1895,clothes,1043,braid,20
+Clothing and grooming,1895,clothes,1151,veil,70
+Clothing and grooming,1895,clothes,1860,bead,40
+Clothing and grooming,1895,clothes,325,felt,92
+Clothing and grooming,1895,clothes,326,cloak,58
+Clothing and grooming,1895,clothes,327,poncho,172
+Clothing and grooming,1895,clothes,328,grass-skirt,123
+Clothing and grooming,1895,clothes,3457,headband or headdress,40
+Clothing and grooming,1895,clothes,474,dress,35
+Clothing and grooming,1895,clothes,585,boot,70
+Clothing and grooming,1895,clothes,603,coat,45
+Clothing and grooming,1895,clothes,64,pin,50
+Clothing and grooming,1895,clothes,68,tattoo,126
+Clothing and grooming,1895,clothes,770,earring,19
+Clothing and grooming,1895,clothes,881,tailor,46
+Clothing and grooming,1895,clothes,917,ornament,54
+Clothing and grooming,1895,clothes,964,wool,44
+Clothing and grooming,2130,headgear,1821,brush,52
+Clothing and grooming,629,leather,1029,jewel,68
+Clothing and grooming,629,leather,328,grass-skirt,115
+Clothing and grooming,629,leather,585,boot,62
+Clothing and grooming,772,belt,1029,jewel,71
+Clothing and grooming,772,belt,867,glove,50
+Clothing and grooming,809,trousers,329,stocking,30
+Clothing and grooming,1171,mirror,1021,towel,27
+Clothing and grooming,1171,mirror,1029,jewel,69
+Clothing and grooming,1171,mirror,1151,veil,63
+Clothing and grooming,1171,mirror,1641,silk,53
+Clothing and grooming,1381,shoe,1641,silk,52
+Clothing and grooming,1382,needle,1641,silk,60
+Clothing and grooming,1475,comb,1641,silk,58
+Clothing and grooming,809,trousers,1641,silk,53
+Clothing and grooming,1161,thread,1787,loom,51
+Clothing and grooming,1382,needle,1787,loom,52
+Clothing and grooming,1171,mirror,1821,brush,48
+Clothing and grooming,1382,needle,1850,cotton,16
+Clothing and grooming,1475,comb,1851,pocket,25
+Clothing and grooming,1161,thread,277,spindle,36
+Clothing and grooming,1382,needle,277,spindle,37
+Clothing and grooming,1161,thread,325,felt,91
+Clothing and grooming,1171,mirror,325,felt,85
+Clothing and grooming,121,spin,325,felt,80
+Clothing and grooming,1381,shoe,325,felt,84
+Clothing and grooming,1382,needle,325,felt,92
+Clothing and grooming,1457,sew,325,felt,90
+Clothing and grooming,1475,comb,325,felt,90
+Clothing and grooming,629,leather,325,felt,84
+Clothing and grooming,772,belt,325,felt,87
+Clothing and grooming,1475,comb,326,cloak,56
+Clothing and grooming,772,belt,326,cloak,53
+Clothing and grooming,1043,braid,328,grass-skirt,103
+Clothing and grooming,1171,mirror,328,grass-skirt,116
+Clothing and grooming,1475,comb,328,grass-skirt,121
+Clothing and grooming,2130,headgear,328,grass-skirt,120
+Clothing and grooming,1381,shoe,329,stocking,29
+Clothing and grooming,1475,comb,329,stocking,35
+Clothing and grooming,2130,headgear,329,stocking,34
+Clothing and grooming,1475,comb,332,rag,28
+Clothing and grooming,2130,headgear,585,boot,67
+Clothing and grooming,1475,comb,867,glove,53
+Clothing and grooming,772,belt,875,shoemaker,53
+Clothing and grooming,1171,mirror,881,tailor,39
+Clothing and grooming,1382,needle,881,tailor,46
+Clothing and grooming,1382,needle,964,wool,44
+Clothing and grooming,1475,comb,964,wool,42
+Clothing and grooming,772,belt,964,wool,39
+Cognition,1236,what,1235,who,2
+Cognition,1236,what,1238,when,4
+Cognition,1236,what,1270,why,4
+Cognition,1236,what,727,which,5
+Cognition,1237,where,1235,who,2
+Cognition,1237,where,1270,why,4
+Cognition,1237,where,727,which,5
+Cognition,1410,know,488,manner,42
+Cognition,1410,know,698,wise,22
+Cognition,1518,stupid,1162,intention,41
+Cognition,1518,stupid,1764,obscure,41
+Cognition,1523,forget,1014,or,41
+Cognition,1523,forget,1308,doubt,32
+Cognition,1523,forget,1577,and,26
+Cognition,1523,forget,1812,try,17
+Cognition,1523,forget,1841,suspect,48
+Cognition,1523,forget,1902,betray,50
+Cognition,1523,forget,488,manner,45
+Cognition,1523,forget,686,easy,13
+Cognition,1523,forget,989,clear,18
+Cognition,1236,what,1014,or,37
+Cognition,1237,where,1014,or,37
+Cognition,1239,how,1014,or,36
+Cognition,1236,what,1157,because,20
+Cognition,1237,where,1157,because,20
+Cognition,1269,no,1157,because,20
+Cognition,1237,where,1238,when,4
+Cognition,1269,no,1268,yes,1
+Cognition,1269,no,1459,if,21
+Cognition,1523,forget,1513,think,21
+Cognition,1523,forget,1521,seem,30
+Cognition,1523,forget,1562,mind,27
+Cognition,1268,yes,1577,and,21
+Cognition,1269,no,1577,and,22
+Cognition,1518,stupid,1609,idea,39
+Cognition,504,learn,1609,idea,40
+Cognition,584,difficult,1609,idea,36
+Cognition,709,teach,1609,idea,41
+Cognition,1239,how,1902,betray,45
+Cognition,1269,no,1902,betray,46
+Cognition,1523,forget,1932,guess,34
+Cognition,1523,forget,673,school,20
+Emotions and values,1035,good,381,blame,26
+Emotions and values,1413,play,134,fault,32
+Emotions and values,1413,play,1687,praise,25
+Emotions and values,1413,play,174,proud,26
+Emotions and values,1413,play,1776,shame,6
+Emotions and values,1413,play,1779,dare,36
+Emotions and values,1413,play,1810,danger,32
+Emotions and values,1413,play,2018,greedy,31
+Emotions and values,1413,play,3,brave,12
+Emotions and values,1413,play,381,blame,26
+Emotions and values,1427,beautiful,1548,ugly,2
+Emotions and values,1651,tear,100,faithful,48
+Emotions and values,1651,tear,13,deceit,17
+Emotions and values,1651,tear,1528,forgive,30
+Emotions and values,1651,tear,1687,praise,24
+Emotions and values,1651,tear,1776,shame,5
+Emotions and values,1668,grief,100,faithful,46
+Emotions and values,1725,correct,2018,greedy,27
+Emotions and values,1783,pain,100,faithful,49
+Emotions and values,1783,pain,1000,anxiety,12
+Emotions and values,1783,pain,13,deceit,18
+Emotions and values,1783,pain,1390,wrong,16
+Emotions and values,1783,pain,1687,praise,25
+Emotions and values,1783,pain,174,proud,26
+Emotions and values,1783,pain,1779,dare,36
+Emotions and values,1783,pain,1784,want,12
+Emotions and values,1783,pain,1875,regret,24
+Emotions and values,1783,pain,2018,greedy,31
+Emotions and values,1783,pain,3,brave,12
+Emotions and values,1783,pain,40,envy,16
+Emotions and values,1839,cry,100,faithful,49
+Emotions and values,1839,cry,1784,want,12
+Emotions and values,781,fear,134,fault,31
+Emotions and values,781,fear,1687,praise,24
+Emotions and values,781,fear,2018,greedy,30
+Emotions and values,82,anger,100,faithful,47
+Emotions and values,923,love,100,faithful,48
+Emotions and values,923,love,1528,forgive,30
+Emotions and values,923,love,1687,praise,24
+Emotions and values,923,love,174,proud,25
+Emotions and values,923,love,1750,choose,9
+Emotions and values,923,love,1779,dare,35
+Emotions and values,923,love,1810,danger,31
+Emotions and values,923,love,1875,regret,23
+Emotions and values,1035,good,100,faithful,49
+Emotions and values,1427,beautiful,100,faithful,49
+Emotions and values,1548,ugly,100,faithful,47
+Emotions and values,1427,beautiful,1141,pity,15
+Emotions and values,1427,beautiful,1293,mistake,20
+Emotions and values,1427,beautiful,13,deceit,18
+Emotions and values,1427,beautiful,134,fault,32
+Emotions and values,1413,play,1451,smile,22
+Emotions and values,1427,beautiful,1451,smile,22
+Emotions and values,781,fear,1451,smile,21
+Emotions and values,1035,good,1528,forgive,31
+Emotions and values,1427,beautiful,1528,forgive,31
+Emotions and values,1548,ugly,1528,forgive,29
+Emotions and values,1413,play,1572,surprised,23
+Emotions and values,1427,beautiful,1572,surprised,23
+Emotions and values,1783,pain,1572,surprised,23
+Emotions and values,1651,tear,1668,grief,2
+Emotions and values,1427,beautiful,1687,praise,25
+Emotions and values,1427,beautiful,174,proud,26
+Emotions and values,1548,ugly,174,proud,24
+Emotions and values,1035,good,1784,want,12
+Emotions and values,1427,beautiful,1810,danger,32
+Emotions and values,1548,ugly,1810,danger,30
+Emotions and values,601,lie,1875,regret,22
+Emotions and values,1427,beautiful,3,brave,12
+Emotions and values,1413,play,56,bad luck,42
+Emotions and values,1427,beautiful,56,bad luck,42
+Emotions and values,1548,ugly,56,bad luck,40
+Emotions and values,1783,pain,56,bad luck,42
+Emotions and values,923,love,56,bad luck,41
+Emotions and values,1413,play,720,good luck,35
+Emotions and values,1427,beautiful,720,good luck,35
+Emotions and values,1548,ugly,720,good luck,33
+Emotions and values,1783,pain,720,good luck,35
+Emotions and values,923,love,720,good luck,34
+Food and drink,1033,grind,1154,olive,82
+Food and drink,1033,grind,1245,butter,72
+Food and drink,1033,grind,1385,pepper,40
+Food and drink,1033,grind,1524,wine,51
+Food and drink,1033,grind,1569,cheese,76
+Food and drink,1033,grind,1639,beer,50
+Food and drink,1033,grind,191,nut,45
+Food and drink,1033,grind,1966,bunch,29
+Food and drink,1033,grind,322,fig,78
+Food and drink,1033,grind,636,mill,32
+Food and drink,1033,grind,920,grape,56
+Food and drink,1033,grind,93,draw milk,18
+Food and drink,1033,grind,941,mead,82
+Food and drink,1100,cook,1143,oven,34
+Food and drink,1100,cook,1154,olive,81
+Food and drink,1100,cook,1245,butter,71
+Food and drink,1100,cook,1524,wine,50
+Food and drink,1100,cook,1569,cheese,75
+Food and drink,1100,cook,1833,dinner,58
+Food and drink,1100,cook,1874,sausage,68
+Food and drink,1100,cook,191,nut,44
+Food and drink,1100,cook,272,tongs,41
+Food and drink,1100,cook,322,fig,77
+Food and drink,1100,cook,854,kettle,25
+Food and drink,1100,cook,920,grape,55
+Food and drink,1100,cook,941,mead,81
+Food and drink,1378,spoon,1154,olive,80
+Food and drink,1378,spoon,1833,dinner,57
+Food and drink,1378,spoon,1874,sausage,67
+Food and drink,1378,spoon,322,fig,76
+Food and drink,1401,drink,1352,knife,9
+Food and drink,1401,drink,183,bake,19
+Food and drink,1401,drink,768,lunch,119
+Food and drink,1421,suck,1154,olive,82
+Food and drink,1421,suck,1245,butter,72
+Food and drink,1421,suck,1524,wine,51
+Food and drink,1421,suck,1569,cheese,76
+Food and drink,1421,suck,191,nut,45
+Food and drink,1421,suck,271,saucer,49
+Food and drink,1421,suck,273,dough,48
+Food and drink,1421,suck,322,fig,78
+Food and drink,1421,suck,481,dish,22
+Food and drink,1421,suck,593,potato,51
+Food and drink,1421,suck,920,grape,56
+Food and drink,1421,suck,941,mead,82
+Food and drink,1547,soup,1154,olive,81
+Food and drink,1547,soup,191,nut,44
+Food and drink,1547,soup,924,vegetables,40
+Food and drink,1547,soup,941,mead,81
+Food and drink,1594,flour,1874,sausage,59
+Food and drink,1728,rotten,731,beverage,40
+Food and drink,178,ripe,1556,yolk,28
+Food and drink,178,ripe,271,saucer,46
+Food and drink,178,ripe,272,tongs,39
+Food and drink,2146,roast or fry,1154,olive,82
+Food and drink,2146,roast or fry,1302,fork,45
+Food and drink,2146,roast or fry,1524,wine,51
+Food and drink,2146,roast or fry,1569,cheese,76
+Food and drink,2146,roast or fry,1639,beer,50
+Food and drink,2146,roast or fry,1833,dinner,59
+Food and drink,2146,roast or fry,1874,sausage,69
+Food and drink,2146,roast or fry,271,saucer,49
+Food and drink,2146,roast or fry,273,dough,48
+Food and drink,2146,roast or fry,322,fig,78
+Food and drink,2146,roast or fry,636,mill,32
+Food and drink,2146,roast or fry,920,grape,56
+Food and drink,2146,roast or fry,941,mead,82
+Food and drink,256,food,1569,cheese,74
+Food and drink,256,food,731,beverage,42
+Food and drink,321,chew,129,choke,11
+Food and drink,321,chew,1556,yolk,29
+Food and drink,321,chew,1966,bunch,27
+Food and drink,321,chew,224,mortar,18
+Food and drink,321,chew,225,pestle,26
+Food and drink,321,chew,271,saucer,47
+Food and drink,321,chew,272,tongs,40
+Food and drink,321,chew,275,peel,4
+Food and drink,321,chew,3448,sieve or strain,8
+Food and drink,321,chew,731,beverage,42
+Food and drink,321,chew,897,swallow,1
+Food and drink,3210,knife,1302,fork,43
+Food and drink,3210,knife,1322,breakfast,35
+Food and drink,3210,knife,1966,bunch,27
+Food and drink,3210,knife,272,tongs,40
+Food and drink,3210,knife,862,sugar,12
+Food and drink,634,meat,1245,butter,72
+Food and drink,634,meat,322,fig,78
+Food and drink,634,meat,731,beverage,44
+Food and drink,634,meat,941,mead,82
+Food and drink,635,milk,1245,butter,72
+Food and drink,635,milk,1524,wine,51
+Food and drink,635,milk,1569,cheese,76
+Food and drink,635,milk,941,mead,82
+Food and drink,744,egg,1556,yolk,31
+Food and drink,792,boil,1154,olive,81
+Food and drink,792,boil,1569,cheese,75
+Food and drink,792,boil,941,mead,81
+Food and drink,832,bean,1154,olive,69
+Food and drink,897,swallow,1556,yolk,28
+Food and drink,897,swallow,271,saucer,46
+Food and drink,897,swallow,272,tongs,39
+Food and drink,942,honey,941,mead,79
+Food and drink,635,milk,1143,oven,35
+Food and drink,942,honey,1154,olive,79
+Food and drink,744,egg,129,choke,13
+Food and drink,635,milk,1302,fork,45
+Food and drink,635,milk,1322,breakfast,37
+Food and drink,635,milk,1368,bread,30
+Food and drink,635,milk,1385,pepper,40
+Food and drink,635,milk,1484,oil,16
+Food and drink,321,chew,1728,rotten,2
+Food and drink,744,egg,1728,rotten,4
+Food and drink,321,chew,178,ripe,1
+Food and drink,744,egg,178,ripe,3
+Food and drink,1274,salt,1833,dinner,59
+Food and drink,1547,soup,1833,dinner,58
+Food and drink,634,meat,1833,dinner,59
+Food and drink,635,milk,1833,dinner,59
+Food and drink,635,milk,1874,sausage,69
+Food and drink,635,milk,191,nut,45
+Food and drink,321,chew,1958,unripe,6
+Food and drink,744,egg,1958,unripe,8
+Food and drink,321,chew,1959,raw,3
+Food and drink,744,egg,1959,raw,5
+Food and drink,744,egg,1966,bunch,29
+Food and drink,744,egg,2017,mix,4
+Food and drink,744,egg,224,mortar,20
+Food and drink,744,egg,225,pestle,28
+Food and drink,321,chew,269,cooked,9
+Food and drink,744,egg,269,cooked,11
+Food and drink,1033,grind,271,saucer,49
+Food and drink,744,egg,271,saucer,49
+Food and drink,2017,mix,272,tongs,38
+Food and drink,634,meat,272,tongs,42
+Food and drink,635,milk,272,tongs,42
+Food and drink,744,egg,272,tongs,42
+Food and drink,1033,grind,273,dough,48
+Food and drink,744,egg,275,peel,6
+Food and drink,744,egg,321,chew,2
+Food and drink,635,milk,322,fig,78
+Food and drink,942,honey,322,fig,75
+Food and drink,744,egg,3448,sieve or strain,10
+Food and drink,1033,grind,481,dish,22
+Food and drink,1274,salt,481,dish,22
+Food and drink,635,milk,593,potato,51
+Food and drink,634,meat,636,mill,32
+Food and drink,744,egg,731,beverage,44
+Food and drink,635,milk,862,sugar,14
+Food and drink,744,egg,897,swallow,3
+Food and drink,635,milk,920,grape,56
+Kinship,1059,stepson,1058,stepdaughter,5
+Kinship,1209,i,1130,we,108
+Kinship,1209,i,1131,we,104
+Kinship,1209,i,1212,we,23
+Kinship,1209,i,1213,you,2
+Kinship,1209,i,262,he or she or it,4
+Kinship,1209,i,817,they,4
+Kinship,1215,thou,1130,we,108
+Kinship,1215,thou,1131,we,104
+Kinship,1215,thou,1212,we,23
+Kinship,1215,thou,1213,you,2
+Kinship,1215,thou,262,he or she or it,4
+Kinship,1215,thou,817,they,4
+Kinship,1217,father,1216,mother,22
+Kinship,1217,father,505,parents,20
+Kinship,1262,brother,1263,sister,2
+Kinship,1289,baby,1063,nephew,19
+Kinship,1289,baby,1262,brother,24
+Kinship,1289,baby,1263,sister,26
+Kinship,1289,baby,1642,niece,20
+Kinship,1357,daughter,1262,brother,23
+Kinship,1357,daughter,1263,sister,25
+Kinship,1357,daughter,1272,aunt,29
+Kinship,1357,daughter,1327,uncle,31
+Kinship,1357,daughter,490,descendants,26
+Kinship,1366,boy,1263,sister,25
+Kinship,1383,grandfather,1058,stepdaughter,35
+Kinship,1383,grandfather,1059,stepson,30
+Kinship,1383,grandfather,1149,orphan,8
+Kinship,1383,grandfather,1496,grandmother,1
+Kinship,1383,grandfather,2254,father-in-law,24
+Kinship,1383,grandfather,2255,father-in-law,7
+Kinship,1383,grandfather,2256,mother-in-law,26
+Kinship,1383,grandfather,2257,mother-in-law,8
+Kinship,1383,grandfather,2264,daughter-in-law,27
+Kinship,1383,grandfather,2265,daughter-in-law,12
+Kinship,1383,grandfather,2266,son-in-law,23
+Kinship,1383,grandfather,2267,son-in-law,5
+Kinship,1383,grandfather,236,stepmother,16
+Kinship,1383,grandfather,237,stepfather,18
+Kinship,1496,grandmother,1149,orphan,7
+Kinship,1618,grandson,1058,stepdaughter,31
+Kinship,1619,granddaughter,1058,stepdaughter,29
+Kinship,1619,granddaughter,1059,stepson,24
+Kinship,1620,son,1262,brother,23
+Kinship,1620,son,1263,sister,25
+Kinship,1620,son,1272,aunt,29
+Kinship,1620,son,1327,uncle,31
+Kinship,1620,son,490,descendants,26
+Kinship,1646,girl,1263,sister,24
+Kinship,1756,widow,1981,widower,16
+Kinship,2254,father-in-law,2256,mother-in-law,2
+Kinship,2261,male,2260,female,1
+Kinship,2267,son-in-law,2264,daughter-in-law,22
+Kinship,2267,son-in-law,2266,son-in-law,18
+Kinship,262,he or she or it,1130,we,104
+Kinship,262,he or she or it,1131,we,100
+Kinship,683,person,1640,sibling,42
+Kinship,683,person,490,descendants,26
+Kinship,1209,i,1005,twins,14
+Kinship,1215,thou,1005,twins,14
+Kinship,817,they,1130,we,104
+Kinship,817,they,1131,we,100
+Kinship,1209,i,1134,divorce,22
+Kinship,1215,thou,1134,divorce,22
+Kinship,1209,i,1640,sibling,41
+Kinship,1215,thou,1640,sibling,41
+Kinship,1383,grandfather,1640,sibling,44
+Kinship,1496,grandmother,1640,sibling,43
+Kinship,1209,i,1801,child,26
+Kinship,1215,thou,1801,child,26
+Kinship,1209,i,1981,widower,16
+Kinship,1215,thou,1981,widower,16
+Kinship,1383,grandfather,203,marry,3
+Kinship,1209,i,2264,daughter-in-law,24
+Kinship,1215,thou,2264,daughter-in-law,24
+Kinship,1209,i,2266,son-in-law,20
+Kinship,1215,thou,2266,son-in-law,20
+Motion,1088,sink,184,mast,81
+Motion,1088,sink,416,outrigger,121
+Motion,1088,sink,787,sail,66
+Motion,1102,climb,416,outrigger,118
+Motion,1113,wrap,119,dive,23
+Motion,1113,wrap,1849,row,46
+Motion,1113,wrap,1922,land,58
+Motion,1113,wrap,365,splash,21
+Motion,1113,wrap,366,limp,28
+Motion,1127,send,416,outrigger,118
+Motion,1135,kick,414,carry on head,30
+Motion,1135,kick,416,outrigger,120
+Motion,1280,fall,1922,land,58
+Motion,1280,fall,416,outrigger,125
+Motion,1324,slip,416,outrigger,117
+Motion,1439,swim,366,limp,26
+Motion,1439,swim,787,sail,68
+Motion,1443,walk,108,rudder,76
+Motion,1443,walk,122,cart,18
+Motion,1443,walk,14,yoke,54
+Motion,1443,walk,1664,raft,62
+Motion,1443,walk,1769,axle,76
+Motion,1443,walk,1849,row,46
+Motion,1443,walk,1870,anchor,74
+Motion,1443,walk,1922,land,58
+Motion,1443,walk,416,outrigger,125
+Motion,1443,walk,43,lead,12
+Motion,1443,walk,610,port,56
+Motion,1443,walk,740,ship,40
+Motion,1456,throw,108,rudder,76
+Motion,1456,throw,14,yoke,54
+Motion,1456,throw,1769,axle,76
+Motion,1456,throw,184,mast,85
+Motion,1456,throw,1870,anchor,74
+Motion,1456,throw,1922,land,58
+Motion,1456,throw,2003,flow,7
+Motion,1456,throw,416,outrigger,125
+Motion,1456,throw,43,lead,12
+Motion,1456,throw,710,wheel,14
+Motion,1456,throw,740,ship,40
+Motion,1456,throw,786,sailcloth,83
+Motion,1752,leave,1664,raft,57
+Motion,1752,leave,416,outrigger,120
+Motion,1778,approach,1769,axle,67
+Motion,1778,approach,184,mast,76
+Motion,1778,approach,416,outrigger,116
+Motion,1844,boat,786,sailcloth,64
+Motion,1879,dance,1922,land,56
+Motion,1879,dance,416,outrigger,123
+Motion,1909,shake,108,rudder,74
+Motion,1909,shake,1664,raft,60
+Motion,1909,shake,184,mast,83
+Motion,1909,shake,1870,anchor,72
+Motion,1909,shake,416,outrigger,123
+Motion,2252,path,108,rudder,76
+Motion,2252,path,122,cart,18
+Motion,2252,path,14,yoke,54
+Motion,2252,path,1870,anchor,74
+Motion,2252,path,740,ship,40
+Motion,2253,drip,416,outrigger,119
+Motion,296,crouch,416,outrigger,107
+Motion,3199,twist,416,outrigger,120
+Motion,3456,crawl or creep,415,carry under arm,35
+Motion,3456,crawl or creep,416,outrigger,124
+Motion,485,disappear,416,outrigger,111
+Motion,501,lift,108,rudder,77
+Motion,501,lift,1387,arrive,3
+Motion,501,lift,1664,raft,63
+Motion,501,lift,1769,axle,77
+Motion,501,lift,1778,approach,10
+Motion,501,lift,184,mast,86
+Motion,501,lift,1849,row,47
+Motion,501,lift,1870,anchor,75
+Motion,501,lift,1922,land,59
+Motion,501,lift,1970,canoe,48
+Motion,501,lift,415,carry under arm,37
+Motion,501,lift,416,outrigger,126
+Motion,501,lift,610,port,57
+Motion,501,lift,692,bring,2
+Motion,501,lift,740,ship,41
+Motion,501,lift,741,drive,18
+Motion,501,lift,786,sailcloth,84
+Motion,692,bring,108,rudder,75
+Motion,692,bring,1664,raft,61
+Motion,692,bring,1769,axle,75
+Motion,692,bring,184,mast,84
+Motion,692,bring,1849,row,45
+Motion,692,bring,1922,land,57
+Motion,692,bring,416,outrigger,124
+Motion,692,bring,610,port,55
+Motion,692,bring,786,sailcloth,82
+Motion,700,carry,1769,axle,75
+Motion,700,carry,184,mast,84
+Motion,700,carry,1870,anchor,73
+Motion,700,carry,416,outrigger,124
+Motion,700,carry,610,port,55
+Motion,700,carry,740,ship,39
+Motion,700,carry,786,sailcloth,82
+Motion,702,catch,416,outrigger,117
+Motion,710,wheel,416,outrigger,111
+Motion,741,drive,184,mast,68
+Motion,741,drive,416,outrigger,108
+Motion,765,move,1664,raft,55
+Motion,956,flee,108,rudder,73
+Motion,956,flee,1664,raft,59
+Motion,956,flee,1769,axle,73
+Motion,956,flee,416,outrigger,122
+Motion,956,flee,610,port,53
+Motion,501,lift,765,move,8
+Motion,1443,walk,787,sail,70
+Possession,1468,look for,1867,coin,23
+Possession,1468,look for,1914,debt,23
+Possession,1468,look for,1934,beggar,21
+Possession,1468,look for,633,market,28
+Possession,1468,look for,719,find,1
+Possession,1468,look for,873,tax,58
+Possession,1559,money,1823,borrow,15
+Possession,1559,money,1867,coin,22
+Possession,1559,money,733,earn,39
+Possession,1559,money,752,store,30
+Possession,1674,poor,1081,bill,46
+Possession,1749,take,1081,bill,48
+Possession,1749,take,1823,borrow,14
+Possession,1749,take,873,tax,56
+Possession,1869,buy,1082,merchant,29
+Possession,1869,buy,1571,sell,2
+Possession,712,rich,873,tax,52
+Possession,718,pay,1081,bill,42
+Possession,719,find,1914,debt,22
+Possession,719,find,633,market,27
+Possession,719,find,873,tax,57
+Possession,855,seize,1081,bill,49
+Possession,855,seize,1082,merchant,30
+Possession,855,seize,1823,borrow,15
+Possession,855,seize,1914,debt,22
+Possession,855,seize,733,earn,39
+Possession,855,seize,738,thing,14
+Possession,855,seize,752,store,30
+Possession,1869,buy,1081,bill,48
+Possession,1869,buy,1914,debt,21
+Possession,1468,look for,1997,preserve,11
+Possession,1468,look for,2008,rescue,13
+Possession,1468,look for,681,destroy,14
+Possession,855,seize,684,own,25
+Possession,1571,sell,733,earn,36
+Possession,1869,buy,733,earn,38
+Quantity,1493,one,1483,nine,17
+Quantity,1493,one,1498,two,2
+Quantity,1493,one,1500,four,9
+Quantity,1493,one,1703,six,14
+Quantity,1493,one,1704,seven,17
+Quantity,1493,one,1705,eight,16
+Quantity,1493,one,492,three,3
+Quantity,1493,one,493,five,9
+Quantity,1498,two,1483,nine,15
+Quantity,1498,two,1500,four,7
+Quantity,1498,two,1703,six,12
+Quantity,1498,two,1704,seven,15
+Quantity,1498,two,1705,eight,14
+Quantity,1498,two,493,five,7
+Quantity,1580,only,1384,second,30
+Quantity,1580,only,1859,third,33
+Quantity,1703,six,1704,seven,3
+Quantity,1705,eight,1483,nine,1
+Quantity,492,three,1483,nine,14
+Quantity,492,three,1500,four,6
+Quantity,492,three,1703,six,11
+Quantity,492,three,1704,seven,14
+Quantity,492,three,1705,eight,13
+Quantity,492,three,493,five,6
+Quantity,493,five,1483,nine,8
+Quantity,493,five,1703,six,5
+Quantity,493,five,1704,seven,8
+Quantity,493,five,1705,eight,7
+Quantity,1515,ten,1483,nine,34
+Quantity,1515,ten,1704,seven,34
+Quantity,1705,eight,1704,seven,1
+Quantity,1515,ten,1705,eight,33
+Quantity,1420,count,1706,eleven,17
+Quantity,1420,count,1707,twelve,20
+Quantity,1624,empty,2023,crowd,13
+Sense perception,1396,sharp,379,blunt,12
+Sense perception,1424,yellow,1234,smooth,5
+Sense perception,1424,yellow,1923,rough,13
+Sense perception,1424,yellow,379,blunt,12
+Sense perception,1608,listen,1613,color,34
+Sense perception,1608,listen,250,light,24
+Sense perception,1608,listen,380,wrinkled,17
+Sense perception,1726,wet,380,wrinkled,18
+Sense perception,1906,sour,679,bright,9
+Sense perception,1906,sour,70,brackish,57
+Sense perception,837,blue,1079,feel,18
+Sense perception,837,blue,1892,touch,4
+Sense perception,887,bitter,1052,light,2
+Sense perception,887,bitter,1613,color,35
+Sense perception,887,bitter,378,pinch,14
+Sense perception,887,bitter,379,blunt,12
+Sense perception,887,bitter,679,bright,10
+Sense perception,887,bitter,704,clean,14
+Sense perception,1726,wet,1039,show,10
+Sense perception,1856,soft,1039,show,8
+Sense perception,1726,wet,1079,feel,18
+Sense perception,1726,wet,1425,green,3
+Sense perception,1726,wet,1586,smell,12
+Sense perception,1726,wet,1587,smell,9
+Sense perception,1856,soft,1587,smell,7
+Sense perception,1287,cold,1613,color,35
+Sense perception,1726,wet,1811,sound or noise,6
+Sense perception,1726,wet,1856,soft,2
+Sense perception,1396,sharp,1923,rough,13
+Sense perception,1052,light,21,taste,17
+Sense perception,1335,white,21,taste,19
+Sense perception,1424,yellow,21,taste,19
+Sense perception,1726,wet,21,taste,19
+Sense perception,887,bitter,21,taste,19
+Sense perception,837,blue,250,light,25
+Sense perception,1608,listen,375,sniff,28
+Sense perception,887,bitter,376,fragrant,7
+Sense perception,887,bitter,42,stinking,1
+Sense perception,1726,wet,679,bright,10
+Sense perception,1424,yellow,70,brackish,58
+Sense perception,1608,listen,70,brackish,57
+Sense perception,1726,wet,70,brackish,58
+Sense perception,1856,soft,70,brackish,56
+Sense perception,1892,touch,70,brackish,54
+Sense perception,837,blue,70,brackish,58
+Sense perception,1335,white,706,dark,21
+Sense perception,837,blue,706,dark,21
+Sense perception,837,blue,708,shine,7
+Social and political relations,1010,boundary,482,noble,55
+Social and political relations,1325,friend,2024,plot,75
+Social and political relations,1782,guest,2024,plot,59
+Social and political relations,1848,quarrel,2024,plot,71
+Social and political relations,789,people,384,freeman,79
+Social and political relations,930,village,1032,citizen,53
+Social and political relations,1325,friend,1032,citizen,58
+Social and political relations,1325,friend,1306,queen,57
+Social and political relations,1325,friend,383,master,20
+Social and political relations,1325,friend,384,freeman,89
+Social and political relations,1332,neighbour,384,freeman,74
+Social and political relations,1358,enemy,384,freeman,78
+Social and political relations,1848,quarrel,384,freeman,85
+Social and political relations,1897,help,384,freeman,89
+Social and political relations,1998,command,384,freeman,70
+Social and political relations,1325,friend,482,noble,83
+Social and political relations,1358,enemy,482,noble,72
+Social and political relations,1782,guest,482,noble,67
+Social and political relations,1848,quarrel,482,noble,79
+Social and political relations,1325,friend,812,slave,43
+Spatial relations,1046,shut,81,fathom,113
+Spatial relations,1156,open,1367,cross,27
+Spatial relations,1156,open,742,end,8
+Spatial relations,1202,big,1048,line,28
+Spatial relations,1202,big,1264,change,4
+Spatial relations,1202,big,1367,cross,28
+Spatial relations,1202,big,1467,circle,21
+Spatial relations,1202,big,1845,ball,24
+Spatial relations,1202,big,711,tall,5
+Spatial relations,1202,big,850,square,42
+Spatial relations,1244,thick,1367,cross,27
+Spatial relations,1244,thick,850,square,41
+Spatial relations,1246,small,1048,line,28
+Spatial relations,1246,small,1264,change,4
+Spatial relations,1246,small,1367,cross,28
+Spatial relations,1246,small,1467,circle,21
+Spatial relations,1246,small,1845,ball,24
+Spatial relations,1246,small,711,tall,5
+Spatial relations,1246,small,850,square,42
+Spatial relations,1265,high,1019,right,2
+Spatial relations,1265,high,1048,line,28
+Spatial relations,1265,high,1753,top,2
+Spatial relations,1265,high,1817,west,12
+Spatial relations,1265,high,1845,ball,24
+Spatial relations,1265,high,1877,east,12
+Spatial relations,1265,high,193,shallow,9
+Spatial relations,1265,high,711,tall,5
+Spatial relations,1265,high,721,low,5
+Spatial relations,1265,high,81,fathom,114
+Spatial relations,1265,high,850,square,42
+Spatial relations,1267,narrow,1367,cross,28
+Spatial relations,1267,narrow,1633,flat,9
+Spatial relations,1267,narrow,1667,hole,2
+Spatial relations,1267,narrow,81,fathom,114
+Spatial relations,1416,sit,1046,shut,1
+Spatial relations,1416,sit,1156,open,1
+Spatial relations,1416,sit,1367,cross,28
+Spatial relations,1416,sit,1442,stand,1
+Spatial relations,1416,sit,1633,flat,9
+Spatial relations,1416,sit,1667,hole,2
+Spatial relations,1416,sit,682,side,2
+Spatial relations,1416,sit,7,gather,6
+Spatial relations,1416,sit,721,low,5
+Spatial relations,1416,sit,742,end,9
+Spatial relations,1416,sit,761,cover,3
+Spatial relations,1416,sit,81,fathom,114
+Spatial relations,1416,sit,863,edge,5
+Spatial relations,1416,sit,987,remain,2
+Spatial relations,1442,stand,721,low,4
+Spatial relations,1442,stand,81,fathom,113
+Spatial relations,1593,deep,1048,line,28
+Spatial relations,1593,deep,1633,flat,9
+Spatial relations,1593,deep,193,shallow,9
+Spatial relations,1606,inside,1485,below or under,1
+Spatial relations,1606,inside,1591,up,1
+Spatial relations,1606,inside,762,outside,2
+Spatial relations,1645,short,1243,wide,1
+Spatial relations,1686,behind,1485,below or under,1
+Spatial relations,1686,behind,1591,up,1
+Spatial relations,1686,behind,1816,beside,2
+Spatial relations,1686,behind,1883,in front of,7
+Spatial relations,1686,behind,762,outside,2
+Spatial relations,1942,near,1048,line,28
+Spatial relations,1942,near,1817,west,12
+Spatial relations,1942,near,1845,ball,24
+Spatial relations,1942,near,1877,east,12
+Spatial relations,1942,near,193,shallow,9
+Spatial relations,1942,near,711,tall,5
+Spatial relations,1942,near,81,fathom,114
+Spatial relations,1942,near,850,square,42
+Spatial relations,479,grow,1048,line,28
+Spatial relations,479,grow,1367,cross,28
+Spatial relations,479,grow,1395,round,3
+Spatial relations,479,grow,1845,ball,24
+Spatial relations,479,grow,81,fathom,114
+Spatial relations,479,grow,850,square,42
+Spatial relations,711,tall,1048,line,23
+Spatial relations,987,remain,81,fathom,112
+Spatial relations,1942,near,1019,right,2
+Spatial relations,244,left,1019,right,2
+Spatial relations,1267,narrow,1046,shut,1
+Spatial relations,1202,big,1119,divide,14
+Spatial relations,1246,small,1119,divide,14
+Spatial relations,1267,narrow,1156,open,1
+Spatial relations,1202,big,1406,far,52
+Spatial relations,1246,small,1406,far,52
+Spatial relations,1265,high,1442,stand,1
+Spatial relations,1267,narrow,1442,stand,1
+Spatial relations,1942,near,1442,stand,1
+Spatial relations,1202,big,1485,below or under,32
+Spatial relations,1246,small,1485,below or under,32
+Spatial relations,1202,big,1591,up,32
+Spatial relations,1246,small,1591,up,32
+Spatial relations,1202,big,1606,inside,31
+Spatial relations,1246,small,1606,inside,31
+Spatial relations,1156,open,1685,after,36
+Spatial relations,1202,big,1685,after,37
+Spatial relations,1246,small,1685,after,37
+Spatial relations,1267,narrow,1685,after,37
+Spatial relations,1416,sit,1685,after,37
+Spatial relations,1606,inside,1685,after,6
+Spatial relations,1686,behind,1685,after,6
+Spatial relations,1202,big,1686,behind,31
+Spatial relations,1246,small,1686,behind,31
+Spatial relations,1942,near,1753,top,2
+Spatial relations,1202,big,1816,beside,33
+Spatial relations,1246,small,1816,beside,33
+Spatial relations,1606,inside,1816,beside,2
+Spatial relations,1156,open,1883,in front of,37
+Spatial relations,1202,big,1883,in front of,38
+Spatial relations,1244,thick,1883,in front of,37
+Spatial relations,1246,small,1883,in front of,38
+Spatial relations,1267,narrow,1883,in front of,38
+Spatial relations,1416,sit,1883,in front of,38
+Spatial relations,1606,inside,1883,in front of,7
+Spatial relations,2249,thin,1883,in front of,36
+Spatial relations,682,side,1883,in front of,36
+Spatial relations,1593,deep,372,pointed,5
+Spatial relations,1267,narrow,682,side,2
+Spatial relations,1267,narrow,7,gather,6
+Spatial relations,1593,deep,7,gather,6
+Spatial relations,1267,narrow,721,low,5
+Spatial relations,1942,near,721,low,5
+Spatial relations,1267,narrow,723,place,12
+Spatial relations,1416,sit,723,place,12
+Spatial relations,1593,deep,723,place,12
+Spatial relations,1202,big,742,end,9
+Spatial relations,1246,small,742,end,9
+Spatial relations,1267,narrow,742,end,9
+Spatial relations,1267,narrow,761,cover,3
+Spatial relations,244,left,761,cover,3
+Spatial relations,1202,big,762,outside,33
+Spatial relations,1246,small,762,outside,33
+Spatial relations,1202,big,838,remains,9
+Spatial relations,1246,small,838,remains,9
+Spatial relations,1264,change,850,square,38
+Spatial relations,1395,round,850,square,39
+Spatial relations,1267,narrow,863,edge,5
+Spatial relations,1267,narrow,987,remain,2
+Spatial relations,1267,narrow,998,put,3
+Spatial relations,1416,sit,998,put,3
+Speech and language,1084,call,1045,poet,81
+Speech and language,1261,sing,1025,whistle,9
+Speech and language,1261,sing,1045,poet,84
+Speech and language,1261,sing,128,mumble,56
+Speech and language,1261,sing,1675,promise,25
+Speech and language,1261,sing,2022,admit,33
+Speech and language,1261,sing,298,shriek,25
+Speech and language,1261,sing,300,rattle,72
+Speech and language,1261,sing,49,refuse,46
+Speech and language,1261,sing,526,howl,28
+Speech and language,1261,sing,55,whisper,17
+Speech and language,1261,sing,724,read,5
+Speech and language,1261,sing,755,deny,37
+Speech and language,1261,sing,9,announce,29
+Speech and language,1275,answer,1045,poet,82
+Speech and language,1275,answer,1192,threaten,24
+Speech and language,1307,language,1045,poet,80
+Speech and language,1309,ask,2022,admit,34
+Speech and language,1309,ask,299,scold,24
+Speech and language,1309,ask,300,rattle,73
+Speech and language,1309,ask,83,forbid,21
+Speech and language,1363,voice,1045,poet,79
+Speech and language,1405,name,101,boast,32
+Speech and language,1405,name,1045,poet,84
+Speech and language,1405,name,1192,threaten,26
+Speech and language,1405,name,2022,admit,33
+Speech and language,1405,name,755,deny,37
+Speech and language,1458,say,1045,poet,81
+Speech and language,1458,say,300,rattle,69
+Speech and language,1599,word,1045,poet,80
+Speech and language,1599,word,755,deny,33
+Speech and language,1623,speak,1045,poet,85
+Speech and language,1623,speak,1115,speech,42
+Speech and language,1623,speak,1458,say,4
+Speech and language,1623,speak,1599,word,5
+Speech and language,1623,speak,1675,promise,26
+Speech and language,1623,speak,180,call by name,15
+Speech and language,1623,speak,1866,stutter,36
+Speech and language,1623,speak,2022,admit,34
+Speech and language,1623,speak,299,scold,24
+Speech and language,1623,speak,300,rattle,73
+Speech and language,1623,speak,49,refuse,47
+Speech and language,1623,speak,724,read,6
+Speech and language,1623,speak,755,deny,38
+Speech and language,1623,speak,794,pen,23
+Speech and language,1623,speak,9,announce,30
+Speech and language,1672,write,1045,poet,85
+Speech and language,1672,write,724,read,6
+Speech and language,1672,write,794,pen,23
+Speech and language,1672,write,963,book,10
+Speech and language,1828,ask,1045,poet,80
+Speech and language,724,read,1045,poet,79
+Speech and language,1672,write,101,boast,33
+Speech and language,1623,speak,1025,whistle,10
+Speech and language,1672,write,1115,speech,42
+Speech and language,1672,write,1192,threaten,27
+Speech and language,1623,speak,1261,sing,1
+Speech and language,1275,answer,128,mumble,54
+Speech and language,1623,speak,128,mumble,57
+Speech and language,1672,write,1307,language,5
+Speech and language,1405,name,1363,voice,5
+Speech and language,1623,speak,1363,voice,6
+Speech and language,1672,write,180,call by name,15
+Speech and language,1309,ask,1866,stutter,36
+Speech and language,1623,speak,298,shriek,26
+Speech and language,1309,ask,48,be silent,5
+Speech and language,1084,call,49,refuse,43
+Speech and language,1672,write,49,refuse,47
+Speech and language,724,read,49,refuse,41
+Speech and language,1623,speak,526,howl,29
+Speech and language,1623,speak,55,whisper,18
+Speech and language,1623,speak,715,shout,1
+The body,1123,pregnant,1087,conceive,35
+The body,1173,eyebrow,1028,yawn,5
+The body,1173,eyebrow,1087,conceive,36
+The body,1173,eyebrow,1148,bruise,30
+The body,1173,eyebrow,139,gums,17
+The body,1173,eyebrow,154,udder,39
+The body,1173,eyebrow,1681,waist,19
+The body,1173,eyebrow,1744,spleen,46
+The body,1173,eyebrow,1808,pus,8
+The body,1173,eyebrow,1886,armpit,5
+The body,1173,eyebrow,1957,goiter,47
+The body,1173,eyebrow,1994,collarbone,45
+The body,1173,eyebrow,268,dribble,31
+The body,1173,eyebrow,318,footprint,13
+The body,1173,eyebrow,32,earwax,33
+The body,1173,eyebrow,597,physician,13
+The body,1173,eyebrow,655,poison,10
+The body,1173,eyebrow,793,boil,10
+The body,1173,eyebrow,803,ankle,13
+The body,1173,eyebrow,980,heel,11
+The body,1201,feather,580,fur,35
+The body,1224,liver,1087,conceive,35
+The body,1224,liver,1152,beget,35
+The body,1224,liver,1159,fart,22
+The body,1224,liver,1744,spleen,45
+The body,1224,liver,1745,hip,15
+The body,1224,liver,1957,goiter,46
+The body,1224,liver,793,boil,9
+The body,123,forehead,1681,waist,19
+The body,123,forehead,172,shoulderblade,22
+The body,123,forehead,1744,spleen,46
+The body,123,forehead,1957,goiter,47
+The body,123,forehead,1994,collarbone,45
+The body,123,forehead,32,earwax,33
+The body,123,forehead,489,kidney,14
+The body,123,forehead,799,wrist,28
+The body,1247,ear,154,udder,39
+The body,1257,wing,1087,conceive,36
+The body,1257,wing,1152,beget,36
+The body,1257,wing,1957,goiter,47
+The body,1257,wing,268,dribble,31
+The body,126,sweat,1152,beget,36
+The body,126,sweat,1584,blister,19
+The body,126,sweat,1601,weak,3
+The body,126,sweat,1903,swelling,9
+The body,126,sweat,1920,dream,1
+The body,126,sweat,268,dribble,31
+The body,126,sweat,580,fur,37
+The body,126,sweat,655,poison,10
+The body,1303,finger,1159,fart,23
+The body,1303,finger,154,udder,39
+The body,1303,finger,1744,spleen,46
+The body,1303,finger,1957,goiter,47
+The body,1303,finger,268,dribble,31
+The body,1303,finger,580,fur,37
+The body,1303,finger,655,poison,10
+The body,1333,neck,102,common cold,13
+The body,1333,neck,1087,conceive,36
+The body,1333,neck,1109,wound,7
+The body,1333,neck,1152,beget,36
+The body,1333,neck,1159,fart,23
+The body,1333,neck,172,shoulderblade,22
+The body,1333,neck,1744,spleen,46
+The body,1333,neck,497,scar,18
+The body,1333,neck,597,physician,13
+The body,1333,neck,796,nipple,14
+The body,1346,throat,102,common cold,13
+The body,1346,throat,1087,conceive,36
+The body,1346,throat,1109,wound,7
+The body,1346,throat,1148,bruise,30
+The body,1346,throat,1152,beget,36
+The body,1346,throat,1159,fart,23
+The body,1346,throat,1372,medicine,1
+The body,1346,throat,1463,drunk,3
+The body,1346,throat,1534,fever,10
+The body,1346,throat,154,udder,39
+The body,1346,throat,1666,mute,6
+The body,1346,throat,1681,waist,19
+The body,1346,throat,1744,spleen,46
+The body,1346,throat,1745,hip,16
+The body,1346,throat,1957,goiter,47
+The body,1346,throat,1983,snore,12
+The body,1346,throat,1994,collarbone,45
+The body,1346,throat,268,dribble,31
+The body,1346,throat,590,naked,2
+The body,1346,throat,597,physician,13
+The body,1346,throat,767,corpse,11
+The body,1346,throat,980,heel,11
+The body,1371,knee,1148,bruise,30
+The body,1371,knee,1744,spleen,46
+The body,1371,knee,320,lame,7
+The body,1371,knee,497,scar,18
+The body,1371,knee,819,stomach,1
+The body,1371,knee,980,heel,11
+The body,138,bathe,1087,conceive,31
+The body,1393,horn,1087,conceive,35
+The body,1393,horn,1510,chin,9
+The body,1393,horn,154,udder,38
+The body,1393,horn,172,shoulderblade,21
+The body,1393,horn,1745,hip,15
+The body,1393,horn,1957,goiter,46
+The body,1393,horn,32,earwax,32
+The body,1402,breast,1087,conceive,34
+The body,1402,breast,1744,spleen,44
+The body,1403,bite,1090,be born,6
+The body,1403,bite,1148,bruise,30
+The body,1403,bite,1364,healthy,10
+The body,1403,bite,1584,blister,19
+The body,1403,bite,168,rest,8
+The body,1403,bite,268,dribble,31
+The body,1403,bite,319,lick,1
+The body,1403,bite,580,fur,37
+The body,1403,bite,590,naked,2
+The body,1403,bite,767,corpse,11
+The body,1417,kill,1148,bruise,30
+The body,1417,kill,1364,healthy,10
+The body,1417,kill,1584,blister,19
+The body,1417,kill,1773,grave,5
+The body,1417,kill,1957,goiter,47
+The body,1417,kill,320,lame,7
+The body,1417,kill,323,fat,6
+The body,1417,kill,580,fur,37
+The body,1417,kill,767,corpse,11
+The body,1440,spit,102,common cold,13
+The body,1440,spit,1087,conceive,36
+The body,1440,spit,1109,wound,7
+The body,1440,spit,1123,pregnant,1
+The body,1440,spit,1125,bald,6
+The body,1440,spit,1148,bruise,30
+The body,1440,spit,1152,beget,36
+The body,1440,spit,1159,fart,23
+The body,1440,spit,1278,vomit,3
+The body,1440,spit,138,bathe,5
+The body,1440,spit,148,itch,8
+The body,1440,spit,1534,fever,10
+The body,1440,spit,1584,blister,19
+The body,1440,spit,1666,mute,6
+The body,1440,spit,1808,pus,8
+The body,1440,spit,1957,goiter,47
+The body,1440,spit,1983,snore,12
+The body,1440,spit,268,dribble,31
+The body,1440,spit,320,lame,7
+The body,1440,spit,497,scar,18
+The body,1440,spit,52,shiver,7
+The body,1440,spit,655,poison,10
+The body,1440,spit,793,boil,10
+The body,1480,body,580,fur,36
+The body,1534,fever,1957,goiter,37
+The body,1583,brain,102,common cold,12
+The body,1583,brain,1087,conceive,35
+The body,1583,brain,1109,wound,6
+The body,1583,brain,1152,beget,35
+The body,1583,brain,1159,fart,22
+The body,1583,brain,1744,spleen,45
+The body,1583,brain,32,earwax,32
+The body,1583,brain,497,scar,17
+The body,1621,sneeze,1148,bruise,29
+The body,1653,blind,1463,drunk,3
+The body,1653,blind,590,naked,2
+The body,1730,cheek,154,udder,35
+The body,1730,cheek,1994,collarbone,41
+The body,1838,navel,1159,fart,23
+The body,1838,navel,1463,drunk,3
+The body,1838,navel,1757,tired,1
+The body,1838,navel,499,cure,1
+The body,1847,sick,1125,bald,6
+The body,1847,sick,168,rest,8
+The body,1847,sick,497,scar,18
+The body,1886,armpit,1148,bruise,25
+The body,1886,armpit,1744,spleen,41
+The body,1886,armpit,1957,goiter,42
+The body,1886,armpit,268,dribble,26
+The body,1886,armpit,793,boil,5
+The body,1920,dream,1152,beget,35
+The body,1920,dream,1584,blister,18
+The body,1920,dream,1601,weak,2
+The body,1991,intestines,102,common cold,10
+The body,1991,intestines,1087,conceive,33
+The body,1991,intestines,1148,bruise,27
+The body,1991,intestines,138,bathe,2
+The body,1991,intestines,148,itch,5
+The body,1991,intestines,1534,fever,7
+The body,1991,intestines,1584,blister,16
+The body,1991,intestines,162,hiccough,13
+The body,1991,intestines,168,rest,5
+The body,1991,intestines,1681,waist,16
+The body,1991,intestines,1745,hip,13
+The body,1991,intestines,1808,pus,5
+The body,1991,intestines,1903,swelling,6
+The body,1991,intestines,1957,goiter,44
+The body,1991,intestines,1983,snore,9
+The body,1991,intestines,268,dribble,28
+The body,1991,intestines,3189,stab to death,6
+The body,1991,intestines,323,fat,3
+The body,1991,intestines,497,scar,15
+The body,1991,intestines,52,shiver,4
+The body,1991,intestines,793,boil,7
+The body,1991,intestines,834,buttocks,2
+The body,471,upper leg,1148,bruise,26
+The body,471,upper leg,162,hiccough,12
+The body,471,upper leg,1744,spleen,42
+The body,471,upper leg,1745,hip,12
+The body,471,upper leg,497,scar,14
+The body,471,upper leg,803,ankle,9
+The body,471,upper leg,980,heel,7
+The body,478,lip,1148,bruise,30
+The body,478,lip,1744,spleen,46
+The body,478,lip,320,lame,7
+The body,478,lip,497,scar,18
+The body,478,lip,799,wrist,28
+The body,478,lip,819,stomach,1
+The body,478,lip,980,heel,11
+The body,478,lip,981,elbow,4
+The body,676,shit,1957,goiter,47
+The body,676,shit,580,fur,37
+The body,676,shit,655,poison,10
+The body,678,beard,1159,fart,23
+The body,678,beard,1463,drunk,3
+The body,678,beard,1757,tired,1
+The body,678,beard,499,cure,1
+The body,801,rib,1049,molar tooth,24
+The body,801,rib,1159,fart,23
+The body,801,rib,1178,nostril,13
+The body,801,rib,1297,leg,2
+The body,801,rib,1604,temples,45
+The body,801,rib,1605,skull,14
+The body,801,rib,168,rest,8
+The body,801,rib,172,shoulderblade,22
+The body,801,rib,1744,spleen,46
+The body,801,rib,1745,hip,16
+The body,801,rib,18,earlobe,48
+The body,801,rib,1957,goiter,47
+The body,801,rib,1994,collarbone,45
+The body,801,rib,32,earwax,33
+The body,801,rib,580,fur,37
+The body,801,rib,796,nipple,14
+The body,801,rib,804,womb,18
+The body,801,rib,834,buttocks,5
+The body,819,stomach,1148,bruise,29
+The body,819,stomach,497,scar,17
+The body,834,buttocks,1957,goiter,42
+The body,980,heel,1744,spleen,35
+The body,996,deaf,1666,mute,6
+The body,1653,blind,102,common cold,13
+The body,996,deaf,102,common cold,13
+The body,126,sweat,1049,molar tooth,24
+The body,1303,finger,1049,molar tooth,24
+The body,1333,neck,1049,molar tooth,24
+The body,1417,kill,1049,molar tooth,24
+The body,1621,sneeze,1049,molar tooth,23
+The body,1920,dream,1049,molar tooth,23
+The body,1991,intestines,1049,molar tooth,21
+The body,676,shit,1049,molar tooth,24
+The body,834,buttocks,1049,molar tooth,19
+The body,1653,blind,1087,conceive,36
+The body,1808,pus,1087,conceive,28
+The body,996,deaf,1087,conceive,36
+The body,1653,blind,1109,wound,7
+The body,996,deaf,1109,wound,7
+The body,996,deaf,1123,pregnant,1
+The body,996,deaf,1125,bald,6
+The body,1653,blind,1148,bruise,30
+The body,323,fat,1148,bruise,24
+The body,590,naked,1148,bruise,28
+The body,996,deaf,1148,bruise,30
+The body,1372,medicine,1152,beget,35
+The body,1417,kill,1152,beget,36
+The body,1653,blind,1152,beget,36
+The body,996,deaf,1152,beget,36
+The body,1123,pregnant,1159,fart,22
+The body,1653,blind,1159,fart,23
+The body,676,shit,1159,fart,23
+The body,996,deaf,1159,fart,23
+The body,126,sweat,1178,nostril,13
+The body,1346,throat,1178,nostril,13
+The body,1653,blind,1178,nostril,13
+The body,1920,dream,1178,nostril,12
+The body,1991,intestines,1178,nostril,10
+The body,1440,spit,1224,liver,1
+The body,996,deaf,1224,liver,1
+The body,1123,pregnant,1278,vomit,2
+The body,1403,bite,1278,vomit,3
+The body,996,deaf,1278,vomit,3
+The body,1847,sick,1297,leg,2
+The body,1653,blind,1372,medicine,1
+The body,1123,pregnant,138,bathe,4
+The body,996,deaf,138,bathe,5
+The body,1440,spit,139,gums,17
+The body,1886,armpit,139,gums,12
+The body,1991,intestines,139,gums,14
+The body,996,deaf,139,gums,17
+The body,996,deaf,148,itch,8
+The body,1173,eyebrow,1510,chin,10
+The body,1346,throat,1510,chin,10
+The body,1371,knee,1510,chin,10
+The body,1653,blind,1510,chin,10
+The body,478,lip,1510,chin,10
+The body,1653,blind,1534,fever,10
+The body,996,deaf,1534,fever,10
+The body,126,sweat,154,udder,39
+The body,1403,bite,154,udder,39
+The body,1601,weak,154,udder,36
+The body,1621,sneeze,154,udder,38
+The body,1653,blind,154,udder,39
+The body,1920,dream,154,udder,38
+The body,676,shit,154,udder,39
+The body,126,sweat,1540,eyelash,9
+The body,1440,spit,1540,eyelash,9
+The body,1991,intestines,1540,eyelash,6
+The body,996,deaf,1540,eyelash,9
+The body,1333,neck,1583,brain,1
+The body,1440,spit,1583,brain,1
+The body,996,deaf,1583,brain,1
+The body,996,deaf,1584,blister,19
+The body,1173,eyebrow,1604,temples,45
+The body,1224,liver,1604,temples,44
+The body,123,forehead,1604,temples,45
+The body,1257,wing,1604,temples,45
+The body,126,sweat,1604,temples,45
+The body,1303,finger,1604,temples,45
+The body,1346,throat,1604,temples,45
+The body,1371,knee,1604,temples,45
+The body,1372,medicine,1604,temples,44
+The body,1417,kill,1604,temples,45
+The body,1440,spit,1604,temples,45
+The body,1621,sneeze,1604,temples,44
+The body,1653,blind,1604,temples,45
+The body,1886,armpit,1604,temples,40
+The body,1920,dream,1604,temples,44
+The body,1991,intestines,1604,temples,42
+The body,323,fat,1604,temples,39
+The body,478,lip,1604,temples,45
+The body,676,shit,1604,temples,45
+The body,834,buttocks,1604,temples,40
+The body,996,deaf,1604,temples,45
+The body,126,sweat,1605,skull,14
+The body,1333,neck,1605,skull,14
+The body,1346,throat,1605,skull,14
+The body,1417,kill,1605,skull,14
+The body,1653,blind,1605,skull,14
+The body,1920,dream,1605,skull,13
+The body,1440,spit,162,hiccough,16
+The body,996,deaf,162,hiccough,16
+The body,1123,pregnant,1655,blink,21
+The body,138,bathe,1655,blink,17
+The body,1440,spit,1655,blink,22
+The body,1991,intestines,1655,blink,19
+The body,996,deaf,1655,blink,22
+The body,1653,blind,1666,mute,6
+The body,1653,blind,1681,waist,19
+The body,126,sweat,17,eyelid,17
+The body,1403,bite,17,eyelid,17
+The body,1440,spit,17,eyelid,17
+The body,1920,dream,17,eyelid,16
+The body,1991,intestines,17,eyelid,14
+The body,996,deaf,17,eyelid,17
+The body,1303,finger,172,shoulderblade,22
+The body,1991,intestines,172,shoulderblade,19
+The body,676,shit,172,shoulderblade,22
+The body,834,buttocks,172,shoulderblade,17
+The body,1346,throat,1730,cheek,4
+The body,1653,blind,1730,cheek,4
+The body,126,sweat,1744,spleen,46
+The body,1440,spit,1744,spleen,46
+The body,1601,weak,1744,spleen,43
+The body,1621,sneeze,1744,spleen,45
+The body,1653,blind,1744,spleen,46
+The body,1847,sick,1744,spleen,46
+The body,1920,dream,1744,spleen,45
+The body,1991,intestines,1744,spleen,43
+The body,676,shit,1744,spleen,46
+The body,819,stomach,1744,spleen,45
+The body,834,buttocks,1744,spleen,41
+The body,996,deaf,1744,spleen,46
+The body,1440,spit,1745,hip,16
+The body,1621,sneeze,1745,hip,15
+The body,1653,blind,1745,hip,16
+The body,996,deaf,1745,hip,16
+The body,1224,liver,18,earlobe,47
+The body,1257,wing,18,earlobe,48
+The body,1303,finger,18,earlobe,48
+The body,1346,throat,18,earlobe,48
+The body,1372,medicine,18,earlobe,47
+The body,1440,spit,18,earlobe,48
+The body,1621,sneeze,18,earlobe,47
+The body,1653,blind,18,earlobe,48
+The body,1991,intestines,18,earlobe,45
+The body,471,upper leg,18,earlobe,44
+The body,676,shit,18,earlobe,48
+The body,834,buttocks,18,earlobe,43
+The body,996,deaf,18,earlobe,48
+The body,996,deaf,1808,pus,8
+The body,1440,spit,1886,armpit,5
+The body,996,deaf,1886,armpit,5
+The body,1372,medicine,1957,goiter,46
+The body,1653,blind,1957,goiter,47
+The body,996,deaf,1957,goiter,47
+The body,1653,blind,1983,snore,12
+The body,996,deaf,1983,snore,12
+The body,1224,liver,1994,collarbone,44
+The body,1257,wing,1994,collarbone,45
+The body,126,sweat,1994,collarbone,45
+The body,1402,breast,1994,collarbone,43
+The body,1403,bite,1994,collarbone,45
+The body,1440,spit,1994,collarbone,45
+The body,1621,sneeze,1994,collarbone,44
+The body,1653,blind,1994,collarbone,45
+The body,1781,thumb,1994,collarbone,40
+The body,1886,armpit,1994,collarbone,40
+The body,1991,intestines,1994,collarbone,42
+The body,471,upper leg,1994,collarbone,41
+The body,834,buttocks,1994,collarbone,40
+The body,996,deaf,1994,collarbone,45
+The body,1991,intestines,208,nasal mucus,5
+The body,1601,weak,268,dribble,28
+The body,1653,blind,268,dribble,31
+The body,1920,dream,268,dribble,30
+The body,676,shit,268,dribble,31
+The body,996,deaf,268,dribble,31
+The body,1440,spit,318,footprint,13
+The body,1991,intestines,318,footprint,10
+The body,996,deaf,318,footprint,13
+The body,1224,liver,32,earwax,32
+The body,1303,finger,32,earwax,33
+The body,1333,neck,32,earwax,33
+The body,1346,throat,32,earwax,33
+The body,1440,spit,32,earwax,33
+The body,1653,blind,32,earwax,33
+The body,1886,armpit,32,earwax,28
+The body,1991,intestines,32,earwax,30
+The body,676,shit,32,earwax,33
+The body,834,buttocks,32,earwax,28
+The body,996,deaf,32,earwax,33
+The body,996,deaf,320,lame,7
+The body,1991,intestines,471,upper leg,1
+The body,126,sweat,489,kidney,14
+The body,1440,spit,489,kidney,14
+The body,1991,intestines,489,kidney,11
+The body,996,deaf,489,kidney,14
+The body,996,deaf,497,scar,18
+The body,996,deaf,52,shiver,7
+The body,1224,liver,525,blood vessel,17
+The body,126,sweat,525,blood vessel,18
+The body,1371,knee,525,blood vessel,18
+The body,1403,bite,525,blood vessel,18
+The body,1440,spit,525,blood vessel,18
+The body,1991,intestines,525,blood vessel,15
+The body,478,lip,525,blood vessel,18
+The body,801,rib,525,blood vessel,18
+The body,996,deaf,525,blood vessel,18
+The body,126,sweat,576,dandruff,38
+The body,1297,leg,576,dandruff,36
+The body,1303,finger,576,dandruff,38
+The body,1333,neck,576,dandruff,38
+The body,1346,throat,576,dandruff,38
+The body,1417,kill,576,dandruff,38
+The body,1440,spit,576,dandruff,38
+The body,1583,brain,576,dandruff,37
+The body,1653,blind,576,dandruff,38
+The body,1847,sick,576,dandruff,38
+The body,1920,dream,576,dandruff,37
+The body,1991,intestines,576,dandruff,35
+The body,323,fat,576,dandruff,32
+The body,676,shit,576,dandruff,38
+The body,801,rib,576,dandruff,38
+The body,834,buttocks,576,dandruff,33
+The body,996,deaf,576,dandruff,38
+The body,1372,medicine,597,physician,12
+The body,1653,blind,597,physician,13
+The body,996,deaf,655,poison,10
+The body,1440,spit,688,lung,7
+The body,1991,intestines,688,lung,4
+The body,996,deaf,688,lung,7
+The body,126,sweat,73,beak,10
+The body,1991,intestines,73,beak,7
+The body,1653,blind,767,corpse,11
+The body,996,deaf,793,boil,10
+The body,1621,sneeze,796,nipple,13
+The body,1991,intestines,796,nipple,11
+The body,834,buttocks,796,nipple,9
+The body,1173,eyebrow,798,jaw,7
+The body,1371,knee,799,wrist,28
+The body,1621,sneeze,799,wrist,27
+The body,1991,intestines,799,wrist,25
+The body,471,upper leg,799,wrist,24
+The body,819,stomach,799,wrist,27
+The body,1417,kill,803,ankle,13
+The body,1991,intestines,803,ankle,10
+The body,1403,bite,804,womb,18
+The body,319,lick,804,womb,17
+The body,1847,sick,805,spine,10
+The body,1991,intestines,805,spine,7
+The body,126,sweat,980,heel,11
+The body,1653,blind,980,heel,11
+The body,1991,intestines,980,heel,8
+The body,819,stomach,980,heel,10
+The body,1371,knee,981,elbow,4
+The house,1227,board,876,arch,70
+The house,1464,ladder,876,arch,72
+The house,1476,chair,876,arch,82
+The house,1567,door,1006,brick,42
+The house,1567,door,1012,latch,43
+The house,1567,door,1132,beam,34
+The house,1567,door,1227,board,16
+The house,1567,door,1305,chimney,57
+The house,1567,door,1375,window,15
+The house,1567,door,1472,key,21
+The house,1567,door,1596,lock,37
+The house,1567,door,1731,mortar binder,73
+The house,1567,door,80,doorpost,49
+The house,1567,door,859,stove,41
+The house,1567,door,876,arch,86
+The house,1567,door,877,mason,58
+The house,1567,door,901,adobe,74
+The house,1632,floor,876,arch,77
+The house,1663,bed,1273,candle,16
+The house,1663,bed,876,arch,86
+The house,281,post,876,arch,77
+The house,363,dwell,1305,chimney,54
+The house,363,dwell,1316,tent,51
+The house,363,dwell,859,stove,38
+The house,363,dwell,876,arch,83
+The house,769,roof,1731,mortar binder,67
+The house,769,roof,876,arch,80
+The house,1663,bed,1316,tent,54
+The house,1567,door,1450,room,22
+The house,1663,bed,334,cookhouse,49
+The house,1476,chair,403,garden-house,74
+The house,1567,door,403,garden-house,78
+The house,769,roof,403,garden-house,72
+The house,769,roof,745,shelf,40
+The physical world,10,firewood,660,reef,164
+The physical world,11,darkness,27,air,33
+The physical world,11,darkness,623,lagoon,136
+The physical world,11,darkness,660,reef,167
+The physical world,11,darkness,952,weather,53
+The physical world,1228,earth,1026,low tide,120
+The physical world,1228,earth,613,high tide,119
+The physical world,1228,earth,891,tide,125
+The physical world,1313,moon,1428,burning,9
+The physical world,1313,moon,2007,bolt,18
+The physical world,1313,moon,67,embers,13
+The physical world,1313,moon,690,bottom,7
+The physical world,1313,moon,784,snow,52
+The physical world,1388,shade,249,fog,5
+The physical world,1388,shade,27,air,35
+The physical world,1388,shade,617,ice,23
+The physical world,1388,shade,623,lagoon,138
+The physical world,1388,shade,67,embers,13
+The physical world,1388,shade,737,light,1
+The physical world,1388,shade,784,snow,52
+The physical world,1388,shade,952,weather,55
+The physical world,141,burn,660,reef,168
+The physical world,1430,star,1428,burning,9
+The physical world,1430,star,27,air,35
+The physical world,1430,star,617,ice,23
+The physical world,1430,star,660,reef,169
+The physical world,1430,star,784,snow,52
+The physical world,1430,star,858,storm,17
+The physical world,1489,cloud,249,fog,5
+The physical world,1489,cloud,617,ice,23
+The physical world,1489,cloud,623,lagoon,138
+The physical world,1489,cloud,660,reef,169
+The physical world,1489,cloud,784,snow,52
+The physical world,1489,cloud,952,weather,55
+The physical world,1654,lightning,660,reef,167
+The physical world,1768,foam,1026,low tide,120
+The physical world,1768,foam,613,high tide,119
+The physical world,1768,foam,891,tide,125
+The physical world,1803,wood,660,reef,168
+The physical world,1803,wood,784,snow,51
+The physical world,1977,dew,660,reef,161
+The physical world,2,dust,1026,low tide,126
+The physical world,2,dust,166,mainland,60
+The physical world,2,dust,1662,cape,123
+The physical world,2,dust,1982,whirlpool,40
+The physical world,2,dust,613,high tide,125
+The physical world,2,dust,617,ice,21
+The physical world,2,dust,784,snow,50
+The physical world,2,dust,891,tide,131
+The physical world,2,dust,952,weather,53
+The physical world,2125,stone or rock,784,snow,47
+The physical world,2144,spring or well,660,reef,165
+The physical world,2144,spring or well,943,waterfall,39
+The physical world,3311,flowing body of water,1982,whirlpool,41
+The physical world,3311,flowing body of water,2144,spring or well,3
+The physical world,3311,flowing body of water,6,earthquake,31
+The physical world,3311,flowing body of water,660,reef,168
+The physical world,3311,flowing body of water,784,snow,51
+The physical world,3311,flowing body of water,943,waterfall,42
+The physical world,3311,flowing body of water,952,weather,54
+The physical world,420,forest,784,snow,51
+The physical world,420,forest,952,weather,54
+The physical world,626,land,613,high tide,124
+The physical world,626,land,623,lagoon,135
+The physical world,626,land,645,ocean,49
+The physical world,626,land,660,reef,166
+The physical world,626,land,784,snow,49
+The physical world,626,land,891,tide,130
+The physical world,630,light,27,air,34
+The physical world,630,light,623,lagoon,137
+The physical world,630,light,660,reef,168
+The physical world,640,mud,420,forest,1
+The physical world,640,mud,623,lagoon,138
+The physical world,640,mud,652,plain,2
+The physical world,640,mud,784,snow,52
+The physical world,640,mud,891,tide,133
+The physical world,640,mud,943,waterfall,43
+The physical world,640,mud,952,weather,55
+The physical world,652,plain,784,snow,50
+The physical world,652,plain,891,tide,131
+The physical world,652,plain,952,weather,53
+The physical world,671,sand,1026,low tide,128
+The physical world,671,sand,1133,match,17
+The physical world,671,sand,1145,swamp,25
+The physical world,671,sand,1474,sea,20
+The physical world,671,sand,166,mainland,62
+The physical world,671,sand,1662,cape,125
+The physical world,671,sand,1733,rainbow,10
+The physical world,671,sand,259,rough,64
+The physical world,671,sand,27,air,35
+The physical world,671,sand,6,earthquake,32
+The physical world,671,sand,613,high tide,127
+The physical world,671,sand,622,island,39
+The physical world,671,sand,623,lagoon,138
+The physical world,671,sand,624,lake,19
+The physical world,671,sand,645,ocean,52
+The physical world,671,sand,660,reef,169
+The physical world,671,sand,663,bay,125
+The physical world,671,sand,891,tide,133
+The physical world,671,sand,921,valley,23
+The physical world,671,sand,978,wave,41
+The physical world,948,water,1188,charcoal,10
+The physical world,948,water,1662,cape,125
+The physical world,948,water,660,reef,169
+The physical world,948,water,663,bay,125
+The physical world,948,water,784,snow,52
+The physical world,948,water,891,tide,133
+The physical world,948,water,978,wave,41
+The physical world,965,world,891,tide,119
+The physical world,1388,shade,1026,low tide,128
+The physical world,141,burn,1026,low tide,127
+The physical world,1430,star,1026,low tide,128
+The physical world,1489,cloud,1026,low tide,128
+The physical world,1803,wood,1026,low tide,127
+The physical world,2125,stone or rock,1026,low tide,123
+The physical world,630,light,1026,low tide,127
+The physical world,737,light,1026,low tide,127
+The physical world,1489,cloud,11,darkness,2
+The physical world,1388,shade,113,shore,7
+The physical world,1388,shade,1155,cave,13
+The physical world,11,darkness,166,mainland,60
+The physical world,1388,shade,166,mainland,62
+The physical world,1430,star,166,mainland,62
+The physical world,1489,cloud,166,mainland,62
+The physical world,249,fog,166,mainland,57
+The physical world,630,light,166,mainland,61
+The physical world,737,light,166,mainland,61
+The physical world,948,water,166,mainland,62
+The physical world,11,darkness,1662,cape,123
+The physical world,1388,shade,1662,cape,125
+The physical world,1430,star,1662,cape,125
+The physical world,1489,cloud,1662,cape,125
+The physical world,1654,lightning,1662,cape,123
+The physical world,1977,dew,1662,cape,117
+The physical world,630,light,1662,cape,124
+The physical world,737,light,1662,cape,124
+The physical world,1388,shade,1733,rainbow,10
+The physical world,630,light,1733,rainbow,9
+The physical world,1388,shade,1768,foam,8
+The physical world,1313,moon,1982,whirlpool,42
+The physical world,1388,shade,1982,whirlpool,42
+The physical world,1430,star,1982,whirlpool,42
+The physical world,1489,cloud,1982,whirlpool,42
+The physical world,1388,shade,2,dust,2
+The physical world,1489,cloud,2144,spring or well,4
+The physical world,11,darkness,259,rough,62
+The physical world,1388,shade,259,rough,64
+The physical world,141,burn,259,rough,63
+The physical world,1489,cloud,259,rough,64
+The physical world,1733,rainbow,259,rough,54
+The physical world,1768,foam,259,rough,56
+The physical world,1803,wood,259,rough,63
+The physical world,568,rise,259,rough,62
+The physical world,630,light,259,rough,63
+The physical world,737,light,259,rough,63
+The physical world,1489,cloud,27,air,35
+The physical world,568,rise,27,air,33
+The physical world,1489,cloud,3311,flowing body of water,1
+The physical world,1430,star,6,earthquake,32
+The physical world,1489,cloud,6,earthquake,32
+The physical world,1388,shade,613,high tide,127
+The physical world,141,burn,613,high tide,126
+The physical world,1430,star,613,high tide,127
+The physical world,1489,cloud,613,high tide,127
+The physical world,1803,wood,613,high tide,126
+The physical world,2125,stone or rock,613,high tide,122
+The physical world,630,light,613,high tide,126
+The physical world,737,light,613,high tide,126
+The physical world,1489,cloud,618,precipice,23
+The physical world,1388,shade,622,island,39
+The physical world,1489,cloud,622,island,39
+The physical world,948,water,622,island,39
+The physical world,1388,shade,624,lake,19
+The physical world,1489,cloud,624,lake,19
+The physical world,630,light,624,lake,18
+The physical world,1489,cloud,626,land,3
+The physical world,1430,star,645,ocean,52
+The physical world,1489,cloud,645,ocean,52
+The physical world,1803,wood,645,ocean,51
+The physical world,2125,stone or rock,645,ocean,47
+The physical world,3311,flowing body of water,645,ocean,51
+The physical world,630,light,645,ocean,51
+The physical world,11,darkness,663,bay,123
+The physical world,1430,star,663,bay,125
+The physical world,1489,cloud,663,bay,125
+The physical world,1654,lightning,663,bay,123
+The physical world,630,light,663,bay,124
+The physical world,1388,shade,858,storm,17
+The physical world,1489,cloud,858,storm,17
+The physical world,10,firewood,891,tide,128
+The physical world,1388,shade,891,tide,133
+The physical world,141,burn,891,tide,132
+The physical world,1430,star,891,tide,133
+The physical world,1489,cloud,891,tide,133
+The physical world,1654,lightning,891,tide,131
+The physical world,1803,wood,891,tide,132
+The physical world,2125,stone or rock,891,tide,128
+The physical world,249,fog,891,tide,128
+The physical world,630,light,891,tide,132
+The physical world,737,light,891,tide,132
+The physical world,1430,star,921,valley,23
+The physical world,1489,cloud,921,valley,23
+The physical world,3311,flowing body of water,921,valley,22
+The physical world,1388,shade,943,waterfall,43
+The physical world,1430,star,943,waterfall,43
+The physical world,1489,cloud,943,waterfall,43
+The physical world,420,forest,943,waterfall,42
+The physical world,737,light,952,weather,54
+The physical world,11,darkness,978,wave,39
+The physical world,1430,star,978,wave,41
+The physical world,1489,cloud,978,wave,41
+The physical world,1654,lightning,978,wave,39
+Time,1174,yesterday,1276,autumn,55
+Time,1174,yesterday,1469,week,37
+Time,1174,yesterday,1537,springtime,50
+Time,1174,yesterday,1692,friday,47
+Time,1174,yesterday,1693,thursday,46
+Time,1174,yesterday,1694,wednesday,46
+Time,1174,yesterday,1695,tuesday,46
+Time,1174,yesterday,1697,monday,44
+Time,1174,yesterday,1699,sunday,39
+Time,1174,yesterday,1700,saturday,44
+Time,1229,old,1276,autumn,55
+Time,1229,old,1342,summer,14
+Time,1229,old,1353,hour,28
+Time,1229,old,1471,winter,14
+Time,1229,old,1537,springtime,50
+Time,1229,old,1692,friday,47
+Time,1229,old,1693,thursday,46
+Time,1229,old,1694,wednesday,46
+Time,1229,old,1695,tuesday,46
+Time,1229,old,1697,monday,44
+Time,1229,old,1699,sunday,39
+Time,1229,old,1700,saturday,44
+Time,1231,new,1186,last,30
+Time,1231,new,1226,year,3
+Time,1231,new,1276,autumn,56
+Time,1231,new,1323,clock,29
+Time,1231,new,1353,hour,29
+Time,1231,new,1370,month,1
+Time,1231,new,1469,week,38
+Time,1231,new,1471,winter,15
+Time,1231,new,1544,sometimes,22
+Time,1231,new,1656,never,23
+Time,1231,new,1676,always,11
+Time,1231,new,1692,friday,48
+Time,1231,new,1693,thursday,47
+Time,1231,new,1694,wednesday,47
+Time,1231,new,1695,tuesday,47
+Time,1231,new,1697,monday,45
+Time,1231,new,1699,sunday,40
+Time,1231,new,1700,saturday,45
+Time,1231,new,1852,often,19
+Time,1231,new,691,season,43
+Time,1283,today,1174,yesterday,1
+Time,1283,today,1179,day after tomorrow,15
+Time,1283,today,1180,day before yesterday,18
+Time,1283,today,1276,autumn,56
+Time,1283,today,1323,clock,29
+Time,1283,today,1342,summer,15
+Time,1283,today,1353,hour,29
+Time,1283,today,1469,week,38
+Time,1283,today,1471,winter,15
+Time,1283,today,1537,springtime,51
+Time,1283,today,1692,friday,48
+Time,1283,today,1693,thursday,47
+Time,1283,today,1694,wednesday,47
+Time,1283,today,1695,tuesday,47
+Time,1283,today,1697,monday,45
+Time,1283,today,1699,sunday,40
+Time,1283,today,1700,saturday,45
+Time,1329,tomorrow,1353,hour,29
+Time,1329,tomorrow,1469,week,38
+Time,1329,tomorrow,1692,friday,48
+Time,1329,tomorrow,1693,thursday,47
+Time,1329,tomorrow,1694,wednesday,47
+Time,1329,tomorrow,1695,tuesday,47
+Time,1329,tomorrow,1697,monday,45
+Time,1329,tomorrow,1699,sunday,40
+Time,1329,tomorrow,1700,saturday,45
+Time,1342,summer,1276,autumn,41
+Time,1370,month,1276,autumn,55
+Time,1370,month,1471,winter,14
+Time,1376,now,1469,week,36
+Time,1376,now,703,soon,19
+Time,1631,fast,1186,last,28
+Time,1631,fast,1323,clock,27
+Time,1631,fast,1692,friday,46
+Time,1631,fast,1693,thursday,45
+Time,1631,fast,1694,wednesday,45
+Time,1631,fast,1699,sunday,38
+Time,1631,fast,1700,saturday,43
+Time,1693,thursday,1692,friday,1
+Time,1694,wednesday,1692,friday,1
+Time,1695,tuesday,1692,friday,1
+Time,1697,monday,1692,friday,3
+Time,1697,monday,1695,tuesday,2
+Time,1766,finish,12,midday,28
+Time,1766,finish,1323,clock,29
+Time,1766,finish,1469,week,38
+Time,1766,finish,1544,sometimes,22
+Time,1766,finish,1656,never,23
+Time,1766,finish,1692,friday,48
+Time,1766,finish,1693,thursday,47
+Time,1766,finish,1694,wednesday,47
+Time,1766,finish,1695,tuesday,47
+Time,1766,finish,1697,monday,45
+Time,1766,finish,1699,sunday,40
+Time,1766,finish,1700,saturday,45
+Time,1766,finish,1852,often,19
+Time,1766,finish,204,again,4
+Time,1766,finish,703,soon,21
+Time,1766,finish,729,dawn,7
+Time,1766,finish,790,ready,23
+Time,701,slow,1186,last,30
+Time,701,slow,12,midday,28
+Time,701,slow,1323,clock,29
+Time,701,slow,1469,week,38
+Time,701,slow,1544,sometimes,22
+Time,701,slow,1656,never,23
+Time,701,slow,1692,friday,48
+Time,701,slow,1693,thursday,47
+Time,701,slow,1694,wednesday,47
+Time,701,slow,1695,tuesday,47
+Time,701,slow,1697,monday,45
+Time,701,slow,1699,sunday,40
+Time,701,slow,1700,saturday,45
+Time,701,slow,1852,often,19
+Time,701,slow,204,again,4
+Time,701,slow,425,be late,13
+Time,701,slow,703,soon,21
+Time,701,slow,729,dawn,7
+Time,701,slow,754,hurry,5
+Time,701,slow,790,ready,23
+Time,1766,finish,1186,last,30
+Time,1329,tomorrow,12,midday,28
+Time,1283,today,1207,young,7
+Time,1370,month,1323,clock,28
+Time,1329,tomorrow,1339,morning,2
+Time,1766,finish,1376,now,2
+Time,701,slow,1376,now,2
+Time,1370,month,1469,week,37
+Time,1174,yesterday,1544,sometimes,21
+Time,1283,today,1544,sometimes,22
+Time,1329,tomorrow,1544,sometimes,22
+Time,1766,finish,1631,fast,2
+Time,701,slow,1631,fast,2
+Time,1283,today,1656,never,23
+Time,1329,tomorrow,1656,never,23
+Time,1370,month,1656,never,22
+Time,1329,tomorrow,1676,always,11
+Time,1226,year,1692,friday,45
+Time,1370,month,1692,friday,47
+Time,1700,saturday,1692,friday,3
+Time,1226,year,1693,thursday,44
+Time,1370,month,1693,thursday,46
+Time,1226,year,1694,wednesday,44
+Time,1370,month,1694,wednesday,46
+Time,1226,year,1695,tuesday,44
+Time,1370,month,1695,tuesday,46
+Time,1226,year,1697,monday,42
+Time,1370,month,1697,monday,44
+Time,1370,month,1699,sunday,39
+Time,1226,year,1700,saturday,42
+Time,1370,month,1700,saturday,44
+Time,1174,yesterday,1789,age,22
+Time,1231,new,1789,age,23
+Time,1283,today,1789,age,23
+Time,1370,month,1789,age,22
+Time,1329,tomorrow,1807,afternoon,19
+Time,1174,yesterday,1852,often,18
+Time,1283,today,1852,often,19
+Time,1370,month,1852,often,18
+Time,1766,finish,1882,before,35
+Time,701,slow,1882,before,35
+Time,1174,yesterday,1963,immediately,8
+Time,1283,today,1963,immediately,9
+Time,1766,finish,1963,immediately,9
+Time,701,slow,1963,immediately,9
+Time,1283,today,204,again,4
+Time,1329,tomorrow,418,for a long time,18
+Time,1283,today,425,be late,13
+Time,1766,finish,425,be late,13
+Time,1329,tomorrow,477,late,12
+Time,1174,yesterday,672,early,14
+Time,1283,today,672,early,15
+Time,1329,tomorrow,672,early,15
+Time,1283,today,703,soon,21
+Time,1283,today,743,end,17
+Time,1766,finish,754,hurry,5
+Time,1231,new,892,time,38
+Time,1283,today,892,time,38
+Time,1329,tomorrow,892,time,38
+Time,1766,finish,892,time,38
+Time,701,slow,892,time,38
+Warfare and hunting,1423,fight,1022,booty,62
+Warfare and hunting,1423,fight,1561,army,36
+Warfare and hunting,1423,fight,1671,tower,68
+Warfare and hunting,1423,fight,1696,surrender,42
+Warfare and hunting,1423,fight,1938,fortress,74
+Warfare and hunting,1423,fight,951,weapons,43
+Warfare and hunting,1941,soldier,1938,fortress,63

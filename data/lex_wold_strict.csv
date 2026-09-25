@@ -1,0 +1,763 @@
+concepticon_id,concepticon_gloss,semantic_field,ontological_category,semantic_category,lex_wold_strict
+2,dust,The physical world,Person/Thing,Noun,1
+3,brave,Emotions and values,Property,Adjective,1
+6,earthquake,The physical world,Person/Thing,Noun,0.848298
+8,curse,Religion and belief,Action/Process,Verb,0.821354
+9,announce,Speech and language,Action/Process,Verb,0.824357
+10,firewood,The physical world,Person/Thing,Noun,1
+11,darkness,The physical world,Person/Thing,Noun,1
+12,midday,Time,Person/Thing,Noun,0.920028
+13,deceit,Emotions and values,Person/Thing,Noun,0.666564
+14,yoke,Motion,Person/Thing,Noun,0.352685
+18,earlobe,The body,Person/Thing,Noun,0.787391
+21,taste,Sense perception,Action/Process,Verb,0.733276
+23,rye,Agriculture and vegetation,Person/Thing,Noun,0.221669
+24,pray,Religion and belief,Action/Process,Verb,0.741167
+27,air,The physical world,Person/Thing,Noun,0.641886
+31,pan,Food and drink,Person/Thing,Noun,0.914683
+32,earwax,The body,Person/Thing,Noun,0.900255
+33,nettle,Agriculture and vegetation,Person/Thing,Noun,0.361084
+42,stinking,Sense perception,Property,Adjective,1
+48,be silent,Speech and language,Action/Process,Verb,0.841402
+55,whisper,Speech and language,Action/Process,Verb,0.910693
+56,bad luck,Emotions and values,Person/Thing,Noun,0.403399
+60,oat,Agriculture and vegetation,Person/Thing,Noun,0.274553
+64,pin,Clothing and grooming,Person/Thing,Noun,0.67304
+65,ambush,Warfare and hunting,Person/Thing,Noun,0.307812
+66,kneel,Motion,Action/Process,Verb,1
+67,embers,The physical world,Person/Thing,Noun,1
+68,tattoo,Clothing and grooming,Person/Thing,Noun,0.481137
+70,brackish,Sense perception,Property,Adjective,0.242812
+80,doorpost,The house,Person/Thing,Noun,0.389071
+81,fathom,Spatial relations,Person/Thing,Noun,0.187802
+82,anger,Emotions and values,Person/Thing,Noun,1
+83,forbid,Speech and language,Action/Process,Verb,0.849485
+90,innocent,Law,Property,Adjective,0.323846
+93,draw milk,Food and drink,Action/Process,Verb,0.763677
+95,sandfly,Animals,Person/Thing,Noun,0.353501
+98,all,Quantity,Other,Function word,1
+100,faithful,Emotions and values,Property,Adjective,0.581343
+101,boast,Speech and language,Action/Process,Verb,0.847959
+107,omen,Religion and belief,Person/Thing,Noun,0.663418
+108,rudder,Motion,Person/Thing,Noun,0.364763
+112,turtle,Animals,Person/Thing,Noun,0.680113
+113,shore,The physical world,Person/Thing,Noun,0.811523
+117,imitate,Cognition,Action/Process,Verb,1
+119,dive,Motion,Action/Process,Verb,0.65181
+121,spin,Clothing and grooming,Action/Process,Verb,0.747125
+122,cart,Motion,Person/Thing,Noun,0.523904
+123,forehead,The body,Person/Thing,Noun,1
+126,sweat,The body,Action/Process,Verb,1
+127,extinguish,The physical world,Action/Process,Verb,1
+128,mumble,Speech and language,Action/Process,Verb,0.810613
+129,choke,Food and drink,Action/Process,Verb,0.844834
+133,weave,Clothing and grooming,Action/Process,Verb,0.700466
+138,bathe,The body,Action/Process,Verb,1
+139,gums,The body,Person/Thing,Noun,1
+141,burn,The physical world,Action/Process,Verb,1
+151,razor,Clothing and grooming,Person/Thing,Noun,0.739156
+154,udder,The body,Person/Thing,Noun,0.746949
+157,dye,Clothing and grooming,Action/Process,Verb,0.750736
+162,hiccough,The body,Action/Process,Verb,1
+163,black,Sense perception,Property,Adjective,1
+166,mainland,The physical world,Person/Thing,Noun,0.275797
+168,rest,The body,Action/Process,Verb,1
+175,blow,Motion,Action/Process,Verb,1
+184,mast,Motion,Person/Thing,Noun,0.279243
+190,mow,Agriculture and vegetation,Action/Process,Verb,0.681428
+191,nut,Food and drink,Person/Thing,Noun,0.505351
+192,corner,Spatial relations,Person/Thing,Noun,0.929031
+193,shallow,Spatial relations,Property,Adjective,0.734217
+195,mat,Basic actions and technology,Person/Thing,Noun,0.539154
+199,famine,Agriculture and vegetation,Person/Thing,Noun,0.658861
+204,again,Time,Other,Function word,0.899814
+205,trough,The house,Person/Thing,Noun,0.591612
+206,firefly,Animals,Person/Thing,Noun,0.781591
+208,nasal mucus,The body,Person/Thing,Noun,1
+211,cast,Basic actions and technology,Action/Process,Verb,0.150402
+213,fin,Animals,Person/Thing,Noun,0.535866
+218,fine,Law,Person/Thing,Noun,0.533704
+221,fire,The physical world,Person/Thing,Noun,1
+223,threshing-floor,Agriculture and vegetation,Person/Thing,Noun,0.291246
+224,mortar,Food and drink,Person/Thing,Noun,0.76265
+225,pestle,Food and drink,Person/Thing,Noun,0.65766
+227,fish,Animals,Person/Thing,Noun,1
+230,sweep,Basic actions and technology,Action/Process,Verb,1
+232,flea,Animals,Person/Thing,Noun,1
+234,paddle,Basic actions and technology,Person/Thing,Noun,0.474166
+236,stepmother,Kinship,Person/Thing,Noun,0.870801
+237,stepfather,Kinship,Person/Thing,Noun,0.816859
+239,flower,Agriculture and vegetation,Person/Thing,Noun,1
+244,left,Spatial relations,Property,Adjective,1
+245,broom,Basic actions and technology,Person/Thing,Noun,0.910693
+249,fog,The physical world,Person/Thing,Noun,1
+255,servant,Social and political relations,Person/Thing,Noun,0.734704
+257,worship,Religion and belief,Action/Process,Verb,0.446299
+259,rough,The physical world,Property,Adjective,0.235502
+263,herdsman,Animals,Person/Thing,Noun,0.456433
+265,fowl,Animals,Person/Thing,Noun,0.28910400000000003
+266,scale,Animals,Person/Thing,Noun,0.635003
+267,nit,Animals,Person/Thing,Noun,0.703671
+270,jug,Food and drink,Person/Thing,Noun,0.526217
+271,saucer,Food and drink,Person/Thing,Noun,0.497604
+272,tongs,Food and drink,Person/Thing,Noun,0.821333
+273,dough,Food and drink,Person/Thing,Noun,0.640683
+275,peel,Food and drink,Action/Process,Verb,1
+277,spindle,Clothing and grooming,Person/Thing,Noun,0.425543
+278,awl,Clothing and grooming,Person/Thing,Noun,0.396741
+279,thatch,The house,Person/Thing,Noun,0.395304
+280,ridgepole,The house,Person/Thing,Noun,0.498177
+284,hoe,Agriculture and vegetation,Person/Thing,Noun,0.595436
+285,thresh,Agriculture and vegetation,Action/Process,Verb,0.557678
+288,forge,Basic actions and technology,Action/Process,Verb,0.274112
+290,adze,Basic actions and technology,Person/Thing,Noun,0.193958
+291,pull off,Basic actions and technology,Action/Process,Verb,0.924383
+292,rug,Basic actions and technology,Person/Thing,Noun,0.384843
+293,netbag,Basic actions and technology,Person/Thing,Noun,0.136083
+300,rattle,Speech and language,Person/Thing,Noun,0.353344
+302,clan,Social and political relations,Person/Thing,Noun,0.708139
+303,abstain from food,Religion and belief,Action/Process,Verb,0.749465
+304,preach,Religion and belief,Action/Process,Verb,0.527983
+307,hawk,Animals,Person/Thing,Noun,0.741662
+309,opossum,Animals,Person/Thing,Noun,0.218858
+319,lick,The body,Action/Process,Verb,1
+320,lame,The body,Property,Adjective,0.930532
+322,fig,Food and drink,Person/Thing,Noun,0.361152
+323,fat,The body,Person/Thing,Noun,0.917845
+325,felt,Clothing and grooming,Person/Thing,Noun,0.287678
+326,cloak,Clothing and grooming,Person/Thing,Noun,0.177319
+327,poncho,Clothing and grooming,Person/Thing,Noun,0.222983
+328,grass-skirt,Clothing and grooming,Person/Thing,Noun,0.02945
+329,stocking,Clothing and grooming,Person/Thing,Noun,1
+334,cookhouse,The house,Person/Thing,Noun,0.424612
+337,pitchfork,Agriculture and vegetation,Person/Thing,Noun,0.304356
+338,rake,Agriculture and vegetation,Person/Thing,Noun,0.714352
+342,hay,Agriculture and vegetation,Person/Thing,Noun,0.526667
+346,banyan,Agriculture and vegetation,Person/Thing,Noun,0.073503
+356,shears,Basic actions and technology,Person/Thing,Noun,0.91664
+359,potter,Basic actions and technology,Person/Thing,Noun,0.46776
+360,fan,Basic actions and technology,Action/Process,Verb,0.831277
+367,ride,Motion,Action/Process,Verb,0.458519
+379,blunt,Sense perception,Property,Adjective,0.771184
+380,wrinkled,Sense perception,Property,Adjective,0.899814
+381,blame,Emotions and values,Person/Thing,Noun,0.671047
+383,master,Social and political relations,Person/Thing,Noun,0.517275
+384,freeman,Social and political relations,Person/Thing,Noun,0.191518
+386,battle-axe,Warfare and hunting,Person/Thing,Noun,0.137485
+387,sling,Warfare and hunting,Person/Thing,Noun,0.499643
+388,fishnet,Warfare and hunting,Person/Thing,Noun,0.836515
+390,punishment,Law,Person/Thing,Noun,0.499636
+391,bless,Religion and belief,Action/Process,Verb,0.638954
+403,garden-house,The house,Person/Thing,Noun,0.070032
+410,yam,Agriculture and vegetation,Person/Thing,Noun,0.187178
+411,gourd,Agriculture and vegetation,Person/Thing,Noun,0.302348
+412,carry in hand,Motion,Action/Process,Verb,0.425907
+413,carry on shoulder,Motion,Action/Process,Verb,0.473444
+414,carry on head,Motion,Action/Process,Verb,0.127055
+415,carry under arm,Motion,Action/Process,Verb,0.395235
+416,outrigger,Motion,Person/Thing,Noun,0.070172
+418,for a long time,Time,Other,Function word,0.735565
+421,retreat,Warfare and hunting,Action/Process,Verb,0.707029
+425,be late,Time,Property,Verb,0.922023
+476,cup,Food and drink,Person/Thing,Noun,0.920028
+482,noble,Social and political relations,Person/Thing,Noun,0.110386
+484,condemn,Law,Action/Process,Verb,0.24268
+488,manner,Cognition,Person/Thing,Noun,0.691122
+490,descendants,Kinship,Person/Thing,Noun,0.673697
+492,three,Quantity,Number,Function word,1
+493,five,Quantity,Number,Function word,1
+499,cure,The body,Action/Process,Verb,0.84824600000000006
+503,frog,Animals,Person/Thing,Noun,1
+505,parents,Kinship,Person/Thing,Noun,0.821946
+506,maize,Agriculture and vegetation,Person/Thing,Noun,0.727014
+509,certain,Cognition,Property,Adjective,0.76797
+522,wolf,Animals,Person/Thing,Noun,0.3786
+539,nest,Animals,Person/Thing,Noun,1
+576,dandruff,The body,Person/Thing,Noun,0.823072
+579,battle,Warfare and hunting,Person/Thing,Noun,1
+585,boot,Clothing and grooming,Person/Thing,Noun,0.719752
+586,garden,Agriculture and vegetation,Person/Thing,Noun,0.396911
+590,naked,The body,Property,Adjective,0.928075
+592,piss,The body,Action/Process,Verb,1
+593,potato,Food and drink,Person/Thing,Noun,0.736591
+597,physician,The body,Person/Thing,Noun,0.927782
+598,shell,Animals,Person/Thing,Noun,0.736559
+603,coat,Clothing and grooming,Person/Thing,Noun,0.716858
+605,grain,Agriculture and vegetation,Person/Thing,Noun,0.305241
+607,grasshopper,Animals,Person/Thing,Noun,1
+610,port,Motion,Person/Thing,Noun,0.222978
+613,high tide,The physical world,Person/Thing,Noun,0.200812
+615,horse,Animals,Person/Thing,Noun,1
+617,ice,The physical world,Person/Thing,Noun,0.935665
+619,animal,Animals,Person/Thing,Noun,1
+620,insect,Animals,Person/Thing,Noun,0.499929
+622,island,The physical world,Person/Thing,Noun,0.824867
+623,lagoon,The physical world,Person/Thing,Noun,0.292531
+627,lead,Basic actions and technology,Person/Thing,Noun,0.719597
+628,leaf,Agriculture and vegetation,Person/Thing,Noun,1
+630,light,The physical world,Person/Thing,Noun,1
+631,livestock,Animals,Person/Thing,Noun,0.517544
+633,market,Possession,Person/Thing,Noun,0.61455
+635,milk,Food and drink,Person/Thing,Noun,1
+636,mill,Food and drink,Person/Thing,Noun,0.421757
+640,mud,The physical world,Person/Thing,Noun,1
+643,need,Cognition,Person/Thing,Noun,0.613246
+644,oak,Agriculture and vegetation,Person/Thing,Noun,0.36525
+645,ocean,The physical world,Person/Thing,Noun,0.405767
+646,ash,The physical world,Person/Thing,Noun,1
+647,paint,Basic actions and technology,Person/Thing,Noun,0.914316
+649,pasture,Animals,Person/Thing,Noun,0.612081
+652,plain,The physical world,Person/Thing,Noun,0.784672
+653,plant,Agriculture and vegetation,Person/Thing,Noun,0.393021
+655,poison,The body,Person/Thing,Noun,0.917557
+658,rain,The physical world,Person/Thing,Noun,1
+660,reef,The physical world,Person/Thing,Noun,0.155925
+661,religion,Religion and belief,Person/Thing,Noun,0.353264
+663,bay,The physical world,Person/Thing,Noun,0.268285
+665,bee,Animals,Person/Thing,Noun,1
+671,sand,The physical world,Person/Thing,Noun,1
+676,shit,The body,Action/Process,Verb,1
+677,axe,Basic actions and technology,Person/Thing,Noun,1
+683,person,Kinship,Person/Thing,Noun,0.894576
+688,lung,The body,Person/Thing,Noun,1
+691,season,Time,Person/Thing,Noun,0.366143
+698,wise,Cognition,Property,Adjective,0.82593
+701,slow,Time,Property,Adverb,1
+704,clean,Sense perception,Property,Adjective,0.818172
+706,dark,Sense perception,Property,Adjective,0.673979
+710,wheel,Motion,Person/Thing,Noun,0.929031
+712,rich,Possession,Property,Adjective,0.648427
+714,seed,Agriculture and vegetation,Person/Thing,Noun,1
+718,pay,Possession,Action/Process,Verb,0.923319
+719,find,Possession,Action/Process,Verb,1
+720,good luck,Emotions and values,Person/Thing,Noun,0.640316
+722,attack,Warfare and hunting,Person/Thing,Noun,0.509974
+729,dawn,Time,Person/Thing,Noun,1
+730,snake,Animals,Person/Thing,Noun,1
+731,beverage,Food and drink,Person/Thing,Noun,0.828769
+733,earn,Possession,Action/Process,Verb,0.489618
+735,owl,Animals,Person/Thing,Noun,0.926227
+736,yard,The house,Person/Thing,Noun,0.694664
+737,light,The physical world,Action/Process,Verb,1
+740,ship,Motion,Person/Thing,Noun,0.615746
+741,drive,Motion,Action/Process,Verb,0.491604
+744,egg,Food and drink,Person/Thing,Noun,1
+745,shelf,The house,Person/Thing,Noun,0.696145
+753,pupil,Cognition,Person/Thing,Noun,0.866045
+754,hurry,Time,Action/Process,Verb,0.833279
+755,deny,Speech and language,Action/Process,Verb,0.760898
+757,button,Clothing and grooming,Person/Thing,Noun,0.91664
+758,heron,Animals,Person/Thing,Noun,0.259983
+759,silver,Basic actions and technology,Person/Thing,Noun,0.833473
+761,cover,Spatial relations,Action/Process,Verb,1
+765,move,Motion,Action/Process,Verb,0.922023
+768,lunch,Food and drink,Person/Thing,Noun,0.599795
+770,earring,Clothing and grooming,Person/Thing,Noun,1
+773,have,Possession,Action/Process,Verb,0.200171
+777,flute,Speech and language,Person/Thing,Noun,0.59619
+778,smoke,The physical world,Person/Thing,Noun,1
+781,fear,Emotions and values,Person/Thing,Noun,0.917557
+782,defeat,Warfare and hunting,Person/Thing,Noun,0.426524
+783,victory,Warfare and hunting,Person/Thing,Noun,0.843515
+784,snow,The physical world,Person/Thing,Noun,0.573194
+786,sailcloth,Motion,Person/Thing,Noun,0.230908
+787,sail,Motion,Action/Process,Verb,0.209595
+788,soap,Clothing and grooming,Person/Thing,Noun,1
+789,people,Social and political relations,Person/Thing,Noun,0.767738
+790,ready,Time,Property,Adjective,0.833827
+791,stranger,Social and political relations,Person/Thing,Noun,0.708831
+792,boil,Food and drink,Action/Process,Verb,1
+797,testicles,The body,Person/Thing,Noun,1
+798,jaw,The body,Person/Thing,Noun,1
+799,wrist,The body,Person/Thing,Noun,0.906942
+801,rib,The body,Person/Thing,Noun,1
+803,ankle,The body,Person/Thing,Noun,1
+805,spine,The body,Person/Thing,Noun,1
+806,blanket,The house,Person/Thing,Noun,0.915861
+809,trousers,Clothing and grooming,Person/Thing,Noun,1
+812,slave,Social and political relations,Person/Thing,Noun,0.339002
+820,lamb,Animals,Person/Thing,Noun,0.501679
+827,roll,Motion,Action/Process,Verb,1
+832,bean,Food and drink,Person/Thing,Noun,0.618199
+834,buttocks,The body,Person/Thing,Noun,1
+838,remains,Spatial relations,Person/Thing,Noun,0.677432
+843,spider,Animals,Person/Thing,Noun,1
+845,murder,Law,Person/Thing,Noun,0.772564
+850,square,Spatial relations,Person/Thing,Noun,0.507091
+852,priest,Religion and belief,Person/Thing,Noun,0.578435
+853,altar,Religion and belief,Person/Thing,Noun,0.284954
+854,kettle,Food and drink,Person/Thing,Noun,0.458163
+858,storm,The physical world,Person/Thing,Noun,0.866162
+859,stove,The house,Person/Thing,Noun,0.325619
+860,cause,Cognition,Person/Thing,Noun,0.534845
+861,judge,Law,Person/Thing,Noun,0.511487
+862,sugar,Food and drink,Person/Thing,Noun,1
+867,glove,Clothing and grooming,Person/Thing,Noun,0.501848
+873,tax,Possession,Person/Thing,Noun,0.534691
+875,shoemaker,Clothing and grooming,Person/Thing,Noun,0.386648
+876,arch,The house,Person/Thing,Noun,0.409979
+877,mason,The house,Person/Thing,Noun,0.254565
+878,hell,Religion and belief,Person/Thing,Noun,0.580389
+879,cough,The body,Action/Process,Verb,1
+881,tailor,Clothing and grooming,Person/Thing,Noun,0.438684
+882,parrot,Animals,Person/Thing,Noun,0.633586
+887,bitter,Sense perception,Property,Adjective,1
+889,flame,The physical world,Person/Thing,Noun,0.931384
+890,mule,Animals,Person/Thing,Noun,0.469414
+891,tide,The physical world,Person/Thing,Noun,0.207732
+897,swallow,Food and drink,Action/Process,Verb,1
+901,adobe,The house,Person/Thing,Noun,0.269524
+902,adultery,Law,Person/Thing,Noun,0.461581
+911,temple,Religion and belief,Person/Thing,Noun,0.268222
+913,crow,Animals,Person/Thing,Noun,0.873304
+914,sculptor,Basic actions and technology,Person/Thing,Noun,0.170467
+917,ornament,Clothing and grooming,Person/Thing,Noun,0.749677
+920,grape,Food and drink,Person/Thing,Noun,0.498729
+921,valley,The physical world,Person/Thing,Noun,0.773148
+924,vegetables,Food and drink,Person/Thing,Noun,0.506933
+925,cassava,Agriculture and vegetation,Person/Thing,Noun,0.109495
+926,rice,Agriculture and vegetation,Person/Thing,Noun,0.776512
+928,embrace,Emotions and values,Action/Process,Verb,0.899814
+932,barley,Agriculture and vegetation,Person/Thing,Noun,0.422011
+933,wall,The house,Person/Thing,Noun,0.847009
+936,stallion,Animals,Person/Thing,Noun,0.506628
+937,bird,Animals,Person/Thing,Noun,1
+938,mare,Animals,Person/Thing,Noun,0.491736
+941,mead,Food and drink,Person/Thing,Noun,0.104897
+942,honey,Food and drink,Person/Thing,Noun,0.909055
+943,waterfall,The physical world,Person/Thing,Noun,0.829236
+946,blood,The body,Person/Thing,Noun,1
+948,water,The physical world,Person/Thing,Noun,1
+950,seagull,Animals,Person/Thing,Noun,0.238776
+951,weapons,Warfare and hunting,Person/Thing,Noun,0.7896
+952,weather,The physical world,Person/Thing,Noun,0.510516
+953,rape,Law,Person/Thing,Noun,0.694736
+957,whale,Animals,Person/Thing,Noun,0.284024
+960,wind,The physical world,Person/Thing,Noun,1
+964,wool,Clothing and grooming,Person/Thing,Noun,0.493396
+965,world,The physical world,Person/Thing,Noun,0.905605
+968,acorn,Agriculture and vegetation,Person/Thing,Noun,0.237301
+970,coconut,Agriculture and vegetation,Person/Thing,Noun,0.360942
+977,arrow,Warfare and hunting,Person/Thing,Noun,0.844387
+978,wave,The physical world,Person/Thing,Noun,0.866162
+979,farmer,Agriculture and vegetation,Person/Thing,Noun,0.49561
+981,elbow,The body,Person/Thing,Noun,1
+983,convict,Law,Action/Process,Verb,0.268878
+988,acquit,Law,Action/Process,Verb,0.19237
+996,deaf,The body,Property,Adjective,0.931968
+1001,blacksmith,Basic actions and technology,Person/Thing,Noun,0.642788
+1002,statue,Basic actions and technology,Person/Thing,Noun,0.197906
+1005,twins,Kinship,Person/Thing,Noun,1
+1006,brick,The house,Person/Thing,Noun,0.644976
+1007,cow,Animals,Person/Thing,Noun,0.760078
+1008,bull,Animals,Person/Thing,Noun,0.640734
+1011,bridge,Motion,Person/Thing,Noun,1
+1012,latch,The house,Person/Thing,Noun,0.363245
+1014,or,Cognition,Other,Function word,0.841878
+1019,right,Spatial relations,Property,Adjective,1
+1021,towel,Clothing and grooming,Person/Thing,Noun,0.927176
+1022,booty,Warfare and hunting,Person/Thing,Noun,0.270393
+1026,low tide,The physical world,Person/Thing,Noun,0.195049
+1028,yawn,The body,Action/Process,Verb,1
+1029,jewel,Clothing and grooming,Person/Thing,Noun,0.337334
+1032,citizen,Social and political relations,Person/Thing,Noun,0.246006
+1034,defendant,Law,Person/Thing,Noun,0.421172
+1038,teacher,Cognition,Person/Thing,Noun,1
+1042,carpenter,Basic actions and technology,Person/Thing,Noun,0.646712
+1043,braid,Clothing and grooming,Person/Thing,Noun,0.837235
+1044,pillow,The house,Person/Thing,Noun,0.76903
+1045,poet,Speech and language,Person/Thing,Noun,0.198625
+1048,line,Spatial relations,Person/Thing,Noun,0.752588
+1058,stepdaughter,Kinship,Person/Thing,Noun,0.590476
+1059,stepson,Kinship,Person/Thing,Noun,0.551429
+1061,armour,Warfare and hunting,Person/Thing,Noun,0.23507
+1062,law,Law,Person/Thing,Noun,0.627963
+1063,nephew,Kinship,Person/Thing,Noun,0.432564
+1064,shield,Warfare and hunting,Person/Thing,Noun,0.320488
+1067,judgment,Law,Person/Thing,Noun,0.403839
+1068,court,Law,Person/Thing,Noun,0.402154
+1069,glue,Basic actions and technology,Person/Thing,Noun,0.761702
+1071,hook,Warfare and hunting,Person/Thing,Noun,0.75114
+1072,prisoner,Warfare and hunting,Person/Thing,Noun,0.695448
+1077,wheat,Agriculture and vegetation,Person/Thing,Noun,0.588734
+1081,bill,Possession,Person/Thing,Noun,0.425694
+1082,merchant,Possession,Person/Thing,Noun,0.555177
+1087,conceive,The body,Action/Process,Verb,0.592979
+1091,salty,Sense perception,Property,Adjective,0.91705
+1098,weigh,Possession,Action/Process,Verb,0.667107
+1100,cook,Food and drink,Action/Process,Verb,0.920703
+1103,sacrifice,Religion and belief,Person/Thing,Noun,0.381619
+1110,shark,Animals,Person/Thing,Noun,0.280079
+1115,speech,Speech and language,Person/Thing,Noun,0.642526
+1121,secret,Cognition,Property,Adjective,0.825905
+1122,wages,Possession,Person/Thing,Noun,0.830366
+1124,pipe,Agriculture and vegetation,Person/Thing,Noun,0.75403
+1125,bald,The body,Property,Adjective,1
+1130,we,Kinship,Other,Function word,0.392355
+1131,we,Kinship,Other,Function word,0.403729
+1133,match,The physical world,Person/Thing,Noun,1
+1134,divorce,Kinship,Person/Thing,Noun,0.517734
+1135,kick,Motion,Action/Process,Verb,0.913191
+1136,rabbit,Animals,Person/Thing,Noun,0.735838
+1143,oven,Food and drink,Person/Thing,Noun,0.713337
+1144,witness,Law,Person/Thing,Noun,0.661818
+1145,swamp,The physical world,Person/Thing,Noun,0.811384
+1148,bruise,The body,Person/Thing,Noun,1
+1149,orphan,Kinship,Person/Thing,Noun,0.788395
+1150,thunder,The physical world,Person/Thing,Noun,1
+1151,veil,Clothing and grooming,Person/Thing,Noun,0.246298
+1152,beget,The body,Action/Process,Verb,0.416364
+1153,cattle,Animals,Person/Thing,Noun,0.3592
+1154,olive,Food and drink,Person/Thing,Noun,0.228573
+1155,cave,The physical world,Person/Thing,Noun,1
+1156,open,Spatial relations,Action/Process,Verb,1
+1159,fart,The body,Action/Process,Verb,1
+1160,thief,Law,Person/Thing,Noun,0.922651
+1161,thread,Clothing and grooming,Person/Thing,Noun,1
+1162,intention,Cognition,Person/Thing,Noun,0.535045
+1169,ox,Animals,Person/Thing,Noun,0.535425
+1170,trap,Warfare and hunting,Action/Process,Verb,0.706452
+1171,mirror,Clothing and grooming,Person/Thing,Noun,1
+1174,yesterday,Time,Other,Function word,1
+1175,ghost,Religion and belief,Person/Thing,Noun,0.799534
+1178,nostril,The body,Person/Thing,Noun,1
+1179,day after tomorrow,Time,Other,Function word,0.924735
+1180,day before yesterday,Time,Other,Function word,0.930782
+1185,vulture,Animals,Person/Thing,Noun,0.438111
+1186,last,Time,Action/Process,Verb,0.381229
+1187,goose,Animals,Person/Thing,Noun,0.784127
+1188,charcoal,The physical world,Person/Thing,Noun,1
+1208,cat,Animals,Person/Thing,Noun,1
+1209,i,Kinship,Other,Function word,1
+1212,we,Kinship,Other,Function word,0.486478
+1213,you,Kinship,Other,Function word,1
+1215,thou,Kinship,Other,Function word,1
+1216,mother,Kinship,Person/Thing,Noun,1
+1217,father,Kinship,Person/Thing,Noun,1
+1218,rope,Basic actions and technology,Person/Thing,Noun,1
+1220,tail,The body,Person/Thing,Noun,1
+1222,penis,The body,Person/Thing,Noun,1
+1223,heart,The body,Person/Thing,Noun,1
+1231,new,Time,Property,Adjective,1
+1234,smooth,Sense perception,Property,Adjective,1
+1242,few,Quantity,Other,Function word,0.914384
+1245,butter,Food and drink,Person/Thing,Noun,0.607122
+1247,ear,The body,Person/Thing,Noun,1
+1248,eye,The body,Person/Thing,Noun,1
+1256,head,The body,Person/Thing,Noun,1
+1257,wing,The body,Person/Thing,Noun,1
+1262,brother,Kinship,Person/Thing,Noun,0.407712
+1263,sister,Kinship,Person/Thing,Noun,0.458721
+1264,change,Spatial relations,Action/Process,Verb,0.722958
+1269,no,Cognition,Other,Function word,0.731738
+1270,why,Cognition,Other,Function word,1
+1272,aunt,Kinship,Person/Thing,Noun,0.295192
+1273,candle,The house,Person/Thing,Noun,0.934594
+1274,salt,Food and drink,Person/Thing,Noun,1
+1275,answer,Speech and language,Action/Process,Verb,1
+1276,autumn,Time,Person/Thing,Noun,0.427464
+1278,vomit,The body,Action/Process,Verb,1
+1281,prison,Law,Person/Thing,Noun,0.856422
+1283,today,Time,Other,Function word,1
+1289,baby,Kinship,Person/Thing,Noun,0.859286
+1290,elephant,Animals,Person/Thing,Noun,0.518785
+1296,walking stick,Modern world,Person/Thing,Noun,1
+1302,fork,Food and drink,Person/Thing,Noun,0.750507
+1305,chimney,The house,Person/Thing,Noun,0.405311
+1306,queen,Social and political relations,Person/Thing,Noun,0.398815
+1308,doubt,Cognition,Person/Thing,Noun,0.617648
+1309,ask,Speech and language,Action/Process,Verb,1
+1312,fox,Animals,Person/Thing,Noun,0.516917
+1316,tent,The house,Person/Thing,Noun,0.430567
+1318,chicken,Animals,Person/Thing,Noun,0.806851
+1322,breakfast,Food and drink,Person/Thing,Noun,0.644956
+1324,slip,Motion,Action/Process,Verb,1
+1325,friend,Social and political relations,Person/Thing,Noun,1
+1327,uncle,Kinship,Person/Thing,Noun,0.198828
+1329,tomorrow,Time,Other,Function word,1
+1330,defend,Warfare and hunting,Action/Process,Verb,0.736591
+1331,sheep,Animals,Person/Thing,Noun,0.7414
+1332,neighbour,Social and political relations,Person/Thing,Noun,0.738119
+1337,pig,Animals,Person/Thing,Noun,1
+1338,peace,Warfare and hunting,Person/Thing,Noun,0.562489
+1339,morning,Time,Person/Thing,Noun,0.913191
+1342,summer,Time,Person/Thing,Noun,0.660155
+1343,sun,The physical world,Person/Thing,Noun,1
+1344,ram,Animals,Person/Thing,Noun,0.456349
+1345,ewe,Animals,Person/Thing,Noun,0.315937
+1348,boar,Animals,Person/Thing,Noun,0.653533
+1350,monkey,Animals,Person/Thing,Noun,0.697344
+1351,sow,Animals,Person/Thing,Noun,0.386068
+1357,daughter,Kinship,Person/Thing,Noun,0.916594
+1358,enemy,Social and political relations,Person/Thing,Noun,0.909982
+1360,duck,Animals,Person/Thing,Noun,0.719074
+1361,tool,Basic actions and technology,Person/Thing,Noun,0.587263
+1367,cross,Spatial relations,Person/Thing,Noun,0.619106
+1368,bread,Food and drink,Person/Thing,Noun,0.916959
+1369,gold,Basic actions and technology,Person/Thing,Noun,0.799829
+1374,ring,Clothing and grooming,Person/Thing,Noun,1
+1375,window,The house,Person/Thing,Noun,0.929031
+1378,spoon,Food and drink,Person/Thing,Noun,1
+1381,shoe,Clothing and grooming,Person/Thing,Noun,1
+1383,grandfather,Kinship,Person/Thing,Noun,0.856331
+1384,second,Quantity,Other,Function word,0.663402
+1385,pepper,Food and drink,Person/Thing,Noun,0.460847
+1386,lion,Animals,Person/Thing,Noun,0.726088
+1388,shade,The physical world,Person/Thing,Noun,1
+1390,wrong,Emotions and values,Property,Adjective,0.825905
+1391,town,Social and political relations,Person/Thing,Noun,0.792083
+1393,horn,The body,Person/Thing,Noun,1
+1399,clay,Basic actions and technology,Person/Thing,Noun,0.813318
+1403,bite,The body,Action/Process,Verb,1
+1427,beautiful,Emotions and values,Property,Adjective,1
+1428,burning,The physical world,Action/Process,Verb,1
+1430,star,The physical world,Person/Thing,Noun,1
+1440,spit,The body,Action/Process,Verb,1
+1441,fly,Motion,Action/Process,Verb,1
+1450,room,The house,Person/Thing,Noun,0.899814
+1451,smile,Emotions and values,Action/Process,Verb,1
+1453,wash,Basic actions and technology,Action/Process,Verb,1
+1457,sew,Clothing and grooming,Action/Process,Verb,1
+1463,drunk,The body,Property,Adjective,1
+1464,ladder,The house,Person/Thing,Noun,1
+1469,week,Time,Person/Thing,Noun,0.916959
+1471,winter,Time,Person/Thing,Noun,0.717983
+1472,key,The house,Person/Thing,Noun,1
+1474,sea,The physical world,Person/Thing,Noun,0.756417
+1475,comb,Clothing and grooming,Person/Thing,Noun,1
+1476,chair,The house,Person/Thing,Noun,1
+1479,dolphin,Animals,Person/Thing,Noun,0.201712
+1481,hammer,Basic actions and technology,Person/Thing,Noun,1
+1482,shoulder,The body,Person/Thing,Noun,1
+1483,nine,Quantity,Number,Function word,0.855131
+1484,oil,Food and drink,Person/Thing,Noun,0.917769
+1489,cloud,The physical world,Person/Thing,Noun,1
+1493,one,Quantity,Number,Function word,1
+1496,grandmother,Kinship,Person/Thing,Noun,0.883997
+1498,two,Quantity,Number,Function word,1
+1500,four,Quantity,Number,Function word,1
+1502,goat,Animals,Person/Thing,Noun,0.77377
+1504,fly,Animals,Person/Thing,Noun,1
+1506,measure,Spatial relations,Action/Process,Verb,0.917557
+1507,fruit,Food and drink,Person/Thing,Noun,0.838509
+1508,king,Social and political relations,Person/Thing,Noun,0.546382
+1509,mosquito,Animals,Person/Thing,Noun,0.933634
+1510,chin,The body,Person/Thing,Noun,1
+1511,rooster,Animals,Person/Thing,Noun,0.741428
+1514,hen,Animals,Person/Thing,Noun,0.594039
+1515,ten,Quantity,Number,Function word,0.78973
+1517,wasp,Animals,Person/Thing,Noun,0.91079
+1518,stupid,Cognition,Property,Adjective,0.828221
+1521,seem,Cognition,Action/Process,Verb,0.579112
+1524,wine,Food and drink,Person/Thing,Noun,0.524564
+1526,meal,Food and drink,Person/Thing,Noun,0.628367
+1528,forgive,Emotions and values,Action/Process,Verb,0.785592
+1534,fever,The body,Person/Thing,Noun,0.906942
+1535,sword,Warfare and hunting,Person/Thing,Noun,0.466884
+1537,springtime,Time,Person/Thing,Noun,0.49529
+1538,scorpion,Animals,Person/Thing,Noun,0.630589
+1539,basket,Basic actions and technology,Person/Thing,Noun,1
+1541,cultivate,Agriculture and vegetation,Action/Process,Verb,0.477726
+1544,sometimes,Time,Other,Function word,0.844046
+1545,host,Social and political relations,Person/Thing,Noun,0.503418
+1546,twice,Quantity,Other,Function word,0.809564
+1547,soup,Food and drink,Person/Thing,Noun,0.900255
+1554,man,Kinship,Person/Thing,Noun,1
+1556,yolk,Food and drink,Person/Thing,Noun,1
+1558,similar,Sense perception,Property,Adjective,0.834819
+1559,money,Possession,Person/Thing,Noun,1
+1560,face,The body,Person/Thing,Noun,1
+1561,army,Warfare and hunting,Person/Thing,Noun,0.622047
+1564,lazy,The body,Property,Adjective,1
+1567,door,The house,Person/Thing,Noun,1
+1569,cheese,Food and drink,Person/Thing,Noun,0.449241
+1571,sell,Possession,Action/Process,Verb,0.838503
+1572,surprised,Emotions and values,Property,Adjective,0.91705
+1575,cockroach,Animals,Person/Thing,Noun,0.781465
+1577,and,Cognition,Other,Function word,0.617557
+1584,blister,The body,Person/Thing,Noun,1
+1585,sleep,The body,Action/Process,Verb,1
+1587,smell,Sense perception,Action/Process,Verb,0.743833
+1594,flour,Food and drink,Person/Thing,Noun,1
+1595,south,Spatial relations,Person/Thing,Noun,0.55255
+1596,lock,The house,Person/Thing,Noun,0.694736
+1598,north,Spatial relations,Person/Thing,Noun,0.618106
+1600,skirt,Clothing and grooming,Person/Thing,Noun,1
+1601,weak,The body,Property,Adjective,0.924383
+1604,temples,The body,Person/Thing,Noun,0.369154
+1607,hate,Emotions and values,Action/Process,Verb,0.914384
+1610,prostitute,Social and political relations,Person/Thing,Noun,0.793983
+1613,color,Sense perception,Person/Thing,Noun,0.664722
+1621,sneeze,The body,Action/Process,Verb,1
+1624,empty,Quantity,Property,Adjective,0.84378
+1626,explain,Cognition,Action/Process,Verb,0.91705
+1634,hundred,Quantity,Number,Function word,0.77675399999999994
+1635,obey,Social and political relations,Action/Process,Verb,0.841402
+1639,beer,Food and drink,Person/Thing,Noun,0.749727
+1640,sibling,Kinship,Person/Thing,Noun,0.306812
+1641,silk,Clothing and grooming,Person/Thing,Noun,0.497677
+1642,niece,Kinship,Person/Thing,Noun,0.432564
+1643,cousin,Kinship,Person/Thing,Noun,0.443202
+1644,relatives,Kinship,Person/Thing,Noun,0.930532
+1645,short,Spatial relations,Property,Adjective,0.912698
+1647,foal,Animals,Person/Thing,Noun,0.500195
+1648,anvil,Basic actions and technology,Person/Thing,Noun,0.349854
+1651,tear,Emotions and values,Person/Thing,Noun,1
+1653,blind,The body,Property,Adjective,0.933485
+1654,lightning,The physical world,Person/Thing,Noun,1
+1655,blink,The body,Action/Process,Verb,1
+1656,never,Time,Other,Function word,0.642297
+1662,cape,The physical world,Person/Thing,Noun,0.240171
+1663,bed,The house,Person/Thing,Noun,0.914467
+1664,raft,Motion,Person/Thing,Noun,0.315211
+1666,mute,The body,Property,Adjective,0.814278
+1669,ancestors,Kinship,Person/Thing,Noun,0.925079
+1671,tower,Warfare and hunting,Person/Thing,Noun,0.252478
+1674,poor,Possession,Property,Adjective,0.847006
+1675,promise,Speech and language,Action/Process,Verb,0.750843
+1680,helmet,Warfare and hunting,Person/Thing,Noun,0.235971
+1681,waist,The body,Person/Thing,Noun,0.769366
+1682,guilty,Law,Property,Adjective,0.507242
+1687,praise,Emotions and values,Person/Thing,Noun,0.592726
+1689,smoke,Agriculture and vegetation,Action/Process,Verb,0.914384
+1690,fence,Agriculture and vegetation,Person/Thing,Noun,0.915238
+1692,friday,Time,Person/Thing,Noun,0.705929
+1693,thursday,Time,Person/Thing,Noun,0.705929
+1694,wednesday,Time,Person/Thing,Noun,0.705929
+1695,tuesday,Time,Person/Thing,Noun,0.705929
+1696,surrender,Warfare and hunting,Action/Process,Verb,0.577393
+1697,monday,Time,Person/Thing,Noun,0.909474
+1699,sunday,Time,Person/Thing,Noun,0.90035
+1700,saturday,Time,Person/Thing,Noun,0.909474
+1702,holy,Religion and belief,Property,Adjective,0.457224
+1703,six,Quantity,Number,Function word,0.855131
+1704,seven,Quantity,Number,Function word,0.855131
+1705,eight,Quantity,Number,Function word,0.855131
+1706,eleven,Quantity,Number,Function word,0.84638
+1707,twelve,Quantity,Number,Function word,0.77675399999999994
+1709,fifteen,Quantity,Number,Function word,0.84638
+1710,twenty,Quantity,Number,Function word,0.77675399999999994
+1712,oath,Law,Person/Thing,Noun,0.532981
+1726,wet,Sense perception,Property,Adjective,1
+1731,mortar binder,The house,Person/Thing,Noun,0.372385
+1733,rainbow,The physical world,Person/Thing,Noun,1
+1735,tear,Basic actions and technology,Action/Process,Verb,1
+1740,pine,Agriculture and vegetation,Person/Thing,Noun,0.3098
+1747,custom,Social and political relations,Person/Thing,Noun,0.830366
+1750,choose,Emotions and values,Action/Process,Verb,0.920883
+1754,bracelet,Clothing and grooming,Person/Thing,Noun,0.915982
+1756,widow,Kinship,Person/Thing,Noun,0.82129
+1757,tired,The body,Property,Adjective,1
+1763,club,Warfare and hunting,Person/Thing,Noun,0.687748
+1764,obscure,Cognition,Property,Adjective,0.571882
+1766,finish,Time,Action/Process,Verb,1
+1767,scrape,Basic actions and technology,Action/Process,Verb,0.922395
+1768,foam,The physical world,Person/Thing,Noun,1
+1769,axle,Motion,Person/Thing,Noun,0.479371
+1774,stingy,Possession,Property,Adjective,0.899814
+1775,table,The house,Person/Thing,Noun,0.91664
+1776,shame,Emotions and values,Person/Thing,Noun,0.924735
+1778,approach,Motion,Action/Process,Verb,0.924735
+1779,dare,Emotions and values,Action/Process,Verb,0.460085
+1781,thumb,The body,Person/Thing,Noun,1
+1782,guest,Social and political relations,Person/Thing,Noun,0.8593
+1787,loom,Clothing and grooming,Person/Thing,Noun,0.34148
+1789,age,Time,Person/Thing,Noun,0.465963
+1791,butterfly,Animals,Person/Thing,Noun,1
+1792,perjury,Law,Person/Thing,Noun,0.222692
+1793,bat,Animals,Person/Thing,Noun,1
+1794,furrow,Agriculture and vegetation,Person/Thing,Noun,0.41821
+1807,afternoon,Time,Person/Thing,Noun,0.90035
+1808,pus,The body,Person/Thing,Noun,1
+1810,danger,Emotions and values,Person/Thing,Noun,0.741662
+1814,accuse,Law,Action/Process,Verb,0.833616
+1816,beside,Spatial relations,Other,Function word,1
+1817,west,Spatial relations,Person/Thing,Noun,0.777186
+1818,adjudicate,Law,Action/Process,Verb,0.255784
+1820,bear,Animals,Person/Thing,Noun,0.452067
+1821,brush,Clothing and grooming,Person/Thing,Noun,0.719845
+1833,dinner,Food and drink,Person/Thing,Noun,0.177223
+1840,build,Basic actions and technology,Action/Process,Verb,1
+1841,suspect,Cognition,Action/Process,Verb,0.625362
+1843,thousand,Quantity,Number,Function word,0.77675399999999994
+1844,boat,Motion,Person/Thing,Noun,0.821333
+1845,ball,Spatial relations,Person/Thing,Noun,0.843515
+1846,rule,Social and political relations,Action/Process,Verb,0.636381
+1848,quarrel,Social and political relations,Person/Thing,Noun,0.924735
+1849,row,Motion,Action/Process,Verb,0.575322
+1850,cotton,Clothing and grooming,Person/Thing,Noun,0.591646
+1851,pocket,Clothing and grooming,Person/Thing,Noun,1
+1855,birch,Agriculture and vegetation,Person/Thing,Noun,0.15354
+1857,crocodile,Animals,Person/Thing,Noun,0.730124
+1858,fisherman,Warfare and hunting,Person/Thing,Noun,0.546101
+1859,third,Quantity,Other,Function word,0.580212
+1862,donkey,Animals,Person/Thing,Noun,0.709929
+1867,coin,Possession,Person/Thing,Noun,0.914467
+1870,anchor,Motion,Person/Thing,Noun,0.317864
+1871,camel,Animals,Person/Thing,Noun,0.504445
+1874,sausage,Food and drink,Person/Thing,Noun,0.27816
+1877,east,Spatial relations,Person/Thing,Noun,0.707941
+1886,armpit,The body,Person/Thing,Noun,1
+1887,cheap,Possession,Property,Adjective,0.914384
+1888,pair,Quantity,Person/Thing,Noun,1
+1889,arson,Law,Person/Thing,Noun,0.264378
+1895,clothes,Clothing and grooming,Person/Thing,Noun,1
+1897,help,Social and political relations,Action/Process,Verb,1
+1901,shovel,Agriculture and vegetation,Person/Thing,Noun,0.756262
+1903,swelling,The body,Person/Thing,Noun,0.9181
+1905,eagle,Animals,Person/Thing,Noun,0.782377
+1906,sour,Sense perception,Property,Adjective,0.900124
+1910,stingray,Animals,Person/Thing,Noun,0.171045
+1915,fir,Agriculture and vegetation,Person/Thing,Noun,0.088601
+1916,gill,Animals,Person/Thing,Noun,0.513831
+1917,tie,Basic actions and technology,Action/Process,Verb,1
+1920,dream,The body,Action/Process,Verb,1
+1921,plough,Agriculture and vegetation,Action/Process,Verb,0.489833
+1923,rough,Sense perception,Property,Adjective,0.826383
+1927,bamboo,Agriculture and vegetation,Person/Thing,Noun,0.566303
+1931,beeswax,Animals,Person/Thing,Noun,0.414468
+1932,guess,Cognition,Action/Process,Verb,0.745477
+1934,beggar,Possession,Person/Thing,Noun,0.752588
+1936,deer,Animals,Person/Thing,Noun,0.53629
+1938,fortress,Warfare and hunting,Person/Thing,Noun,0.210947
+1939,swear,Law,Action/Process,Verb,0.470485
+1940,guard,Warfare and hunting,Person/Thing,Noun,0.718898
+1941,soldier,Warfare and hunting,Person/Thing,Noun,0.899847
+1942,near,Spatial relations,Property,Adverb,1
+1945,idol,Religion and belief,Person/Thing,Noun,0.216287
+1948,saw,Basic actions and technology,Person/Thing,Noun,0.877743
+1950,beech,Agriculture and vegetation,Person/Thing,Noun,0.093333
+1970,canoe,Motion,Person/Thing,Noun,0.409818
+1971,fan,Basic actions and technology,Person/Thing,Noun,0.589181
+1972,young goat,Animals,Person/Thing,Noun,0.470717
+1973,demon,Religion and belief,Person/Thing,Noun,0.694408
+1974,centipede,Animals,Person/Thing,Noun,0.727079
+1977,dew,The physical world,Person/Thing,Noun,1
+1979,chisel,Basic actions and technology,Person/Thing,Noun,0.57812
+1981,widower,Kinship,Person/Thing,Noun,0.744452
+1982,whirlpool,The physical world,Person/Thing,Noun,0.884715
+1983,snore,The body,Action/Process,Verb,1
+1989,calf,Animals,Person/Thing,Noun,0.687427
+1991,intestines,The body,Person/Thing,Noun,1
+1998,command,Social and political relations,Action/Process,Verb,0.920028
+2002,ditch,Agriculture and vegetation,Person/Thing,Noun,0.85951
+2008,rescue,Possession,Action/Process,Verb,0.741385
+2009,dog,Animals,Person/Thing,Noun,1
+2012,collar,Clothing and grooming,Person/Thing,Noun,0.789705
+2013,bait,Warfare and hunting,Person/Thing,Noun,0.576513
+2017,mix,Food and drink,Action/Process,Verb,1
+2018,greedy,Emotions and values,Property,Adjective,0.444986
+2020,plaintiff,Law,Person/Thing,Noun,0.429971
+2022,admit,Speech and language,Action/Process,Verb,0.714324
+2023,crowd,Quantity,Person/Thing,Noun,0.762646
+2024,plot,Social and political relations,Person/Thing,Noun,0.32624
+2132,sickle or scythe,Agriculture and vegetation,Person/Thing,Noun,0.656223
+2136,brass instrument,Speech and language,Person/Thing,Noun,0.341961
+2253,drip,Motion,Action/Process,Verb,1
+2257,mother-in-law,Kinship,Person/Thing,Noun,0.66994
+2475,male goat,Animals,Person/Thing,Noun,0.471745
+3137,oar,Basic actions and technology,Person/Thing,Noun,0.554646
+3206,elf or fairy,Religion and belief,Person/Thing,Noun,0.184386
+3217,tin or tinplate,Basic actions and technology,Person/Thing,Noun,0.440009
+3456,crawl or creep,Motion,Action/Process,Verb,1
+3457,headband or headdress,Clothing and grooming,Person/Thing,Noun,0.65983

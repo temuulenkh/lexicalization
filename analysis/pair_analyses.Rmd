@@ -1,0 +1,1108 @@
+---
+title: "Pair analyses"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+
+```{r libraries}
+
+library(tidyverse) 
+library(here)
+library(janitor)
+library(patchwork)
+library(ggrepel)
+library(xtable)
+library(DBI)
+library(glmmTMB)
+
+select <- dplyr::select
+```
+
+This notebook contains our analysis of concept pairs and analysis on the relationship between lexicalization and other phenomena.
+
+## Analysis of concept pairs
+
+We consider concept pairs from two different sources of data: the Small World of Words (SWOW) and the Database of Cross-Linguistic Colexifications (CLICS).
+
+### Pairs from SWOW
+
+Load word association data and find matching lemmas.
+
+```{r load concepticon, include=TRUE}
+
+set.seed(123)
+
+d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE) 
+
+d <- d_full %>%
+  select(-ontological_category, -semantic_category, -wl_cvar, -do_cvar) %>%
+  rename(aoa = aoa_self) %>%
+  mutate(concepticon_gloss = str_to_lower(concepticon_gloss))
+
+swow <- read_csv(here("rawdata/swow", "SWOW-EN.complete.20180827.csv"))
+
+wp <- swow %>%
+  group_by(cue, R1) %>%
+  summarise(n = n_distinct(participantID)) %>%
+  ungroup() %>%
+  # given by at least two participants
+  filter(n > 1) %>%
+  rename(response = R1)
+
+first <- wp %>%
+  inner_join(d %>% rename(cue = concepticon_gloss), by = "cue") %>% unique()
+
+all_wa <- first %>%
+  inner_join(d %>%
+               rename(response = concepticon_gloss, target_id = concepticon_id, target_field = semantic_field,
+                      target_wold = lex_wold, target_ids = lex_ids, 
+                      target_wl_mean = wl_mean, target_en = en, target_do_mean = do_mean,
+                      target_ins = ins, target_aoa = aoa, target_conc = conc,
+                      target_cd = cd, target_sens = sens),
+               by = "response") %>%
+  unique()
+
+create_pairs <- function(data, lex, target_lex){
+
+unique <- data %>%
+  filter(cue != response) %>%
+  mutate(pair_id = pmin(concepticon_id, target_id) %>% 
+                    paste(pmax(concepticon_id, target_id), sep = "-")) %>%
+  distinct(pair_id, .keep_all = TRUE) %>%
+  select(-pair_id) %>%
+  rename(lex_lang = {{lex}}, target_lex_lang = {{target_lex}})
+
+cp1 <- unique %>%
+  filter(lex_lang >= target_lex_lang)
+
+cp2 <- unique %>%
+  filter(lex_lang < target_lex_lang) %>%
+  rename(cue= response, response = cue,
+         concepticon_id = target_id, target_id = concepticon_id, 
+         semantic_field = target_field, target_field = semantic_field,
+         lex_lang = target_lex_lang, target_lex_lang = lex_lang,
+         wl_mean = target_wl_mean, target_wl_mean = wl_mean,
+         do_mean = target_do_mean, target_do_mean = do_mean,
+         en = target_en, target_en = en,
+         cd = target_cd, target_cd = cd,
+         aoa = target_aoa, target_aoa = aoa,
+         ins = target_ins, target_ins = ins,
+         conc = target_conc, target_conc = conc,
+         sens = target_sens, target_sens = sens
+         )
+
+cp <- bind_rows(cp1, cp2) %>%
+  mutate(pair = paste0(cue, "-", response)) %>%
+  mutate(normlex = lex_lang / (lex_lang + target_lex_lang),
+         normmean_wl = wl_mean / (wl_mean + target_wl_mean),
+         normmean_do = do_mean / (do_mean + target_do_mean),
+         normen = en / (en + target_en),
+         normcd = cd / (cd + target_cd),
+         normaoa = aoa / (aoa + target_aoa),
+         normins = ins / (ins + target_ins),
+         normconc = conc / (conc + target_conc),
+         normsens = sens / (sens + target_sens)) %>%
+  select(pair:normsens) %>%
+  unique()
+
+bid <- cp %>%
+  distinct(pair) %>%
+  mutate(
+    word1 = word(pair, 1, sep = fixed("-")),
+    word2 = word(pair, 2, sep = fixed("-")),
+    sorted_pair = ifelse(word1 < word2,
+                         paste(word1, word2, sep = "-"),
+                         paste(word2, word1, sep = "-"))
+  ) %>%
+  group_by(sorted_pair) %>%
+  filter(n() > 1) %>%
+  ungroup()
+print(nrow(bid))
+
+dup <- cp %>% 
+  group_by(pair) %>% 
+  mutate(n=n()) %>% 
+  ungroup() %>% 
+  filter(n > 1)
+print(nrow(dup))
+
+cp <- cp %>%
+  # filter out bidirectional and duplicate cases
+  filter(!(pair %in% c(bid$pair, dup$pair)))
+print(nrow(cp))
+
+return(cp)
+
+}
+
+analyse_pairs <- function(data){
+  
+  cp <- data
+
+calculate_score <- function(pred1, pred2, reverse = FALSE) {
+  if (pred1 == 0.5 || pred2 == 0.5) {
+    return(0.5)
+  } else if ((!reverse && ((pred1 > 0.5 & pred2 > 0.5) | (pred1 < 0.5 & pred2 < 0.5))) ||
+             (reverse && ((pred1 > 0.5 & pred2 < 0.5) | (pred1 < 0.5 & pred2 > 0.5)))) {
+    return(1) 
+  } else {
+    return(0) 
+  }
+}
+
+correct_mean_wl <- mean(mapply(calculate_score, cp$normlex, cp$normmean_wl))
+correct_mean_do <- mean(mapply(calculate_score, cp$normlex, cp$normmean_do))
+correct_en <- mean(mapply(calculate_score, cp$normlex, cp$normen))
+correct_cd <- mean(mapply(calculate_score, cp$normlex, cp$normcd))
+correct_aoa <- mean(mapply(calculate_score, cp$normlex, cp$normaoa, reverse = TRUE))
+correct_ins <- mean(mapply(calculate_score, cp$normlex, cp$normins))
+correct_conc <- mean(mapply(calculate_score, cp$normlex, cp$normconc))
+correct_sens <- mean(mapply(calculate_score, cp$normlex, cp$normsens))
+
+results <- data.frame(
+  variable = c("mean usage (Worldlex)", "mean usage (DoReCo)", 
+               "usage (English only)", "contextual diversity",
+               "AoA (self reported)", "association in-strength", 
+               "concreteness", "sensorimotor"),
+  correct.prediction = c(correct_mean_wl, correct_mean_do,
+                         correct_en, correct_cd, 
+                         correct_aoa, correct_ins, 
+                         correct_conc, 
+                         correct_sens)
+) %>% arrange(desc(correct.prediction))
+
+# Bootstrapping
+
+set.seed(123)
+
+n_boot <- 1000
+n_rows <- nrow(cp)
+
+calculate_correct_predictions <- function(data) {
+  correct_score <- function(pred1, pred2, reverse = FALSE) {
+    if (pred1 == 0.5 || pred2 == 0.5) {
+      return(0.5) 
+    } else if ((!reverse && ((pred1 > 0.5 & pred2 > 0.5) | (pred1 < 0.5 & pred2 < 0.5))) ||
+               (reverse && ((pred1 > 0.5 & pred2 < 0.5) | (pred1 < 0.5 & pred2 > 0.5)))) {
+      return(1)
+    } else {
+      return(0)
+    }
+  }
+  
+  correct_mean_wl <- mean(mapply(correct_score, data$normlex, data$normmean_wl))
+  correct_mean_do <- mean(mapply(correct_score, data$normlex, data$normmean_do))
+  correct_en <- mean(mapply(correct_score, data$normlex, data$normen))
+  correct_cd <- mean(mapply(correct_score, data$normlex, data$normcd))
+  correct_ins <- mean(mapply(correct_score, data$normlex, data$normins))
+  correct_conc <- mean(mapply(correct_score, data$normlex, data$normconc))
+  correct_aoa <- mean(mapply(correct_score, data$normlex, data$normaoa, reverse = TRUE))
+  correct_sens <- mean(mapply(correct_score, data$normlex, data$normsens))
+  
+  c(correct_mean_wl, correct_mean_do, correct_en, 
+    correct_cd, correct_aoa, correct_ins, correct_conc, correct_sens)
+}
+
+
+bootstrap_results <- replicate(n_boot, {
+  sample_data <- cp[sample(1:n_rows, n_rows, replace = TRUE), ]
+  calculate_correct_predictions(sample_data)
+})
+
+bootstrap_results <- t(bootstrap_results)
+colnames(bootstrap_results) <- c("mean usage (Worldlex)","mean usage (DoReCo)",
+                                  "usage (English only)", "contextual diversity",
+                                  "AoA (self reported)", "association in-strength", 
+                                  "concreteness", "sensorimotor")
+
+ci <- apply(bootstrap_results, 2, function(x) quantile(x, probs = c(0.025, 0.975)))
+
+results_with_ci <- data.frame(
+  variable = colnames(bootstrap_results),
+  lower.ci = ci[1, ],
+  upper.ci = ci[2, ]
+)
+
+
+results_final <- results %>%
+  left_join(results_with_ci, by = "variable") %>%
+  mutate(variable = fct_reorder(variable, correct.prediction))
+
+return(results_final)
+
+}
+
+wa_wold <- create_pairs(all_wa, "lex_wold", "target_wold")
+wa_ids <- create_pairs(all_wa, "lex_ids", "target_ids")
+
+wa_wold_result <- analyse_pairs(wa_wold) 
+wa_ids_result <- analyse_pairs(wa_ids) 
+
+# Bidirectional cases in SWOW have contained cases where e.g. male (of person) and male (of animal) or child (young human) and child (descendant) where normlex values were one above 0.5 and the other below 0.5.
+# Duplicate cases include concepts e.g. ask (inquire) and ask (request) where normlex values were both above 0.5 or below 0.5.
+# Because all predictor variables are based on the same lemma for e.g. male, we decided to take these out from our analysis.
+
+```
+
+### Pairs from CLICS
+
+```{r semshift, include=FALSE}
+clicsfile = here("rawdata", "clics.sqlite")
+
+mydb <- dbConnect(RSQLite::SQLite(), clicsfile)
+
+lt <- dbReadTable(mydb, 'LanguageTable')
+pt <- dbReadTable(mydb, 'ParameterTable')
+
+pid_gloss <- pt %>%
+  select(ID, Concepticon_Gloss, Concepticon_ID) %>%
+  rename(Parameter_ID=ID) %>%
+  unique()
+
+ft <- dbReadTable(mydb, 'FormTable') %>%
+  left_join(pid_gloss, by = "Parameter_ID")
+
+dbDisconnect(mydb)
+
+ft1 <- ft %>%
+  clean_names() %>% 
+  select(language_id, concepticon_id, value) %>%
+  # consider only those in our preprocessed data
+  filter(concepticon_id %in% d_full$concepticon_id) %>%
+  # filter out forms that are empty
+  filter(!is.na(value) & value != "") %>%
+  unique() %>%
+  group_by(language_id, value) %>%
+  summarise( n = n(),
+    ids = str_c(concepticon_id, collapse = ", "), .groups = "drop") %>%
+  ungroup() %>%
+  filter(n != 1)
+
+more2 <- ft1 %>%
+  filter(n > 2) %>%  
+  rowwise() %>%
+  mutate(
+    id_vec = list(str_split(ids, ",\\s*")[[1]]),               
+    pairs = list(combn(id_vec, 2, simplify = FALSE))            
+  ) %>%
+  unnest(pairs) %>%
+  mutate(
+  pair = map_chr(pairs, ~ {
+    .x_sorted <- .x[order(as.numeric(.x))]
+    str_c(.x_sorted, collapse = "-")
+  })
+) %>%
+  group_by(pair) %>%
+  summarise(n = n_distinct(language_id)) %>%
+  ungroup()
+
+two <- ft1 %>%
+  filter(n == 2) %>%
+  rowwise() %>%
+  mutate(
+    pair = {
+      id_vec <- str_split(ids, ",\\s*")[[1]]
+      id_sorted <- id_vec[order(as.numeric(id_vec))]
+      str_c(id_sorted, collapse = "-")
+    }
+  ) %>%
+  group_by(pair) %>%
+  summarise(n = n_distinct(language_id)) %>%
+  ungroup()
+
+uniq <- bind_rows(two, more2) %>% 
+  unique() %>%
+  # attested by at least 3 languages
+  filter(n >= 3) %>%
+  separate(pair, into = c("concepticon_id", "target_id"), sep = "-", convert = TRUE)
+
+first <- uniq %>%
+  inner_join(d %>% rename(cue = concepticon_gloss), by = "concepticon_id")
+
+all_cl <- first %>%
+  inner_join(d %>% rename(target_id = concepticon_id, response = concepticon_gloss, target_field = semantic_field,
+                      target_wold = lex_wold, target_ids = lex_ids, 
+                      target_wl_mean = wl_mean, target_en = en, target_do_mean = do_mean,
+                      target_ins = ins, target_aoa = aoa, target_conc = conc,
+                      target_cd = cd, target_sens = sens)
+               , by = "target_id")
+
+cl_wold <- create_pairs(all_cl, "lex_wold", "target_wold")
+cl_ids <- create_pairs(all_cl, "lex_ids", "target_ids")
+
+cl_wold_result <- analyse_pairs(cl_wold) 
+cl_ids_result <- analyse_pairs(cl_ids) 
+
+```
+
+Combine all:
+
+```{r all, include=TRUE}
+
+all_all <- bind_rows(all_wa, all_cl) %>% unique()
+
+all_wold <- create_pairs(all_all, "lex_wold", "target_wold")
+all_ids <- create_pairs(all_all, "lex_ids", "target_ids")
+
+all_wold_result <- analyse_pairs(all_wold) 
+all_ids_result <- analyse_pairs(all_ids) 
+
+```
+
+Make a figure based on IDS and DoReCo:
+
+```{r main fig, include=TRUE}
+mytheme <- theme_minimal(base_size = 9) +
+  theme(
+    legend.position = "none",
+    panel.grid.major = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    axis.line = element_line(color = "gray60", size = 0.3),
+    axis.title = element_text(size = 12.375),
+    axis.ticks.y = element_line(color = "black", size = 0.5),
+    axis.text.x = element_text(size = 10.125),
+    axis.text.y = element_text(size = 10.125),
+    strip.text = element_text(size = 10.125, face = "bold")
+  )
+
+black_pairs <- c("water-reef", "fruit-fig","sea-tide", "soul-religion",
+                 "wind-air","think-idea","rain-weather",  "grass-hay",
+                 "fish-whale", "meal-dinner", "moon-tide", "food-farmer",
+                 "bread-barley", "bird-eagle", "water-tide", "high-low", "inside-outside", "mouth-speech", "sun-clock",
+                 "year-autumn", "many-thousand", "year-summer", "sick-healthy"
+                 )
+
+green_pairs <- c("circle-square", 
+                 "red-yellow", "love-pity"
+                 )
+
+red_pairs <- c("love-hate")
+
+pos_pairs <- c(black_pairs, green_pairs, red_pairs)
+
+neg_black_pairs <-c ("day-hour","sweet-yam", "ocean-reef", "honey-bear", "age-time",
+                     "milk-coconut", "deep-inside", "day-night", "wood-tree",
+                     "sun-time", "green-plant", "moon-month")
+
+neg_green_pairs <-c()
+
+neg_red_pairs <- c("red-white")
+
+neg_pairs <- c(neg_black_pairs, neg_green_pairs, neg_red_pairs)
+
+plotd <- all_ids %>%
+  mutate(highlight = ifelse(pair %in% c(pos_pairs, neg_pairs), "Highlighted", "Other")) %>%
+  mutate(
+    label_color = case_when(
+      pair %in% green_pairs ~ "green",
+      pair %in% red_pairs ~ "red",
+      pair %in% neg_green_pairs ~ "green",
+      pair %in% neg_red_pairs ~ "red",
+      TRUE ~ "other"
+    )
+  )
+
+set.seed(421)
+sp <- ggplot(plotd, aes(x = normmean_do, y = normlex, text = pair)) +
+  geom_vline(xintercept = 0.5, color = "gray60", linetype = "dashed", size = 0.3) +
+  geom_point(data = filter(plotd, highlight == "Other"), 
+             size = 0.1, color = "gray", alpha = 0.5, show.legend = FALSE) +
+  geom_point(
+  data = filter(plotd, highlight == "Highlighted"),
+  aes(color = label_color),
+  size = 0.8,
+  alpha = 0.9,
+  show.legend = FALSE
+) +
+  geom_label_repel(data = filter(plotd, pair %in% pos_pairs),
+                   aes(label = pair, color = label_color),
+                   size = 3.375, fill = "white", box.padding = 0.05,
+                   point.padding = 0,
+                   force = 0.2, force_pull = 4,
+                   segment.color = "gray60", segment.size = 0.3,
+                   min.segment.length = unit(1.5, "lines"),
+                   label.size = NA) +
+  geom_label_repel(data = filter(plotd, pair %in% neg_pairs),
+                   aes(label = paste0("italic('", pair, "')"), color = label_color),
+                   size = 3.375, fill = "white", box.padding = 0.05,
+                   point.padding = 0,
+                   force = 0.2, force_pull = 4,
+                   segment.color = "gray60", segment.size = 0.3,
+                   min.segment.length = unit(1.5, "lines"),
+                   label.size = NA, parse = TRUE) +
+  scale_color_manual(values = c(
+  "green" = "#0072B2",  
+  "red"   = "#D55E00",   
+  "other" = "gray40"
+)) +
+  labs(
+    x = "Normalized mean usage frequency",
+    y = "Normalized lexicalization score",
+    title = ""
+  ) + 
+  ylim(0.49, 0.754) +
+  mytheme  + 
+  theme(#axis.line = element_line(color = "gray70", size = 0.3),
+        axis.ticks.y = element_blank()
+        )
+
+ggsave(here("output/figures", "ipa.pdf"), sp, width = 18, height = 15.75, units = "cm")
+```
+
+Make a figure for all datasets:
+
+```{r main fig, include=TRUE}
+
+set.seed(123)
+
+wa_wold_result$lexsource <- "WOLD"
+wa_ids_result$lexsource <- "IDS"
+cl_wold_result$lexsource <- "WOLD"
+cl_ids_result$lexsource <- "IDS"
+all_wold_result$lexsource <- "WOLD"
+all_ids_result$lexsource <- "IDS"
+
+wa_wold_result$pairsource <- "SWOW (N=3257)"
+wa_ids_result$pairsource <- "SWOW (N=3257)"
+cl_wold_result$pairsource <- "CLICS (N=2074)"
+cl_ids_result$pairsource <- "CLICS (N=2074)"
+all_wold_result$pairsource <- "All pairs (N=4688)"
+all_ids_result$pairsource <- "All pairs (N=4688)"
+
+combined_data <- bind_rows(
+  wa_wold_result,
+  wa_ids_result,
+  cl_wold_result,
+  cl_ids_result,
+  all_wold_result,
+  all_ids_result
+) %>%
+  mutate(pairsource = factor(pairsource, levels=c("All pairs (N=4688)", "CLICS (N=2074)", "SWOW (N=3257)")))
+
+d1 <- combined_data %>%
+  filter(lexsource == "WOLD")
+
+all_order <- d1 %>%
+  filter(pairsource == "All pairs (N=4688)") %>%
+  arrange(correct.prediction) %>%
+  pull(variable)
+
+p1 <- d1 %>%
+  mutate(variable = factor(variable, levels = all_order)) %>%
+  ggplot(aes(x = correct.prediction, y = variable, color = pairsource)) +
+  geom_vline(xintercept = 0.5, size = 0.2, color = "gray60", linetype = "dashed") +
+  geom_segment(aes(x = lower.ci, xend = upper.ci),
+              position = position_dodge(width = 0.6), color = "gray", size = 0.3) +
+  geom_point(size = 1.3) + 
+  geom_text(aes(x = correct.prediction, label = round(correct.prediction, 2)),
+            vjust = -1, size = 2.5, color = "gray60") +
+  facet_wrap(~ pairsource, nrow=1) +
+  scale_color_manual(
+    values = c(
+      "CLICS (N=2074)" = "#1b9e77",        
+      "SWOW (N=3257)" = "#d95f02",       
+      "All pairs (N=4688)" = "#7570b3"
+    )
+  ) +
+  labs(x = "Proportion of correct predictions", y = "", color = "") +
+  mytheme  +
+  scale_x_continuous(breaks = c(0.5, 0.6, 0.7))
+p1
+
+d2 <- combined_data %>%
+  filter(lexsource == "IDS")
+
+all_order <- d2 %>%
+  filter(pairsource == "All pairs (N=4688)") %>%
+  arrange(correct.prediction) %>%
+  pull(variable)
+
+p2 <- d2 %>%
+  mutate(variable = factor(variable, levels = all_order)) %>%
+  ggplot(aes(x = correct.prediction, y = variable, color = pairsource)) +
+  geom_vline(xintercept = 0.5, size = 0.2, color = "gray60", linetype = "dashed") +
+  geom_segment(aes(x = lower.ci, xend = upper.ci),
+              position = position_dodge(width = 0.6), color = "gray", size = 0.3) +
+  geom_point(size = 1.3) +
+  geom_text(aes(x = correct.prediction, label = round(correct.prediction, 2)),
+            vjust = -1, size = 2.5, color = "gray60") +
+  facet_wrap(~ pairsource, nrow=1) +
+  scale_color_manual(
+    values = c(
+      "CLICS (N=2074)" = "#1b9e77",        
+      "SWOW (N=3257)" = "#d95f02",       
+      "All pairs (N=4688)" = "#7570b3"
+    )
+  ) +
+  labs(x = "", y = "", color = "") +
+  mytheme  +
+  scale_x_continuous(breaks = c(0.5, 0.6, 0.7))
+p2
+
+final_plot <- p2 + p1 + 
+  plot_layout(nrow=2, heights = c(1, 1)) +
+  plot_annotation(tag_levels = 'A')
+
+ggsave(here("output/figures", "pairs.pdf"), final_plot, width = 18, height = 18, units = "cm")
+
+```
+
+
+## Analysis on implicational universals
+
+Implicational universals:
+
+```{r semantic relation, include=TRUE}
+
+high <- c("hand", "arm", 
+          "white", "red", "yellow", "green", 
+          "circle", 
+          "east", "west",
+          "hate", "anger", "guilty", "love", "fear", "anxiety", "proud", "surprised")
+
+low <- c("foot", "leg", 
+         "red", "yellow", "green", "blue", 
+         "square",
+         "north", "south",
+         "love", "fear", "anxiety", "proud", "surprised", "pity")
+
+d <- d_full %>%
+  filter(concepticon_gloss %in% c(high, low)) %>%
+  select(concepticon_gloss, lex_wold, lex_ids, wl_mean, do_mean) 
+
+
+d1 <- d %>%
+  filter(concepticon_gloss %in% high) %>%
+  rename_with(~ paste0(.x, "1"))
+
+d2 <- d %>%
+  filter(concepticon_gloss %in% low) %>%
+  rename_with(~ paste0(.x, "2"))
+
+pairs <- c("hand-foot", "arm-leg", 
+           "white-red", "red-yellow", "red-green", "red-blue", "yellow-blue", "green-blue",
+           "circle-square", 
+           "east-north", "west-north", "east-south", "west-south",
+           "hate-love","hate-fear","hate-anxiety","hate-proud","hate-surprised","hate-pity",
+           "anger-love","anger-fear","anger-anxiety","anger-proud","anger-surprised","anger-pity",
+           "guilty-love","guilty-fear","guilty-anxiety","guilty-proud","guilty-surprised","guilty-pity",
+           "love-anxiety","love-proud","love-surprised","love-pity",
+           "fear-anxiety","fear-proud","fear-surprised","fear-pity",
+           "anxiety-surprised","anxiety-pity","proud-surprised","proud-pity",
+           "surprised-pity")
+
+# For emotion pairs, we collected any terms from Fig 1 in Hupka et al. (1999) if they happen to exist in our data. If noun form does not exist but its adjective counterpart exist, we took the adjective (e.g. proud for pride, guilty for guilt). 
+
+full <- d1 %>%
+  cross_join(d2) %>%
+  mutate(pair = paste0(concepticon_gloss1, "-", concepticon_gloss2)) %>%
+  filter(pair %in% pairs) %>%
+  mutate(wold = lex_wold1 / (lex_wold1 + lex_wold2) ,
+         ids = lex_ids1 / (lex_ids1 + lex_ids2),
+         wl = wl_mean1 / (wl_mean1 + wl_mean2),
+         do = do_mean1 / (do_mean1 + do_mean2)) %>%
+  select(pair, wold, ids, wl, do) %>%
+  mutate(source = case_when(
+    pair %in% c("hate-love","hate-fear","hate-anxiety","hate-proud","hate-surprised","hate-pity",
+           "anger-love","anger-fear","anger-anxiety","anger-proud","anger-surprised","anger-pity",
+           "guilty-love","guilty-fear","guilty-anxiety","guilty-proud","guilty-surprised","guilty-pity",
+           "love-anxiety","love-proud","love-surprised","love-pity",
+           "fear-anxiety","fear-proud","fear-surprised","fear-pity",
+           "anxiety-surprised","anxiety-pity","proud-surprised","proud-pity",
+           "surprised-pity") ~ "Hupka et al. 1999",
+    pair %in% c("white-red", "red-yellow", "red-green", "red-blue", "yellow-blue", "green-blue") ~ "Berlin & Kay 1991",
+    pair %in% c("hand-foot", "arm-leg") ~ "Andersen 1978",
+    pair %in% c("circle-square") ~ "Burris 1978",
+    pair %in% c("east-north", "west-north", "east-south", "west-south") ~ "Brown 1983"
+  )) %>%
+  rename(token = pair) %>%
+  mutate(
+    type = case_when(
+    str_detect(token, "^hate-") ~ paste0("anger-", str_remove(token, "^hate-")),
+    str_detect(token, "^anger-") ~ paste0("anger-", str_remove(token, "^anger-")),
+    TRUE ~ token
+    ))
+```
+
+First create a consensus set:
+
+```{r}
+consensus <- full %>%
+  group_by(type) %>% 
+  mutate(wold_mean = mean(wold), ids_mean = mean(ids)) %>%
+  ungroup() %>%
+  # need to be supported by at least one of the lexicalization datasets
+  filter(wold_mean >= 0.5 & ids_mean >= 0.5) 
+```
+
+Run bootstrapping to estimate confidence intervals:
+
+```{r}
+run_bootstrap <- function(data, freq_col, n_boot = 1000, seed = 123) {
+  
+  set.seed(seed)
+  
+  compute_mean <- function(df) {
+    df %>%
+      group_by(type) %>%
+      summarise(
+        type_mean = mean(.data[[freq_col]], na.rm = TRUE),
+        .groups = "drop"
+      ) %>%
+      summarise(
+        mean_estimate = mean(type_mean, na.rm = TRUE)
+      )
+  }
+  
+  mean_val <- compute_mean(data)
+  
+  ci_vals <- map_dfr(1:n_boot, \(i) {
+    data %>%
+      slice_sample(n = nrow(data), replace = TRUE) %>%
+      compute_mean() %>%
+      mutate(sample = i)
+  }) %>%
+    summarise(
+      lower = quantile(mean_estimate, 0.025),
+      upper = quantile(mean_estimate, 0.975)
+    )
+  
+  bind_cols(mean_val, ci_vals) %>%
+    mutate(freq = freq_col)
+}
+
+confidence_intervals <- bind_rows(
+  run_bootstrap(full, "wl") %>% mutate(dataset = "full"),
+  run_bootstrap(full, "do") %>% mutate(dataset = "full"),
+  run_bootstrap(consensus, "wl") %>% mutate(dataset = "consensus"),
+  run_bootstrap(consensus, "do") %>% mutate(dataset = "consensus")
+)
+```
+
+Estimate p-values based on the regression analyses:
+
+```{r}
+logit <- function(p) log(p / (1 - p))
+
+run_glmm_test <- function(data, predictor) {
+  
+  dat <- data %>%
+    select(type, token, all_of(predictor)) %>%
+    mutate(
+      # tranform to logit scale
+      predictor_value = logit(.data[[predictor]]),
+      # assume that the outcome variable has value of 1 when the direction of the universals is correct
+      lud = 1
+    )
+  
+  full_model <- glmmTMB(
+    lud ~ 0 + predictor_value + (1 | type),
+    data = dat,
+    family = binomial(link = "logit")
+  )
+  
+  null_model <- glmmTMB(
+    lud ~ 0 + (1 | type),
+    data = dat,
+    family = binomial(link = "logit")
+  )
+  
+  anova_result <- anova(null_model, full_model)
+  
+  tibble(
+    predictor = predictor,
+    p_value = anova_result$`Pr(>Chisq)`[2]
+  )
+}
+
+p_values <- bind_rows(
+  run_glmm_test(full, "wl") %>% mutate(dataset = "full"),
+  run_glmm_test(full, "do") %>% mutate(dataset = "full"),
+  run_glmm_test(consensus, "wl") %>% mutate(dataset = "consensus"),
+  run_glmm_test(consensus, "do") %>% mutate(dataset = "consensus")
+)
+```
+
+Make table:
+
+```{r}
+results_all <- confidence_intervals %>%
+  left_join(p_values %>% rename(freq = predictor), by = c("dataset", "freq")) %>%
+  select(dataset, freq, mean_estimate, lower, upper, p_value) %>%
+  pivot_wider(
+    names_from = freq,
+    values_from = c(mean_estimate, lower, upper, p_value),
+    names_glue = "{.value}_{freq}"
+  ) %>%
+  mutate(
+    across(
+      c(mean_estimate_do, lower_do, upper_do,
+        mean_estimate_wl, lower_wl, upper_wl),
+      ~ round(.x, 2)
+    ),
+    across(
+      c(p_value_do, p_value_wl),
+      ~ case_when(
+        .x < 0.001 ~ as.character('< 0.001'),
+        TRUE ~ sprintf("%.3f", .x)
+      )
+    ),
+    ci_do = sprintf("[%.2f, %.2f]", lower_do, upper_do),
+    ci_wl = sprintf("[%.2f, %.2f]", lower_wl, upper_wl)
+  ) %>%
+  select(
+    dataset,
+    mean_do = mean_estimate_do, ci_do, p_value_do,
+    mean_wl = mean_estimate_wl, ci_wl, p_value_wl
+  )
+
+table_iu_freq <- xtable(
+  results_all,
+  digits = c(0, 0, 2, 0, 0, 2, 0, 0),
+  label = "tab:iu_freq"
+)
+
+print(
+  table_iu_freq,
+  file = here("output", "tables", "iu_freq.tex"),
+  include.rownames = FALSE,
+  comment = FALSE,
+  caption.placement = "top",
+  hline.after = c(-1, 0, nrow(results_all))
+)
+```
+
+Evaluate existing universals:
+
+```{r}
+wold <- read_csv(here("data", "wold_data.csv"), show_col_types = FALSE)
+ids <- read_csv(here("data", "ids_data.csv"), show_col_types = FALSE) 
+
+pairs <- full %>%
+  select(type, token) %>%
+  separate(token, into = c("concept1", "concept2"), sep = "-")
+
+wold_pairs <- pairs %>%
+  left_join(wold %>% distinct(glottocode, language, lex1 = lex, concept1 = concepticon_gloss), by = "concept1") %>%
+  left_join(wold %>% distinct(glottocode, language, lex2 = lex, concept2 = concepticon_gloss), by = c("glottocode", "language", "concept2")) %>%
+  # filter out languages that have NA values for the concepts
+  filter(!is.na(lex1), !is.na(lex2)) %>%
+  # filter out languages that have no lexicalization for both concepts
+  filter(!(lex1 == 0 & lex2 == 0)) %>%
+  # filter out languages that have lexicalization for both concepts
+  filter(!(lex1 == 1 & lex2 == 1)) %>%
+  mutate(support = case_when(
+    lex1 == 1 & lex2 == 0 ~ 1,
+    lex1 == 0 & lex2 == 1 ~ 0
+  )) %>%
+  group_by(type, glottocode, language) %>%
+  summarise(support = mean(support)) %>%
+  ungroup()
+
+wold_pairs_sum <- wold_pairs %>%
+  group_by(type) %>%
+  summarise(n_langs = n(),
+            prop_support = sum(support) / n_langs) %>%
+  ungroup()
+
+ids_pairs <- pairs %>%
+  left_join(ids %>% distinct(glottocode, language=langname, lex1 = lex, concept1 = concepticon_gloss), by = "concept1") %>%
+  left_join(ids %>% distinct(glottocode, language=langname, lex2 = lex, concept2 = concepticon_gloss), by = c("glottocode", "language", "concept2")) %>%
+  # filter out languages that have NA values for the concepts
+  filter(!is.na(lex1), !is.na(lex2)) %>%
+  # filter out languages that have no lexicalization for both concepts
+  filter(!(lex1 == 0 & lex2 == 0)) %>%
+  # filter out languages that have lexicalization for both concepts
+  filter(!(lex1 == 1 & lex2 == 1)) %>%
+  mutate(support = case_when(
+    lex1 == 1 & lex2 == 0 ~ 1,
+    lex1 == 0 & lex2 == 1 ~ 0
+  )) %>%
+  group_by(type, glottocode, language) %>%
+  summarise(support = mean(support)) %>%
+  ungroup()
+
+ids_pairs_sum <- ids_pairs %>%
+  group_by(type) %>%
+  summarise(n_langs = n(),
+            prop_support = sum(support) / n_langs) %>%
+  ungroup()
+
+both_pairs_sum <- ids_pairs_sum %>%
+  rename(ids_langs = n_langs, ids_prop = prop_support) %>%
+  left_join(wold_pairs_sum %>% rename(wold_langs = n_langs, wold_prop = prop_support), by = "type")
+```
+
+Make table for a list of universals: 
+
+```{r}
+blue_ids <- both_pairs_sum %>%
+  filter(ids_prop == 1) %>%
+  pull(type)
+
+red_ids <- both_pairs_sum %>%
+  filter(ids_prop < 1) %>%
+  pull(type)
+
+blue_wold <- both_pairs_sum %>%
+  filter(wold_prop == 1) %>%
+  pull(type)
+
+red_wold <- both_pairs_sum %>%
+  filter(wold_prop < 1) %>%
+  pull(type)
+
+score_fun <- function(x) {
+  case_when(
+    x == "+" ~ 2,
+    x == "0" ~ 1,
+    TRUE ~ 0
+  )
+}
+
+combo_cti <- full %>%
+  group_by(type, source) %>%
+  summarise(
+    across(c(wold, ids, do, wl), ~ mean(.x, na.rm = TRUE)),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    across(c(wold, ids, do, wl), ~ case_when(
+      .x > 0.5 ~ "+",
+      .x == 0.5 ~ "0",
+      TRUE ~ "-"
+    ))
+  ) %>%
+  mutate(
+    lex_score = score_fun(wold) + score_fun(ids),
+    freq_score = score_fun(do) + score_fun(wl),
+    lex_match = as.integer(wold == ids),
+    freq_match = as.integer(do == wl)
+  ) %>%
+  arrange(
+    desc(lex_score), desc(lex_match),
+    desc(freq_score), desc(freq_match)
+  ) %>%
+  select(-lex_score, -freq_score, -lex_match, -freq_match)
+
+combo_cti_latex <- combo_cti_latex <- combo_cti %>%
+  mutate(
+    ids = if_else(type %in% blue_ids & ids == "+",
+                  "\\textcolor{myblue}{+}", ids),
+    wold = if_else(type %in% blue_wold & wold == "+",
+                   "\\textcolor{myblue}{+}", wold)
+  ) %>%
+  mutate(
+    ids = if_else(type %in% red_ids & ids == "+",
+                  "\\textcolor{myred}{+}", ids),
+    wold = if_else(type %in% red_wold & wold == "+",
+                   "\\textcolor{myred}{+}", wold)
+  ) %>%
+  mutate(
+    ids = if_else(type %in% red_ids & ids == "-",
+                  "\\textcolor{myred}{-}", ids),
+    wold = if_else(type %in% red_wold & wold == "-",
+                   "\\textcolor{myred}{-}", wold)
+  ) %>%
+  separate(type, into = c("x", "y"), sep = "-", remove = FALSE) %>%
+  mutate(type = str_glue("\\concept{{{x}}}~$\\iu$~\\concept{{{y}}}")) %>%
+  select(type, source, ids, wold,do,wl)
+
+table_cti <- xtable(
+  combo_cti_latex,
+  digits = c(0, rep(0, ncol(combo_cti_latex))),
+  label = "tab:ipalong_cti"
+)
+
+print(
+  table_cti,
+  file = here("output", "tables", "ipa.tex"),
+  include.rownames = FALSE,
+  tabular.environment = "longtable",
+  floating = FALSE,
+  comment = FALSE,
+  caption.placement = "top",
+  hline.after = c(-1, 0, nrow(combo_cti_latex))
+)
+```
+
+Make a table that contains raw relative scores:
+
+```{r}
+type_order <- combo_cti %>%
+  distinct(type) %>%
+  mutate(type_id = row_number())
+
+df <- full %>%
+  select(type, token, ids, wold, do, wl) %>%
+  left_join(type_order, by = "type") %>%
+  separate(type, into = c("type_x", "type_y"), sep = "-", remove = FALSE) %>%
+  separate(token, into = c("token_x", "token_y"), sep = "-", remove = FALSE) %>%
+  mutate(
+    type = str_glue("\\concept{{{type_x}}}~$\\iu$~\\concept{{{type_y}}}"),
+    token = str_glue("\\term{{{token_x}}}~$\\iu$~\\term{{{token_y}}}")
+  ) %>%
+  select(-type_x, -type_y, -token_x, -token_y) %>%
+  arrange(type_id, token) %>%
+  select(-type_id)
+
+table_raw <- xtable(
+  df,
+  digits = c(0, 0, 0, 4, 4, 4, 4),
+  label = "tab:iu_raw"
+)
+
+print(
+  table_raw,
+  file = here("output", "tables", "iu_raw.tex"),
+  include.rownames = FALSE,
+  comment = FALSE,
+  caption.placement = "top",
+  hline.after = c(-1, 0, nrow(df))
+)
+```
+
+Identify new implicational universals:
+
+```{r imp.uni include=TRUE}
+# WOLD
+wold_total <- length(unique(wold$glottocode))
+
+wold <- wold %>%
+  mutate(concepticon_id = as.character(concepticon_id)) %>%
+  group_by(concepticon_id) %>%
+  mutate(total = sum(lex),
+         n = n()) %>%
+  ungroup() %>%
+  # filter out absolute universals
+  filter(total != wold_total)
+
+combos <- wold %>%
+  select(semantic_field, concepticon_id) %>%
+  unique() %>%
+  group_by(semantic_field) %>%
+  summarise(pairs = list(combn(concepticon_id, 2, simplify = FALSE)), .groups = "drop") %>%
+  unnest(pairs) %>%
+  mutate(concepticon_id1 = map_chr(pairs, 1),
+         concepticon_id2 = map_chr(pairs, 2)) %>%
+  select(-pairs)
+
+wold1 <- wold %>%
+  select(-total, -n) %>%
+  rename_with(~ paste0(.x, "1"), -c(semantic_field, glottocode, language))
+
+wold2 <- wold %>%
+  select(-total, -n) %>%
+  rename_with(~ paste0(.x, "2"), -c(semantic_field, glottocode, language))
+
+result <- combos %>%
+  left_join(wold1, by = c("semantic_field", "concepticon_id1")) %>%
+  left_join(wold2, by = c("semantic_field", "concepticon_id2", "glottocode", "language")) %>%
+  unique()
+
+imp <- result %>%
+  # these cases do not tell us about anything, so filter them out
+  filter(!(lex1 == 1 & lex2 == 1) & !(lex1 == 0 & lex2 == 0)) %>%
+  mutate(lex_diff = lex1 - lex2) %>%
+  group_by(semantic_field, concepticon_id1, concepticon_gloss1, concepticon_id2, concepticon_gloss2) %>%
+  summarise(
+    langs = n_distinct(glottocode),
+    lex1lex0 = sum(lex_diff == 1),
+    lex0lex1 = sum(lex_diff == -1)
+  ) %>%
+  ungroup() %>%
+  filter(!(lex1lex0 != 0 & lex0lex1 != 0))
+
+a <- imp %>%
+  filter(lex1lex0 != 0) %>%
+  select(-lex1lex0, -lex0lex1) %>%
+  rename(evidence = langs)
+
+b <- imp %>%
+  filter(lex1lex0 == 0) %>%
+  select(-lex1lex0, -lex0lex1) %>%
+  rename(concepticon_id1 = concepticon_id2,
+         concepticon_gloss1 = concepticon_gloss2,
+         concepticon_id2 = concepticon_id1,
+         concepticon_gloss2 = concepticon_gloss1,
+         evidence = langs)
+
+all <- bind_rows(a, b) %>%
+  #filter(evidence >= 20) %>%
+  arrange(semantic_field) %>%
+  write_csv(here("output/results", "imp_wold.csv"))
+
+# IDS
+ids_total <- length(unique(ids$language_id))
+
+ids <- ids %>%
+  mutate(concepticon_id = as.character(concepticon_id)) %>%
+  group_by(concepticon_id) %>%
+  mutate(total = sum(lex),
+         n = n()) %>%
+  ungroup() %>%
+  # filter out absolute universals
+  filter(total != ids_total)
+
+combos <- ids %>%
+  select(semantic_field, concepticon_id) %>%
+  unique() %>%
+  group_by(semantic_field) %>%
+  filter(n() > 1) %>%  
+  summarise(pairs = list(combn(concepticon_id, 2, simplify = FALSE)), .groups = "drop") %>%
+  unnest(pairs) %>%
+  mutate(concepticon_id1 = map_chr(pairs, 1),
+         concepticon_id2 = map_chr(pairs, 2)) %>%
+  select(-pairs)
+
+ids1 <- ids %>%
+  select(-total, -n) %>%
+  rename_with(~ paste0(.x, "1"), -c(semantic_field, language_id, glottocode, langname))
+
+ids2 <- ids %>%
+  select(-total, -n) %>%
+  rename_with(~ paste0(.x, "2"), -c(semantic_field, language_id, glottocode, langname))
+
+result <- combos %>%
+  left_join(ids1, by = c("semantic_field", "concepticon_id1")) %>%
+  left_join(ids2, by = c("semantic_field", "concepticon_id2", "language_id", "glottocode", "langname")) %>%
+  unique()
+
+imp <- result %>%
+  # these cases do not tell us about anything, so filter them out
+  filter(!(lex1 == 1 & lex2 == 1) & !(lex1 == 0 & lex2 == 0)) %>%
+  mutate(lex_diff = lex1 - lex2) %>%
+  group_by(semantic_field, concepticon_id1, concepticon_gloss1, concepticon_id2, concepticon_gloss2) %>%
+  summarise(
+    langs = n_distinct(language_id),
+    lex1lex0 = sum(lex_diff == 1),
+    lex0lex1 = sum(lex_diff == -1)
+  ) %>%
+  ungroup() %>%
+  filter(!(lex1lex0 != 0 & lex0lex1 != 0))
+
+a <- imp %>%
+  filter(lex1lex0 != 0) %>%
+  select(-lex1lex0, -lex0lex1) %>%
+  rename(evidence = langs)
+
+b <- imp %>%
+  filter(lex1lex0 == 0) %>%
+  select(-lex1lex0, -lex0lex1) %>%
+  rename(concepticon_id1 = concepticon_id2,
+         concepticon_gloss1 = concepticon_gloss2,
+         concepticon_id2 = concepticon_id1,
+         concepticon_gloss2 = concepticon_gloss1,
+         evidence = langs)
+
+all <- bind_rows(a, b) %>%
+  arrange(semantic_field) %>%
+  write_csv(here("output/results", "imp_ids.csv"))
+```

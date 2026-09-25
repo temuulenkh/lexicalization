@@ -1,0 +1,42 @@
+language_id,name,macroarea,latitude,longitude,glottocode,iso639p3code,area,langfamily,narea,nfam
+1,Swahili,NA,-6.5,39,swah1253,swh,Africa,Atlantic-Congo,6,24
+2,Iraqw,NA,-4,35.5,iraq1241,irk,Africa,Afro-Asiatic,6,24
+3,Gawwada,NA,5.5,37.25,gaww1239,gwd,Africa,Afro-Asiatic,6,24
+4,Hausa,NA,12,7,haus1257,hau,Africa,Afro-Asiatic,6,24
+5,Kanuri,NA,12,13,cent2050,knc,Africa,Saharan,6,24
+6,Tarifiyt Berber,NA,34.5,-4,tari1263,rif,Africa,Afro-Asiatic,6,24
+7,Seychelles Creole,NA,-4.75,55.5,sese1246,crs,Africa,Indo-European,6,24
+8,Romanian,NA,46,25,roma1327,ron,Eurasia,Indo-European,6,24
+9,Selice Romani,NA,48.091,17.9609,west2376,NA,Eurasia,Indo-European,6,24
+10,Lower Sorbian,NA,51.75,14.3333,lowe1385,dsb,Eurasia,Indo-European,6,24
+11,Old High German,NA,50.55,9.68333,oldh1241,NA,Eurasia,Indo-European,6,24
+12,Dutch,NA,52.5,6,dutc1256,nld,Eurasia,Indo-European,6,24
+13,English,NA,52,0,stan1293,eng,Africa;Eurasia;South America,Indo-European,6,24
+14,Kildin Saami,NA,67,37,kild1236,sjd,Eurasia,Uralic,6,24
+15,Bezhta,NA,42.0833,46.1667,bezh1248,kap,Eurasia,Nakh-Daghestanian,6,24
+16,Archi,NA,42,46.8333,arch1244,aqc,Eurasia,Nakh-Daghestanian,6,24
+17,Manange,NA,28,84.25,mana1288,nmm,Eurasia,Sino-Tibetan,6,24
+19,Sakha,NA,62,130,yaku1245,NA,Eurasia,Turkic,6,24
+20,Oroqen,NA,51.2829,126.111,oroq1238,orh,Eurasia,Tungusic,6,24
+21,Japanese,NA,37,140,nucl1643,jpn,Eurasia,Japonic,6,24
+22,Mandarin Chinese,NA,34,110,mand1415,cmn,Eurasia,Sino-Tibetan,6,24
+23,Thai,NA,16,101,thai1261,tha,Eurasia,Tai-Kadai,6,24
+24,Vietnamese,NA,10.5,106.5,viet1252,vie,Eurasia,Austroasiatic,6,24
+25,White Hmong,NA,26,105,hmon1333,mww,Eurasia,Hmong-Mien,6,24
+27,Indonesian,NA,0,106,indo1316,ind,Papunesia,Austronesian,6,24
+28,Malagasy,NA,-20,47,plat1254,plt,Africa,Austronesian,6,24
+29,Takia,NA,-4.66667,146,taki1248,tbc,Papunesia,Austronesian,6,24
+30,Hawaiian,NA,19.5833,-155.5,hawa1245,haw,Papunesia,Austronesian,6,24
+32,Yaqui,NA,27.5,-110.25,yaqu1251,yaq,North America,Uto-Aztecan,6,24
+33,Zinacantán Tzotzil,NA,16.8333,-92.8333,tzot1264,tzz,North America,Mayan,6,24
+34,Q'eqchi',NA,16,-89.8333,kekc1242,kek,North America,Mayan,6,24
+35,Otomi,NA,20.1667,-98.8333,mezq1235,ote,North America,Otomanguean,6,24
+36,Saramaccan,NA,4.5,-55.5,sara1340,srm,South America,Indo-European,6,24
+37,Imbabura Quechua,NA,0.333333,-78,imba1240,qvi,South America,Quechuan,6,24
+38,Kali'na,NA,5.5,-56,gali1262,car,South America,Cariban,6,24
+39,Hup,NA,0.166667,-69.25,hupd1244,jup,South America,Naduhup,6,24
+40,Wichí,NA,-22.5,-62.5833,wich1264,mzh,South America,Mataguayan,6,24
+41,Mapudungun,NA,-38,-72,mapu1245,arn,South America,Araucanian,6,24
+18,Ket,NA,64,87,kett1243,ket,Eurasia,Yeniseian,6,24
+26,Ceq Wong,NA,3.8807,102.456,chew1245,cwg,Eurasia,Austroasiatic,6,24
+31,Gurindji,NA,-17.6667,130.667,guri1247,gue,Australia,Pama-Nyungan,6,24

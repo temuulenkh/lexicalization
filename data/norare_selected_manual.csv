@@ -1,0 +1,29 @@
+variable_id,rename,type,comment
+Brysbaert-2019-Prevalence-ENGLISH_KNOWN_PERCENTAGE,known_percentage,prevalence,
+Brysbaert-2019-Prevalence-ENGLISH_PREVALENCE,prevalence,prevalence,
+Lynott-2020-Sensorimotor-ENGLISH_PERCEPTUAL_STRENGTH_MAX,perceptual_max,sensorimotor,
+Lynott-2020-Sensorimotor-ENGLISH_PERCEPTUAL_STRENGTH_AGGREGATED,perceptual_aggregated,sensorimotor,
+Lynott-2020-Sensorimotor-ENGLISH_ACTION_STRENGTH_MAX,action_max,sensorimotor,
+Lynott-2020-Sensorimotor-ENGLISH_ACTION_STRENGTH_AGGREGATED,action_aggregated,sensorimotor,
+Lynott-2020-Sensorimotor-ENGLISH_SENSORIMOTOR_STRENGTH_MAX,sensor_max,sensorimotor,
+Brysbaert-2009-Frequency-ENGLISH_FREQUENCY,freq_subtitleus,frequency of use,raw
+Brysbaert-2009-Frequency-ENGLISH_FREQUENCY_PM,freq_subtitleus,frequency of use,normalized
+Brysbaert-2009-Frequency-ENGLISH_CD,cd_subtitleus,contextual diversity,raw
+Brysbaert-2009-Frequency-ENGLISH_SUBTITLE_CD,cd_subtitleus,contextual diversity,normalized
+Mohammad-2018-AffectiveRatings-ENGLISH_VALENCE_MEAN,valence_mohammad,valence,
+Mohammad-2018-AffectiveRatings-ENGLISH_AROUSAL_MEAN,arousal_mohammad,arousal,
+Mohammad-2018-AffectiveRatings-ENGLISH_DOMINANCE_MEAN,dominance_mohammad,dominance,
+Warriner-2013-AffectiveRatings-ENGLISH_VALENCE_MEAN,valence_warriner,valence,
+Warriner-2013-AffectiveRatings-ENGLISH_AROUSAL_MEAN,arousal_warriner,arousal,
+Warriner-2013-AffectiveRatings-ENGLISH_DOMINANCE_MEAN,dominance_warriner,dominance,
+VanHeuven-2014-Frequency-ENGLISH_FREQUENCY,freq_bbc,frequency of use,raw
+VanHeuven-2014-Frequency-ENGLISH_FREQUENCY_BNC,freq_bnc,frequency of use,raw
+VanHeuven-2014-Frequency-ENGLISH_FREQUENCY_CBEEBIES,freq_cbeebies,frequency of use,raw
+VanHeuven-2014-Frequency-ENGLISH_FREQUENCY_CBBC,freq_cbbc,frequency of use,raw
+VanHeuven-2014-Frequency-ENGLISH_CD,cd_bbc,contextual diversity,raw
+VanHeuven-2014-Frequency-ENGLISH_CD_CBEEBIES,cd_cbeebies,contextual diversity,raw
+VanHeuven-2014-Frequency-ENGLISH_CD_CBBC,cd_cbbc,contextual diversity,raw
+Cuetos-2011-Frequency-SPANISH_FREQUENCY,freq_spanish,frequency of use,raw
+Cuetos-2011-Frequency-SPANISH_FREQUENCY_PM,freq_spanish,frequency of use,normalized
+Brysbaert-2011-Frequency-GERMAN_FREQUENCY,freq_german,frequency of use,raw
+Brysbaert-2011-Frequency-GERMAN_FREQUENCY_PM,freq_german,frequency of use,normalized

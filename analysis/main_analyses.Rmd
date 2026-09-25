@@ -1,0 +1,1612 @@
+---
+title: "Main analyses"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+```{r libraries}
+library(tidyverse)  
+library(here)
+library(patchwork)
+library(broom.mixed)
+library(ggrepel)
+library(glmmTMB)
+library(ggtext)
+library(xtable)
+library(scales)
+library(brms)
+library(ordbetareg)
+library(loo)
+library(purrr) 
+library(marginaleffects)
+library(collapse)
+
+select <- dplyr::select
+```
+
+This notebook contains our main analysis that examines the relationship between lexicalization and its predictor variables as well as part-of-speech analysis.
+
+# Visualize the relation between lexicalization and usage frequency
+
+```{r main fig 1, include=TRUE}
+set.seed(123)
+
+d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE) %>%
+  mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.)))
+
+dplot <- d_full %>%
+  pivot_longer(cols = c("lex_wold", "lex_ids"), names_to = "row_group", values_to = "lex_freq") %>%
+  pivot_longer(cols = c("wl_mean", "do_mean", "en"), names_to = "column_group", values_to = "log_mean") %>%
+  mutate(row_group = case_when(
+    row_group == "lex_wold" ~ "WOLD",
+    row_group == "lex_ids" ~ "IDS"
+  )) %>%
+  mutate(column_group = case_when(
+    column_group == "wl_mean" ~ "Worldlex",
+    column_group == "do_mean" ~ "DoReCo",
+    column_group == "en" ~ "English only"
+  )) %>%
+  mutate(
+    row_group = factor(row_group, levels = c("IDS", "WOLD")),
+    column_group = factor(column_group, levels = c("DoReCo", "Worldlex", "English only"))
+  ) %>%
+  mutate(lex_freq = ifelse(lex_freq >= 1, 1, lex_freq))
+
+fit_beta_model <- function(data) {
+  model <- glmmTMB(lex_freq ~ log_mean, data = data, family = ordbeta(link = "logit"))
+  data$predicted <- predict(model, type = "response")
+  return(data)
+}
+
+dplot_with_pred <- dplot %>%
+  group_by(row_group, column_group) %>%
+  do(fit_beta_model(.))
+
+plot <- dplot_with_pred %>%
+  ggplot(aes(x = log_mean, y = lex_freq)) +
+  geom_point(alpha = 0.3, size = 0.01, color = "black") +
+  geom_line(aes(x = log_mean, y = predicted), color = "blue", linewidth = 0.5) +
+  facet_grid(row_group ~ column_group, scales = "free_x") +
+  labs(
+    x = "Log mean usage frequency per million",
+    y = "Lexicalization score"
+  ) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  theme_minimal(base_size = 9) +
+  theme(
+    plot.title = element_blank(),
+    plot.subtitle = element_blank(),
+    strip.background = element_blank(),
+    strip.text = element_text(face = "bold", size = 7.875),
+    panel.grid = element_blank(),
+    panel.background = element_rect(fill = "white", color = NA),
+    panel.spacing = unit(0.1, "lines"),
+    axis.line.x = element_blank(),
+    axis.line.y = element_blank(),
+    axis.text.x = element_text(size = 6.75),
+    axis.text.y = element_text(size = 6.75),
+    panel.border = element_rect(color = "gray70", fill = NA, linewidth = 0.3),
+    plot.margin = margin(1, 1, 1, 1)
+  )
+
+swadesh  <- c("I","you","we","this","that","who","what","not","all","many","one",
+              "two","big","long","small","woman","man","person","fish","bird",
+         "dog","louse","tree","seed","leaf","root","bark","skin","flesh","blood",
+         "bone","grease","egg","horn","tail","feather","hair","head","ear","eye",
+         "nose","mouth","tooth","tongue","claw","foot","knee","hand","belly","neck",
+         "breast","heart","liver","drink","eat","bite","see","hear","know","sleep",
+         "die","kill","swim","fly","walk","come","lie","sit","stand","give","say",
+         "sun","moon","star","water","rain","stone","sand","earth","cloud",
+         "smoke","fire","ash","burn","path","mountain","red","green","yellow",
+         "white","black","night","hot","cold","full","new","good","round","dry","name")
+
+leipzig <- c("fire","nose","go","water","mouth","tongue","blood","bone","root","come",
+             "breast","rain","name","louse","wing","flesh","meat","arm","hand","fly",
+         "night","ear","neck","far","do","house","stone","bitter","say","tooth","hair",
+         "big","one","who","hit","beat","leg","foot",
+         "horn","this","fish","yesterday","drink","black","navel","stand","bite","back",
+         "wind","smoke","what","child","egg","give","new","burn","not","good",
+         "know","knee","sand","laugh","hear","soil","leaf","red","liver","hide","skin",
+         "suck","carry","ant","heavy","take","old","eat","thigh","thick",
+         "long","blow","wood","run","fall","eye","ash","tail","dog","cry","weep","tie",
+         "see","sweet","rope","shade","shadow","bird","salt","small",
+         "wide","star","in","hard","crush","grind") 
+# these are not included: 2sg pronoun, 1sg pronoun
+
+nsm <- c("I","you","person","thing","body","this","same","other","one","two","some","all",
+         "many","good","bad","big","small","think","know","want",
+         "feel","see","hear","say","word","true","do or make","happen","move","touch",
+         "have","be alive","be dead","when","now","before","after","moment",
+         "where","place","time","here","above","below","far","near","side",
+         "inside","not","maybe","can","because","if","very","more","be", 
+         "someone","something", "me", "people", "part", "much", "little", "few")
+# these are not included: there is, a long time, a short time, for some time, kind of, don't want, be someone's, be someone/something, like-way-as
+
+lists <- c(swadesh, leipzig, nsm) %>% unique()
+
+total <- length(unique(d_full$concepticon_id))
+
+both <- d_full %>%
+  mutate(ranklex_w = rank(lex_wold) / total,
+         ranklex_i = rank(lex_ids) / total,
+         rankmean_w = rank(wl_mean) / total,
+         rankmean_r = rank(do_mean) / total) %>%
+  mutate(concepticon_gloss = str_replace(concepticon_gloss, "\\s*\\(.*\\)", "")) %>%
+  select(concepticon_id, concepticon_gloss, semantic_field, ranklex_w, ranklex_i, rankmean_w, rankmean_r) %>%
+  mutate(ranklex = (ranklex_w + ranklex_i) / 2,
+         rankuse = (rankmean_w + rankmean_r) / 2) %>%
+  mutate(concepticon_gloss = str_to_lower(concepticon_gloss))
+
+hlhu <- both %>%
+  filter(ranklex > 0.80, rankuse > 0.80)
+  
+top_20 <- both %>%
+  arrange(desc(ranklex), concepticon_gloss) %>%
+  filter(concepticon_id %in% hlhu$concepticon_id) %>%
+  head(36) %>%
+  select(concepticon_gloss) %>%
+  mutate(concepticon_gloss = case_when(
+    concepticon_gloss == "be alive or life" ~ "be alive",
+    concepticon_gloss == "be dead or die" ~ "be dead",
+    concepticon_gloss == "stone or rock" ~ "stone",
+    concepticon_gloss == "center or middle" ~ "middle",
+    concepticon_gloss == "strike or beat" ~ "beat",
+    TRUE ~ concepticon_gloss
+  )) %>% pull()
+
+lllu <- both %>%
+  filter(ranklex < 0.20, rankuse < 0.20)
+
+bot_20 <- both %>%
+  arrange(ranklex) %>%
+  filter(concepticon_id %in% lllu$concepticon_id) %>%
+  head(36) %>% 
+  arrange(desc(ranklex), concepticon_gloss) %>%
+  select(concepticon_gloss) %>%
+  mutate(concepticon_gloss = case_when(
+    concepticon_gloss == "flax or linen" ~ "linen",
+    concepticon_gloss == "bronze or copper" ~ "bronze",
+    concepticon_gloss == "sickle or scythe" ~ "sickle",
+    TRUE ~ concepticon_gloss
+  )) %>% 
+  pull()
+
+hllu <- both %>%
+  filter(ranklex > 0.70, rankuse < 0.30)
+
+highlex_20 <- both %>%
+  arrange(desc(ranklex), concepticon_gloss) %>%
+  filter(concepticon_id %in% hllu$concepticon_id) %>%
+  head(36) %>% select(concepticon_gloss) %>%
+  mutate(concepticon_gloss = case_when(
+    concepticon_gloss == "upper leg" ~ "thigh",
+    concepticon_gloss == "flax or linen" ~ "linen",
+    concepticon_gloss == "crawl or creep" ~ "crawl",
+    TRUE ~ concepticon_gloss
+  ))  %>% pull()
+
+llhu <- both %>%
+  filter(ranklex < 0.35, rankuse > 0.65)
+
+lowlex_20 <- both %>%
+  arrange(ranklex) %>%
+  filter(concepticon_id %in% llhu$concepticon_id) %>%
+  head(36) %>% 
+  arrange(desc(ranklex), concepticon_gloss) %>%
+  select(concepticon_gloss) %>%
+  mutate(concepticon_gloss = case_when(
+    concepticon_gloss == "abstain from food" ~ "to fast",
+    concepticon_gloss == "land" ~ "to land",
+    concepticon_gloss == "marriage or wedding" ~ "marriage",
+    concepticon_gloss == "nothing or zero" ~ "zero",
+    concepticon_gloss == "allow or permit" ~ "allow",
+    TRUE ~ concepticon_gloss
+  )) %>% 
+  pull()
+
+format_words <- function(words, n_per_line = 4, bold_words = NULL) {
+
+  split_words <- split(words, ceiling(seq_along(words) / n_per_line))
+
+  formatted_words <- lapply(seq_along(split_words), function(i) {
+    row_words <- split_words[[i]]
+
+    row_words <- sapply(row_words, function(word) {
+      if (!is.null(bold_words) && word %in% bold_words) {
+        paste0("<b>", word, "</b>")
+      } else {
+        word
+      }
+    })
+    
+    if (i < length(split_words)) {
+      row_words[length(row_words)] <- paste0(row_words[length(row_words)], ",")
+    }
+    
+    paste(row_words, collapse = ", ")
+  })
+
+  paste(formatted_words, collapse = "<br>")
+}
+
+words_df <- data.frame(
+  Usage = c("Low", "High", "Low", "High"),
+  Lexicalization = c("High", "Low", "Low", "High"),
+  words = c(
+    format_words(highlex_20, bold_words = lists),
+    format_words(lowlex_20, bold_words = lists),
+    format_words(bot_20, bold_words = lists),
+    format_words(top_20, bold_words = lists) 
+  )
+)
+
+words_df$Usage <- factor(words_df$Usage, levels = c("Low", "High"))
+
+concplot <- ggplot(words_df, aes(label = words)) +
+  geom_richtext(aes(x = 0.5, y = 0.5),
+                hjust = 0.5, vjust = 0.5, size = 1.97,
+                fill = NA, label.color = NA) +
+  facet_grid(Lexicalization ~ Usage) +
+  theme_minimal(base_size = 9) +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.ticks.y = element_blank(),
+    strip.background = element_blank(),
+    strip.text = element_text(size = 7.875, face = "bold"),
+    panel.spacing = unit(0.1, "lines"),
+    panel.border = element_rect(color = "gray70", fill = NA, linewidth = 0.3),
+    plot.margin = margin(1, 1, 1, 1)
+  ) +
+  xlab("Mean usage frequency") + ylab("Lexicalization score")
+
+final_plot <- plot + concplot +
+  plot_layout(ncol = 2, widths = c(1, 0.75), heights = c(1)) +
+  plot_annotation(
+    tag_levels = 'A',
+    theme = theme(
+      plot.tag = element_text(size = 7.875),
+      plot.tag.position = c(0, 1)
+    )
+  )
+
+ggsave(here("output/figures", "use_lex.pdf"), final_plot, width = 18, height = 7.875, units = "cm")
+```
+
+# Statistical analyses
+
+Load data and standardize variables.
+
+```{r load data, include=TRUE}
+d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE) %>%
+  mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
+  mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
+
+d_dev <- read_csv(here("data", "d_dev.csv"), show_col_types = FALSE) %>%
+  mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
+  mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
+```
+
+Let's look at correlation between predictor variables:
+
+```{r}
+# full set
+predictors <- c(
+  "wl_mean", "wl_cvar", "en",
+  "do_mean", "do_cvar", "ins",
+  "cd", "aoa_self", "conc", "sens"
+)
+
+pretty_names <- c(
+  wl_mean  = "mean usage (Worldlex)",
+  wl_cvar   = "CV of usage (Worldlex)",
+  en       = "usage (English only)",
+  do_mean  = "mean usage (DoReCo)",
+  do_cvar   = "CV of usage (DoReCo)",
+  ins      = "association in-strength",
+  cd       = "contextual diversity",
+  aoa_self = "AoA (self reported)",
+  conc     = "concreteness",
+  sens     = "sensorimotor strength"
+)
+
+# correlation matrix
+cor_matrix <- d_full %>%
+  select(all_of(predictors)) %>%
+  cor(use = "pairwise.complete.obs")
+
+rownames(cor_matrix) <- pretty_names[rownames(cor_matrix)]
+colnames(cor_matrix) <- pretty_names[colnames(cor_matrix)]
+
+cor_table <- round(cor_matrix, 2)
+cor_table[lower.tri(cor_table)] <- NA
+
+cor_df <- as.data.frame(cor_table, check.names = FALSE) %>%
+  tibble::rownames_to_column(var = "predictor") %>%
+  mutate(across(-predictor, ~ ifelse(is.na(.), "", sprintf("%.2f", .))))
+
+colnames(cor_df)[1] <- ""
+
+out_path <- here("output/tables", "pred_cor_full.tex")
+
+print(
+  xtable(cor_df, align = c("l", "l", rep("c", ncol(cor_df) - 1))),
+  file = out_path,
+  include.rownames = FALSE,
+  sanitize.text.function = identity,
+  comment = FALSE
+)
+
+# developmental set
+predictors_dev <- c(
+  "wl_mean", "wl_cvar", "en",
+  "do_mean", "do_cvar", "ins",
+  "cd", "aoa_self", "aoa_parent",
+  "conc", "sens"
+)
+
+pretty_names <- c(
+  wl_mean    = "mean usage (Worldlex)",
+  wl_cvar     = "CV of usage (Worldlex)",
+  en         = "usage (English only)",
+  do_mean    = "mean usage (DoReCo)",
+  do_cvar     = "CV of usage (DoReCo)",
+  ins        = "association in-strength",
+  cd         = "contextual diversity",
+  aoa_self   = "AoA (self reported)",
+  aoa_parent = "AoA (parent reported)",
+  conc       = "concreteness",
+  sens       = "sensorimotor strength"
+)
+
+cor_matrix_dev <- d_dev %>%
+  select(all_of(predictors_dev)) %>%
+  cor(use = "pairwise.complete.obs")
+
+rownames(cor_matrix_dev) <- pretty_names[rownames(cor_matrix_dev)]
+colnames(cor_matrix_dev) <- pretty_names[colnames(cor_matrix_dev)]
+
+cor_table_dev <- round(cor_matrix_dev, 2)
+cor_table_dev[lower.tri(cor_table_dev)] <- NA
+
+cor_df_dev <- as.data.frame(cor_table_dev, check.names = FALSE) %>%
+  tibble::rownames_to_column(var = "predictor") %>%
+  mutate(across(-predictor, ~ ifelse(is.na(.), "", sprintf("%.2f", .))))
+colnames(cor_df_dev)[1] <- ""
+
+tab_dev <- xtable(
+  cor_df_dev,
+  align = c("l", "l", rep("c", ncol(cor_df_dev) - 1))
+)
+
+print(
+  tab_dev,
+  file = here("output/tables", "pred_cor_dev.tex"),
+  include.rownames = FALSE,
+  include.colnames = TRUE,
+  sanitize.text.function = identity,
+  floating = FALSE,
+  comment = FALSE
+)
+```
+
+## Frequentist analysis
+
+Ordered beta regression analysis (frequentist):
+
+```{r frequentist, include=TRUE}
+run_glmm <- function(data, outcome_var, predictor_var) {
+  
+  fit_model_with_warnings <- function(formula) {
+    warnings <- list()
+    model <- withCallingHandlers(
+      glmmTMB(formula, family = ordbeta(link = "logit"), data = data),
+      warning = function(w) {
+        warnings <<- c(warnings, w$message)
+        invokeRestart("muffleWarning")
+      }
+    )
+    list(model = model, warnings = warnings)
+  }
+  
+  formula_full <- as.formula(paste(outcome_var, "~", predictor_var))
+  formula_null <- as.formula(paste(outcome_var, "~ 1"))
+  
+  full_fit <- fit_model_with_warnings(formula_full)
+  
+  if (predictor_var == "1") {
+    
+    summ <- tibble(
+      outcome = outcome_var,
+      predictor = predictor_var,
+      BIC = BIC(full_fit$model),
+      AIC = AIC(full_fit$model),
+      term = "(Intercept)",
+      estimate = fixef(full_fit$model)$cond["(Intercept)"],
+      conf.low = NA_real_,
+      conf.high = NA_real_,
+      chisq = NA_real_,
+      df = NA_real_,
+      p.value = NA_real_,
+      warnings = if (length(full_fit$warnings) > 0) paste(full_fit$warnings, collapse = ";") else ""
+    )
+    
+  } else {
+    
+    null_fit <- fit_model_with_warnings(formula_null)
+    aov_result <- anova(null_fit$model, full_fit$model)
+    
+    chisq_val <- aov_result$Chisq[2]
+    df_val <- aov_result$`Chi Df`[2]
+    p_val <- aov_result$`Pr(>Chisq)`[2]
+    
+    coefs <- tidy(full_fit$model) %>%
+      filter(component == "cond", term != "(Intercept)")
+
+    ci <- confint(full_fit$model, component = "cond", level = 0.95)
+
+    ci_cond <- as.data.frame(ci) %>%
+      tibble::rownames_to_column("term") %>%
+      rename(
+       conf.low = `2.5 %`,
+       conf.high = `97.5 %`
+      )
+
+    coefs <- coefs %>%
+      left_join(ci_cond, by = "term")
+    
+    pred_terms <- attr(terms(formula_full), "term.labels")
+    
+    me <- tryCatch(
+      suppressMessages(
+        suppressWarnings(
+          avg_slopes(
+            full_fit$model,
+            variables = pred_terms
+          ) %>%
+            as.data.frame()
+        )
+      ),
+      error = function(e) NULL
+    )
+    
+    summ <- tibble(
+      outcome = outcome_var,
+      predictor = predictor_var,
+      BIC = BIC(full_fit$model),
+      AIC = AIC(full_fit$model),
+      term = coefs$term,
+      estimate = coefs$estimate,
+      conf.low = coefs$conf.low,
+      conf.high = coefs$conf.high,
+      chisq = chisq_val,
+      df = df_val,
+      p.value = p_val,
+      warnings = if (length(full_fit$warnings) > 0) paste(full_fit$warnings, collapse = ";") else ""
+    )
+  }
+  
+  return(summ)
+}
+
+# full set
+outcome_vars <- c("lex_wold", "lex_ids")
+predictors_full <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "cd", "conc", "sens", "ins", "1")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_full) {
+    result <- run_glmm(data = d_full, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_full <- bind_rows(results_list) 
+
+# developmental set
+predictors_dev <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "aoa_parent", "cd", "conc", "sens", "ins", "1")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_dev) {
+    result <- run_glmm(data = d_dev, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_dev <- bind_rows(results_list)
+```
+
+Make table:
+
+```{r main table 1 and 2, include=TRUE}
+
+make_table <- function(data) {
+  
+  table <- data %>%
+    select(-warnings) %>%
+    mutate(type = case_when(
+      predictor == "1" ~ "null",
+      predictor %in% c("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean", "en") ~ "frequency",
+      TRUE ~ "other"
+    )) %>%
+    group_by(outcome) %>%
+    mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+    ungroup() %>%
+    select(-shiftbic, -shiftaic) %>%
+    mutate(predictor = case_when(
+      predictor == "aoa_self" ~ "AoA (self reported)",
+      predictor == "aoa_parent" ~ "AoA (parent reported)",
+      predictor == "wl_mean + wl_cvar" ~ "mean + CV (Worldlex)",
+      predictor == "wl_mean" ~ "mean usage (Worldlex)",
+      predictor == "ins" ~ "association in-strength",
+      predictor == "en" ~ "usage (English only)",
+      predictor == "cd" ~ "contextual diversity",
+      predictor == "1" ~ "null model",
+      predictor == "do_mean" ~ "mean usage (DoReCo)",
+      predictor == "do_mean + do_cvar" ~ "mean + CV (DoReCo)",
+      predictor == "conc" ~ "concreteness",
+      predictor == "sens" ~ "sensorimotor strength",
+      TRUE ~ predictor
+    )) %>%
+    rename(variable = term) %>%
+    mutate(variable = case_when(
+      variable == "(Intercept)" ~ "intercept",
+      predictor == "mean + CV (Worldlex)" & variable == "wl_mean" ~ "mean",
+      predictor == "mean + CV (Worldlex)" & variable == "wl_cvar" ~ "CV",
+      predictor == "mean + CV (DoReCo)" & variable == "do_mean" ~ "mean",
+      predictor == "mean + CV (DoReCo)" & variable == "do_cvar" ~ "CV",
+      TRUE ~ NA
+    )) %>%
+    mutate(p.value = case_when(
+    p.value < 0.001 ~ as.character('< 0.001'),
+    TRUE ~ sprintf("%.3f", p.value))) %>%
+    mutate(lower_ci = sprintf("%.2f", conf.low),
+      upper_ci = sprintf("%.2f", conf.high),
+      ci = paste0("[", lower_ci, ", ", upper_ci, "]")) %>%
+    arrange(BIC) 
+  
+  return(table)
+  
+}
+  
+wold_full_tab <- f_full %>%
+  filter(outcome == "lex_wold") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+ids_full_tab <- f_full %>%
+  filter(outcome == "lex_ids") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+t_full <- bind_rows(ids_full_tab, wold_full_tab) %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+full_table <- xtable(t_full, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(full_table, file = here("output", "tables", "freq_full.tex"), include.rownames = FALSE, comment = FALSE)
+
+wold_dev_tab <- f_dev %>%
+  filter(outcome == "lex_wold") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+ids_dev_tab <- f_dev %>%
+  filter(outcome == "lex_ids") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+t_dev <- bind_rows(ids_dev_tab, wold_dev_tab)  %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+dev_table <- xtable(t_dev,  digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(dev_table, file = here("output", "tables", "freq_dev.tex"), include.rownames = FALSE, comment = FALSE)
+```
+
+## Comparison between models with multiple predictors
+
+Compare between models with all other predictors and models with all predictors including frequency variables:
+
+```{r}
+# full set
+predictors_full_all <- list(
+                   "aoa_self + cd + conc + sens + ins",
+                   "aoa_self + cd + conc + sens + ins + wl_mean",
+                   "aoa_self + cd + conc + sens + ins + do_mean",
+                   "aoa_self + cd + conc + sens + ins + en",
+                   "aoa_self + cd + conc + sens + ins + wl_mean + wl_cvar",
+                   "aoa_self + cd + conc + sens + ins + do_mean + do_cvar")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_full_all) {
+    result <- run_glmm(data = d_full, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_full_all <- bind_rows(results_list) 
+
+# developmental set
+predictors_dev_all <- list("aoa_self + aoa_parent + cd + conc + sens + ins",
+                           "aoa_self + aoa_parent + cd + conc + sens + ins + wl_mean",
+                           "aoa_self + aoa_parent + cd + conc + sens + ins + do_mean",
+                           "aoa_self + aoa_parent + cd + conc + sens + ins + en",
+                           "aoa_self + aoa_parent + cd + conc + sens + ins + wl_mean + wl_cvar",
+                           "aoa_self + aoa_parent + cd + conc + sens + ins + do_mean + do_cvar")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_dev_all) {
+    result <- run_glmm(data = d_dev, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_dev_all <- bind_rows(results_list)
+```
+
+Compare between models with another predictor only and models with another predictor plus a frequency predictor
+
+```{r}
+# full set
+predictors_full_combo <- list("aoa_self", "cd", "conc", "sens", "ins",
+"aoa_self + wl_mean", "cd + wl_mean", "conc + wl_mean", "sens + wl_mean", "ins + wl_mean",
+"aoa_self + do_mean", "cd + do_mean", "conc + do_mean", "sens + do_mean", "ins + do_mean",
+"aoa_self + en", "cd + en", "conc + en", "sens + en", "ins + en",
+"aoa_self + wl_mean + wl_cvar", "cd + wl_mean + wl_cvar", "conc + wl_mean + wl_cvar", "sens + wl_mean + wl_cvar", "ins + wl_mean + wl_cvar",
+"aoa_self + do_mean + do_cvar", "cd + do_mean + do_cvar", "conc + do_mean + do_cvar", "sens + do_mean + do_cvar", "ins + do_mean + do_cvar")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_full_combo) {
+    result <- run_glmm(data = d_full, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_full_combo <- bind_rows(results_list) 
+
+# developmental set
+predictors_dev_combo <- list("aoa_self", "cd", "conc", "sens", "ins", "aoa_parent", 
+"aoa_self + wl_mean", "cd + wl_mean", "conc + wl_mean", "sens + wl_mean", "ins + wl_mean","aoa_parent + wl_mean", 
+"aoa_self + do_mean", "cd + do_mean", "conc + do_mean", "sens + do_mean", "ins + do_mean","aoa_parent + do_mean", 
+"aoa_self + en", "cd + en", "conc + en", "sens + en", "ins + en","aoa_parent + en", 
+"aoa_self + wl_mean + wl_cvar", "cd + wl_mean + wl_cvar", "conc + wl_mean + wl_cvar", "sens + wl_mean + wl_cvar", "ins + wl_mean + wl_cvar","aoa_parent + wl_mean + wl_cvar", 
+"aoa_self + do_mean + do_cvar", "cd + do_mean + do_cvar", "conc + do_mean + do_cvar", "sens + do_mean + do_cvar", "ins + do_mean + do_cvar","aoa_parent + do_mean + do_cvar")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_dev_combo) {
+    result <- run_glmm(data = d_dev, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_dev_combo <- bind_rows(results_list) 
+```
+
+Compare all models:
+
+```{r}
+all_full <- bind_rows(f_full, f_full_all, f_full_combo) %>% 
+  distinct(outcome, predictor, BIC, AIC) %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+
+all_dev <- bind_rows(f_dev, f_dev_all, f_dev_combo) %>% 
+  distinct(outcome, predictor, BIC, AIC)  %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+```
+
+Make tables for all predictor comparison:
+
+```{r}
+f_full_all <- f_full_all %>% 
+  distinct(outcome, predictor, BIC, AIC) %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+
+rename_predictors <- c(
+  "wl_mean" = "mean usage (Worldlex)",
+  "wl_cvar" = "CV of usage (Worldlex)",
+  "do_mean" = "mean usage (DoReCo)",
+  "do_cvar" = "CV of usage (DoReCo)",
+  "aoa_self + cd + conc + sens + ins" = "all other predictors",
+  "en" = "usage (English only)"
+)
+
+f_full_all_tbl <- reduce(
+  names(rename_predictors),
+  .init = f_full_all,
+  .f = function(df, pat) {
+    df %>%
+      mutate(
+        predictor = str_replace_all(
+          predictor,
+          fixed(pat),
+          rename_predictors[[pat]]
+        )
+      )
+  }
+) 
+
+f_dev_all <- f_dev_all %>% 
+  distinct(outcome, predictor, BIC, AIC) %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+
+rename_predictors <- c(
+  "wl_mean" = "mean usage (Worldlex)",
+  "wl_cvar" = "CV of usage (Worldlex)",
+  "do_mean" = "mean usage (DoReCo)",
+  "do_cvar" = "CV of usage (DoReCo)",
+  "aoa_self + aoa_parent + cd + conc + sens + ins" = "all other predictors",
+  "en" = "usage (English only)"
+)
+
+f_dev_all_tbl <- reduce(
+  names(rename_predictors),
+  .init = f_dev_all,
+  .f = function(df, pat) {
+    df %>%
+      mutate(
+        predictor = str_replace_all(
+          predictor,
+          fixed(pat),
+          rename_predictors[[pat]]
+        )
+      )
+  }
+)
+
+f_all_tbl <- bind_rows(f_full_all_tbl, f_dev_all_tbl)
+
+all_table <- xtable(f_all_tbl, digits = c(0, 0,  0, 0, 0))
+print(all_table, file = here("output", "tables", "model_comparison_all.tex"), include.rownames = FALSE, comment = FALSE)
+
+```
+
+Make tables for pair comparison:
+
+```{r}
+f_full_combo <- f_full_combo %>% 
+  distinct(outcome, predictor, BIC, AIC) %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+
+usage_terms <- c("do_mean", "do_cvar", "wl_mean", "wl_cvar", "en")
+
+f_full_combo2 <- f_full_combo %>%
+  mutate(
+    type = predictor %>%
+      str_split(" \\+ ") %>%
+      sapply(function(x) {
+        paste(setdiff(x, usage_terms), collapse = " + ")
+      })
+  )  %>%
+  arrange(BIC)  %>%
+  arrange(type) %>%
+  arrange(outcome)
+
+rename_predictors <- c(
+  "aoa_self" = "AoA (self reported)",
+  "aoa_parent" = "AoA (parent reported)",
+  "wl_mean" = "mean usage (Worldlex)",
+  "wl_cvar" = "CV of usage (Worldlex)",
+  "do_mean" = "mean usage (DoReCo)",
+  "do_cvar" = "CV of usage (DoReCo)",
+  "ins" = "association in-strength",
+  "en" = "usage (English only)",
+  "cd" = "contextual diversity",
+  "conc" = "concreteness",
+  "sens" = "sensorimotor strength"
+)
+
+f_full_combo_tbl <- f_full_combo2 %>%
+  mutate(
+    predictor = map_chr(str_split(predictor, " \\+ "), function(x) {
+      x <- ifelse(x %in% names(rename_predictors), rename_predictors[x], x)
+      paste(x, collapse = " + ")
+    }),
+    type = ifelse(type %in% names(rename_predictors), rename_predictors[type], type)
+  ) %>%
+  select(-type)
+
+table1 <- f_full_combo_tbl %>%
+  filter(outcome == "lex_ids") %>%
+  select(-outcome)
+combo_table <- xtable(table1, digits = c(0, 0, 0, 0))
+print(combo_table, file = here("output", "tables", "model_comparison_pairs_ids.tex"), include.rownames = FALSE, comment = FALSE)
+
+table2 <- f_full_combo_tbl %>%
+  filter(outcome == "lex_wold") %>%
+  select(-outcome)
+combo_table2 <- xtable(table2, digits = c(0, 0, 0, 0))
+print(combo_table2, file = here("output", "tables", "model_comparison_pairs_wold.tex"), include.rownames = FALSE, comment = FALSE)
+
+f_dev_combo <- f_dev_combo %>% 
+  distinct(outcome, predictor, BIC, AIC) %>%
+  group_by(outcome) %>%
+  mutate(shiftbic = min(BIC, na.rm=TRUE),
+           shiftaic = min(AIC, na.rm=TRUE),
+           BIC = BIC - shiftbic,
+           AIC = AIC - shiftaic) %>%
+  ungroup() %>%
+  select(-shiftbic, -shiftaic) %>%
+  arrange(BIC) %>%
+  arrange(outcome)
+
+f_dev_combo2 <- f_dev_combo %>%
+  mutate(
+    type = predictor %>%
+      str_split(" \\+ ") %>%
+      sapply(function(x) {
+        paste(setdiff(x, usage_terms), collapse = " + ")
+      })
+  )  %>%
+  arrange(BIC)  %>%
+  arrange(type) %>%
+  arrange(outcome)
+
+f_dev_combo_tbl <- f_dev_combo2 %>%
+  mutate(
+    predictor = map_chr(str_split(predictor, " \\+ "), function(x) {
+      x <- ifelse(x %in% names(rename_predictors), rename_predictors[x], x)
+      paste(x, collapse = " + ")
+    }),
+    type = ifelse(type %in% names(rename_predictors), rename_predictors[type], type)
+  ) %>%
+  select(-type)
+
+table1 <- f_dev_combo_tbl %>%
+  filter(outcome == "lex_ids") %>%
+  select(-outcome)
+combo_table <- xtable(table1, digits = c(0, 0, 0, 0))
+print(combo_table, file = here("output", "tables", "model_comparison_pairs_ids_dev.tex"), include.rownames = FALSE, comment = FALSE)
+
+table2 <- f_dev_combo_tbl %>%
+  filter(outcome == "lex_wold") %>%
+  select(-outcome)
+combo_table2 <- xtable(table2, digits = c(0, 0, 0, 0))
+print(combo_table2, file = here("output", "tables", "model_comparison_pairs_wold_dev.tex"), include.rownames = FALSE, comment = FALSE)
+```
+
+## Analysis on strict set
+
+Load data and standardize variables.
+
+```{r load data, include=TRUE}
+d_full_strict <- read_csv(here("data", "d_full_strict.csv"), show_col_types = FALSE) %>%
+  mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
+  mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
+
+d_dev_strict <- read_csv(here("data", "d_dev_strict.csv"), show_col_types = FALSE) %>%
+  mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
+  mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
+```
+
+Run frequentist analyses
+
+```{r}
+# full set
+outcome_vars <- c("lex_wold_strict")
+predictors_full <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "cd", "conc", "sens", "ins", "1")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_full) {
+    result <- run_glmm(data = d_full_strict, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_full_strict <- bind_rows(results_list) 
+
+# developmental set
+predictors_dev <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "aoa_parent", "cd", "conc", "sens", "ins", "1")
+
+results_list <- list()
+for (outcome in outcome_vars) {
+  for (predictor in predictors_dev) {
+    result <- run_glmm(data = d_dev_strict, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+f_dev_strict <- bind_rows(results_list)
+
+```
+
+Make table:
+
+```{r}
+wold_full_strict <- f_full_strict %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+wold_dev_strict <- f_dev_strict %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+t_full_strict <- bind_rows(wold_full_strict, wold_dev_strict) %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+full_table <- xtable(t_full_strict, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(full_table, file = here("output", "tables", "freq_strict.tex"), include.rownames = FALSE, comment = FALSE)
+```
+
+## Bayesian analysis
+
+Ordered beta regression analysis (Bayesian):
+
+```{r bayesian, include=TRUE, eval=FALSE}
+
+set.seed(123)
+
+quiet_ordbrm <- quietly(ordbetareg)
+
+run_bayes_ord <- function(data, outcome_var, predictor_var) {
+  
+  formula <- as.formula(paste(outcome_var, "~", predictor_var))
+  
+  mdl <- quiet_ordbrm(
+    formula = formula,
+    data = data,
+    chains = 4,
+    iter = 2000,
+    warmup = 1000,
+    cores = 4,
+    seed = 123,
+    control = list(adapt_delta = 0.95, stepsize = 0.01, max_treedepth = 15)
+  )
+  
+  m <- mdl$result
+  loo_res <- loo(m)
+  coef_summary <- fixef(m)
+  
+  if (predictor_var == "0 + Intercept") {
+    
+    target_coefs <- coef_summary["Intercept", , drop = FALSE]
+    
+    summ <- tibble(
+      outcome = outcome_var,
+      predictor = predictor_var,
+      term = "Intercept",
+      coefficient = target_coefs[, 1],
+      lower_ci = target_coefs[, 3],
+      upper_ci = target_coefs[, 4],
+      loo_elpd = loo_res$estimates["elpd_loo", "Estimate"],
+      loo_se = loo_res$estimates["elpd_loo", "SE"],
+      warnings = paste(mdl$warnings, collapse = " | "),
+      marginal_effect = NA_real_,
+      conf_low = NA_real_,
+      conf_high = NA_real_
+    )
+    
+  } else {
+    
+    pred_terms <- attr(terms(formula), "term.labels")
+    
+    coef_df <- as.data.frame(coef_summary) %>%
+      tibble::rownames_to_column("term") %>%
+      filter(term %in% pred_terms) %>%
+      transmute(
+        term,
+        coefficient = Estimate,
+        lower_ci = Q2.5,
+        upper_ci = Q97.5
+      )
+    
+    me <- tryCatch(
+      suppressMessages(
+        suppressWarnings(
+          avg_slopes(
+            m,
+            variables = pred_terms,
+            re.form = NA
+          ) %>%
+            as.data.frame()
+        )
+      ),
+      error = function(e) NULL
+    )
+    
+    if (!is.null(me)) {
+      me <- me %>%
+        select(term, estimate, conf.low, conf.high) %>%
+        rename(
+          marginal_effect = estimate,
+          conf_low = conf.low,
+          conf_high = conf.high
+        )
+      
+      coef_df <- coef_df %>%
+        left_join(me, by = "term")
+    } else {
+      coef_df <- coef_df %>%
+        mutate(
+          marginal_effect = NA_real_,
+          conf_low = NA_real_,
+          conf_high = NA_real_
+        )
+    }
+    
+    summ <- coef_df %>%
+      mutate(
+        outcome = outcome_var,
+        predictor = predictor_var,
+        loo_elpd = loo_res$estimates["elpd_loo", "Estimate"],
+        loo_se = loo_res$estimates["elpd_loo", "SE"],
+        warnings = paste(mdl$warnings, collapse = " | ")
+      ) %>%
+      select(
+        outcome, predictor, term, coefficient, lower_ci, upper_ci,
+        loo_elpd, loo_se, warnings,
+        marginal_effect, conf_low, conf_high
+      )
+  }
+  
+  return(summ)
+}
+
+# full set
+outcome_vars <- c("lex_wold", "lex_ids")
+predictors <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "cd", "conc", "sens", "ins", "0 + Intercept")
+
+results_list <- list()
+
+for (outcome in outcome_vars) {
+  for (predictor in predictors) {
+    result <- run_bayes_ord(data = d_full, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+
+b_full <- bind_rows(results_list) %>%
+  write_csv(here("output/results", "bayes_full.csv"))
+
+# developmental set
+predictors <- list("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean",
+                   "en", "aoa_self", "aoa_parent", "cd", "conc", "sens", "ins", "0 + Intercept")
+
+results_list <- list()
+
+for (outcome in outcome_vars) {
+  for (predictor in predictors) {
+    result <- run_bayes_ord(data = d_dev, outcome_var = outcome, predictor_var = predictor)
+    results_list <- append(results_list, list(result))
+  }
+}
+
+b_dev <- bind_rows(results_list) %>%
+  write_csv(here("output/results", "bayes_dev.csv"))
+```
+
+Make tables:
+
+```{r supp table 1, include=TRUE, eval=FALSE}
+b_full <- read_csv(here("output/results", "bayes_full.csv"), show_col_types = FALSE)
+b_dev <- read_csv(here("output/results", "bayes_dev.csv"), show_col_types = FALSE)
+
+make_table_bayes <- function(data) {
+  
+  table <- data %>%
+    select(-loo_se, -warnings) %>%
+    mutate(type = case_when(
+      predictor == "0 + Intercept" ~ "null",
+      predictor %in% c("wl_mean + wl_cvar", "wl_mean", "do_mean + do_cvar", "do_mean", "en") ~ "frequency",
+      TRUE ~ "other"
+    )) %>%
+    group_by(outcome) %>%
+    mutate(shiftelpd = max(loo_elpd, na.rm=TRUE),
+           elpd = loo_elpd - shiftelpd) %>%
+    ungroup() %>%
+    select(-shiftelpd, -loo_elpd) %>%
+    mutate(predictor = case_when(
+      predictor == "aoa_self" ~ "AoA (self reported)",
+      predictor == "aoa_parent" ~ "AoA (parent reported)",
+      predictor == "wl_mean + wl_cvar" ~ "mean + CV (Worldlex)",
+      predictor == "wl_mean" ~ "mean usage (Worldlex)",
+      predictor == "ins" ~ "association in-strength",
+      predictor == "en" ~ "usage (English only)",
+      predictor == "cd" ~ "contextual diversity",
+      predictor == "0 + Intercept" ~ "null model",
+      predictor == "do_mean" ~ "mean usage (DoReCo)",
+      predictor == "do_mean + do_cvar" ~ "mean + CV (DoReCo)",
+      predictor == "conc" ~ "concreteness",
+      predictor == "sens" ~ "sensorimotor strength",
+      TRUE ~ predictor
+    )) %>%
+    mutate(term = case_when(
+      predictor == "mean + CV (Worldlex)" & term == "wl_mean" ~ "mean",
+      predictor == "mean + CV (Worldlex)" & term == "wl_cvar" ~ "CV",
+      predictor == "mean + CV (DoReCo)" & term == "do_mean" ~ "mean",
+      predictor == "mean + CV (DoReCo)" & term == "do_cvar" ~ "CV",
+      TRUE ~ NA
+    )) %>%
+    mutate(
+      lower_ci = sprintf("%.2f", lower_ci),
+      upper_ci = sprintf("%.2f", upper_ci),
+      ci = paste0("[", lower_ci, ", ", upper_ci, "]"),
+      conf_low = sprintf("%.2f", conf_low),
+      conf_high = sprintf("%.2f", conf_high),
+      ci_me = paste0("[", conf_low, ", ", conf_high, "]")
+    )
+  
+  return(table)
+  
+}
+
+bt_wold_full <- make_table_bayes(b_full) %>%
+  filter(outcome == "lex_wold") %>%
+  rename(coef = coefficient, me = marginal_effect, cime = ci_me) %>%
+  select(type, predictor, term, elpd, coef, ci, me, cime)  %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(desc(elpd)) %>%
+  arrange(type) %>%
+  select(-type)
+  
+bt_ids_full <- make_table_bayes(b_full) %>%
+  filter(outcome == "lex_ids") %>%
+  rename(coef = coefficient, me = marginal_effect, cime = ci_me) %>%
+  select(type, predictor, term, elpd, coef, ci, me, cime)   %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(desc(elpd)) %>%
+  arrange(type) %>%
+  select(-type)
+
+bt_full <- bind_rows(bt_ids_full, bt_wold_full)
+
+t_table <- xtable(bt_full, digits = c(0, 0, 0, 0, 2, 0, 2, 0))
+print(t_table, file = here("output", "tables", "bayes_full.tex"), include.rownames = FALSE, comment = FALSE)
+
+bt_wold_dev <- make_table_bayes(b_dev) %>%
+  filter(outcome == "lex_wold") %>%
+  rename(coef = coefficient, me = marginal_effect, cime = ci_me) %>%
+  select(type, predictor, term, elpd, coef, ci, me, cime)  %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(desc(elpd)) %>%
+  arrange(type) %>%
+  select(-type)
+  
+bt_ids_dev <- make_table_bayes(b_dev) %>%
+  filter(outcome == "lex_ids") %>%
+  rename(coef = coefficient, me = marginal_effect, cime = ci_me) %>%
+  select(type, predictor, term, elpd, coef, ci, me, cime)  %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(desc(elpd)) %>%
+  arrange(type) %>%
+  select(-type)
+
+bt_dev <- bind_rows(bt_ids_dev, bt_wold_dev)
+t_table <- xtable(bt_dev, digits = c(0, 0, 0, 0, 2, 0, 2, 0))
+print(t_table, file = here("output", "tables", "bayes_dev.tex"), include.rownames = FALSE, comment = FALSE)
+
+```
+
+## Logistic regression with macro area
+
+Load lexicalization data:
+
+```{r}
+wold <- read_csv(here("data", "wold_data.csv"), show_col_types = FALSE)
+ids <- read_csv(here("data", "ids_data.csv"), show_col_types = FALSE) 
+
+wold_full <- wold %>%
+  inner_join(d_full %>% select(concepticon_id, ontological_category, semantic_category, wl_mean:sens), by = "concepticon_id")
+wold_dev <- wold %>%
+  inner_join(d_dev %>% select(concepticon_id, ontological_category, semantic_category,  wl_mean:sens), by = "concepticon_id")
+
+ids_full <- ids %>%
+  inner_join(d_full %>% select(concepticon_id, ontological_category, semantic_category,  wl_mean:sens), by = "concepticon_id")
+ids_dev <- ids %>%
+  inner_join(d_dev %>% select(concepticon_id, ontological_category, semantic_category,  wl_mean:sens), by = "concepticon_id")
+```
+
+We run frequentist logistic regression analysis:
+
+```{r, eval=FALSE}
+run_freq_logistic <- function(data, predictor_var, dataset_name) {
+
+  fit_model_with_warnings <- function(formula) {
+    warnings <- list()
+    model <- withCallingHandlers(
+      glmmTMB(formula, family = binomial(link = "logit"), data = data),
+      warning = function(w) {
+        warnings <<- c(warnings, w$message)
+        invokeRestart("muffleWarning")
+      }
+    )
+    if (any(str_detect(warnings, "non-positive-definite"))) {
+      message("Retrying with BFGS optimizer...")
+      warnings <- list()
+      model <- withCallingHandlers(
+        glmmTMB(formula, family = binomial(link = "logit"), data = data,
+                control = glmmTMBControl(optimizer = optim,
+                                         optArgs = list(method = "BFGS"))),
+        warning = function(w) {
+          warnings <<- c(warnings, w$message)
+          invokeRestart("muffleWarning")
+        }
+      )
+    }
+    list(model = model, warnings = warnings)
+  }
+
+  formula_full <- as.formula(
+    paste("lex ~", predictor_var,
+          "+ (1 | concepticon_id) + (1 | glottocode) + (1 | family) + (1 | area)")
+  )
+  formula_null <- as.formula(
+    "lex ~ 1 + (1 | concepticon_id) + (1 | glottocode) + (1 | family) + (1 | area)"
+  )
+
+  full_fit <- fit_model_with_warnings(formula_full)
+
+  if (predictor_var == "1") {
+
+    summ <- tibble(
+      outcome   = dataset_name,
+      predictor = predictor_var,
+      BIC       = BIC(full_fit$model),
+      AIC       = AIC(full_fit$model),
+      term      = "(Intercept)",
+      estimate  = fixef(full_fit$model)$cond["(Intercept)"],
+      conf.low  = NA_real_,
+      conf.high = NA_real_,
+      chisq     = NA_real_,
+      df        = NA_real_,
+      p.value   = NA_real_,
+      warnings  = if (length(full_fit$warnings) > 0) paste(full_fit$warnings, collapse = ";") else ""
+    )
+
+  } else {
+
+    null_fit   <- fit_model_with_warnings(formula_null)
+    aov_result <- anova(null_fit$model, full_fit$model)
+
+    chisq_val <- aov_result$Chisq[2]
+    df_val    <- aov_result$`Chi Df`[2]
+    p_val     <- aov_result$`Pr(>Chisq)`[2]
+
+    coefs <- tidy(full_fit$model) |>
+      filter(component == "cond", term != "(Intercept)", !str_detect(term, "^sd__"))
+
+    ci <- confint(full_fit$model, component = "cond", level = 0.95)
+
+    ci_cond <- as.data.frame(ci) |>
+      tibble::rownames_to_column("term") |>
+      rename(conf.low = `2.5 %`, conf.high = `97.5 %`)
+
+    coefs <- coefs |> left_join(ci_cond, by = "term")
+
+    summ <- tibble(
+      outcome   = dataset_name,
+      predictor = predictor_var,
+      BIC       = BIC(full_fit$model),
+      AIC       = AIC(full_fit$model),
+      term      = coefs$term,
+      estimate  = coefs$estimate,
+      conf.low  = coefs$conf.low,
+      conf.high = coefs$conf.high,
+      chisq     = chisq_val,
+      df        = df_val,
+      p.value   = p_val,
+      warnings  = if (length(full_fit$warnings) > 0) paste(full_fit$warnings, collapse = ";") else ""
+    )
+  }
+
+  return(summ)
+}
+
+f_full_log <- bind_rows(
+  map(predictors_full, ~ run_freq_logistic(wold_full, .x, "wold_full")),
+  map(predictors_full, ~ run_freq_logistic(ids_full,  .x, "ids_full"))
+) %>% write_csv(here("output", "results", "freq_log_full.csv"))
+
+f_dev_log <- bind_rows(
+  map(predictors_dev, ~ run_freq_logistic(wold_dev, .x, "wold_dev")),
+  map(predictors_dev, ~ run_freq_logistic(ids_dev,  .x, "ids_dev"))
+) %>% write_csv(here("output", "results", "freq_log_dev.csv"))
+```
+
+Now make a table:
+
+```{r}
+f_full_log <- read_csv(here("output", "results", "freq_log_full.csv"))
+f_dev_log <- read_csv(here("output", "results", "freq_log_dev.csv"))
+
+wold_full_log <- f_full_log %>%
+  filter(outcome == "wold_full") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+  
+ids_full_log <- f_full_log %>%
+  filter(outcome == "ids_full") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+t_full_log <- bind_rows(ids_full_log, wold_full_log) %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+full_table <- xtable(t_full_log, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(full_table, file = here("output", "tables", "freq_full_log.tex"), include.rownames = FALSE, comment = FALSE)
+
+wold_dev_log <- f_dev_log %>%
+  filter(outcome == "wold_dev") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+  
+ids_dev_log <- f_dev_log %>%
+  filter(outcome == "ids_dev") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+t_dev_log <- bind_rows(ids_dev_log, wold_dev_log)  %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+dev_table <- xtable(t_dev_log,  digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(dev_table, file = here("output", "tables", "freq_dev_log.tex"), include.rownames = FALSE, comment = FALSE)
+```
+
+## Noun vs. Verb
+
+```{r nouns frequentist, include=TRUE}
+
+d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE)
+
+d_dev <- read_csv(here("data", "d_dev.csv"), show_col_types = FALSE)
+
+run_glmm_for_category <- function(data, categories, outcome_vars, predictors) {
+  
+  data_filtered <- data %>% 
+    filter(semantic_category %in% categories)   %>%
+    mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
+    mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
+    
+  
+  results_list <- list()
+  
+  for (outcome in outcome_vars) {
+    for (predictor in predictors) {
+      result <- run_glmm(data = data_filtered, outcome_var = outcome, predictor_var = predictor)
+      results_list <- append(results_list, list(result))
+    }
+  }
+  
+  bind_rows(results_list)
+
+}
+
+outcome_vars <- c("lex_wold", "lex_ids")
+
+# Full set
+f_full_n <- run_glmm_for_category(d_full, c("Noun"), outcome_vars, predictors_full)
+f_full_v <- run_glmm_for_category(d_full, c("Verb"), outcome_vars, predictors_full)
+
+# Developmental set
+f_dev_n <- run_glmm_for_category(d_dev, c("Noun"), outcome_vars, predictors_dev)
+f_dev_v <- run_glmm_for_category(d_dev, c("Verb"), outcome_vars, predictors_dev)
+
+```
+
+Make table:
+
+```{r supp table 6 & 7, include=TRUE}
+
+combine_table <- function(my_data){
+
+ids <- my_data %>%
+  filter(outcome == "lex_ids") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+
+wold <- my_data %>%
+  filter(outcome == "lex_wold") %>%
+  make_table() %>%
+  mutate(type = factor(type, levels = c("null", "frequency", "other"))) %>%
+  arrange(BIC) %>%
+  arrange(type)
+  
+t <- bind_rows(ids, wold) %>%
+  select(predictor, variable, BIC, AIC, estimate, ci, chisq, df, p.value)
+
+return(t)
+}
+
+t_full_n <- combine_table(f_full_n)
+t_table <- xtable(t_full_n, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(t_table, file = here("output", "tables", "noun_full.tex"), include.rownames = FALSE, comment = FALSE)
+
+t_dev_n <- combine_table(f_dev_n)
+t_table <- xtable(t_dev_n, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(t_table, file = here("output", "tables", "noun_dev.tex"), include.rownames = FALSE, comment = FALSE)
+
+t_full_v <- combine_table(f_full_v)
+t_table <- xtable(t_full_v, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(t_table, file = here("output", "tables", "verb_full.tex"), include.rownames = FALSE, comment = FALSE)
+
+t_dev_v <- combine_table(f_dev_v)
+t_table <- xtable(t_dev_v, digits = c(0, 0, 0, 0, 0, 2, 0, 2, 0, 0))
+print(t_table, file = here("output", "tables", "verb_dev.tex"), include.rownames = FALSE, comment = FALSE)
+
+```
+
+Make figure:
+
+```{r supp fig 3, include=TRUE}
+
+set.seed(130)
+
+make_fig <- function(data1, data2, var) {
+
+d <- data1 %>%
+  filter(outcome == {{var}}) %>%
+  select(outcome, predictor, BIC) %>%
+  rename(bic_n = BIC) %>%
+  left_join(data2 %>%
+  filter(outcome == {{var}}) %>%
+  select(outcome, predictor, BIC) %>%
+  rename(bic_v = BIC), by = c("outcome", "predictor"),
+  relationship = "many-to-many") %>%
+  unique() %>%
+  mutate(across(c(bic_n, bic_v), ~rescale(.x, to = c(0, 100))))
+
+d_long <- d %>%
+  pivot_longer(cols = c(bic_n, bic_v), 
+               names_to = "type", 
+               values_to = "bic") %>%
+  mutate(type = recode(type, bic_n = "Noun", bic_v = "Verb")) %>%
+  mutate(tag = case_when(
+    predictor == "wl_mean + wl_cvar" ~ "frequency of use",
+    predictor == "wl_mean" ~ "frequency of use",
+    predictor == "do_mean + do_cvar" ~ "frequency of use",
+    predictor == "do_mean" ~ "frequency of use",
+    predictor == "en" ~ "frequency of use",
+    predictor == "sens" ~ "sensorimotor",
+    predictor == "conc" ~ "concreteness",
+    predictor == "cd" ~ "contextual diversity",
+    predictor == "ins" ~ "association in-strength",
+    predictor == "aoa_self" ~ "age-of-acquisition",
+    predictor == "aoa_parent" ~ "age-of-acquisition",
+    predictor == "1" ~ "null"
+  )) %>%
+    mutate(predictor = case_when(
+      predictor == "aoa_self" ~ "AoA (self reported)",
+      predictor == "aoa_parent" ~ "AoA (parent reported)",
+      predictor == "wl_mean + wl_cvar" ~ "mean + CV (Worldlex)",
+      predictor == "wl_mean" ~ "mean usage (Worldlex)",
+      predictor == "ins" ~ "association in-strength",
+      predictor == "en" ~ "usage (English only)",
+      predictor == "cd" ~ "contextual diversity",
+      predictor == "1" ~ "null model",
+      predictor == "do_mean" ~ "mean usage (DoReCo)",
+      predictor == "do_mean + do_cvar" ~ "mean + CV (DoReCo)",
+      predictor == "conc" ~ "concreteness",
+      predictor == "sens" ~ "sensorimotor strength",
+      TRUE ~ predictor
+    )) 
+
+d_labels <- d_long %>% filter(type == "Verb")
+
+p <- ggplot(d_long, aes(x = type, y = bic, group = predictor, color = tag)) +
+    geom_point(size = 0.5) +
+    geom_line(size = 0.2) +
+    geom_text_repel(
+      data = d_labels,
+      aes(label = predictor),
+      size = 2.8125,
+      nudge_x = 1,
+      direction = "y",
+      hjust = 0,
+      segment.size = 0.2,
+      show.legend = FALSE,
+      force = 30,
+      force_pull = 0.5,
+      max.iter = 20000,
+      max.time = 2,
+      box.padding = 0.2,
+      max.overlaps = Inf
+    ) +
+  scale_color_manual(values = c(
+    "frequency of use" = "#1b9e77",
+    "sensorimotor" = "#d95f02",
+    "concreteness" = "#7570b3",
+    "contextual diversity" = "#66a61e",
+    "association in-strength" = "#e6ab02",
+    "age-of-acquisition" = "#e7298a",
+    "null" = "#4d4d4d"
+  )) +
+  scale_x_discrete(expand = expansion(add = c(0.1, 0.1))) +
+    labs(x = NULL, y = "Rescaled BIC") +
+    theme_minimal(base_size=9) +
+    theme(
+      panel.grid = element_blank(),
+      legend.position = "none",
+      axis.text.x = element_text(size = 10),
+      axis.title.y = element_text(size = 10)
+    )
+
+}
+
+fw <- make_fig(f_full_n, f_full_v, "lex_wold")  + ggtitle("WOLD (full set)")  +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+fi <- make_fig(f_full_n, f_full_v,  "lex_ids") + ggtitle("IDS (full set)")  +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+dw <- make_fig(f_dev_n, f_dev_v,  "lex_wold")  + ggtitle("WOLD (dev. set)")  +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+di <- make_fig(f_dev_n, f_dev_v,  "lex_ids") + ggtitle("IDS (dev. set)")  +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+
+combo <- fi + fw + di + dw + 
+  plot_layout(nrow=2, ncol = 2) + plot_annotation(tag_levels = 'A')
+
+ggsave(here("output/figures", "noun_verb.pdf"), combo, width = 18, height = 20.25, units = "cm")
+
+```
+
