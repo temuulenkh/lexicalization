@@ -21,7 +21,7 @@ This folder contains the raw data used for preprocessing.
 
 #### DoReCo
 
-* Files in `doreco` : DoReCo 2.0 was downloaded from https://doreco.huma-num.fr/languages on 24 Feb 2025. Note that Hoocąk data is not included in this folder due to copyright reasons, but can be downloaded from the link provided.
+* Files in `doreco` : DoReCo 2.0 was downloaded from https://doreco.huma-num.fr/languages on 24 Feb 2025. Note that Gurindji and Hoocąk data are not included in this folder due to copyright reasons, but can be downloaded from the link provided.
 
 ## Data on other predictors
 
