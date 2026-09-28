@@ -5,7 +5,9 @@ This folder contains preprocessed data used for our analyses. All files except f
 
 ## Manually created files
 
-`wordnet_mapping_manual.csv` contains our manual checking of accuracy for the mappings between Concepticon and WordNet IDs provided in Concepticon 2.6.0. See the explanations of columns as follows: 
+`wordnet_mapping_manual.csv` is the manually checked version of `wordnet_mapping.csv`, which is produced by step 1 in the top-level `README.md`; `wordnet_mapping_manual.csv` is then used as input to step 2. `synonym_mapping_manual.csv` is the manually annotated version of `synonym_mapping.csv`, which is produced by step 2; `synonym_mapping_manual.csv` is then used as input to step 8. Both files are already provided in this folder, so this manual annotation step does not need to be repeated to reproduce the results. See the Methods section of the main manuscript for details on the annotation process, and the column descriptions below for each file.
+
+`wordnet_mapping_manual.csv` records our accuracy check of the mappings between Concepticon and WordNet IDs provided in Concepticon 2.6.0: 
 
 * `concepticon_id` : Concepticon ID
 
