@@ -65,16 +65,19 @@ dplot_with_pred <- dplot %>%
   group_by(row_group, column_group) %>%
   do(fit_beta_model(.))
 
+x_breaks <- c(1, 100, 10000)
+
 plot <- dplot_with_pred %>%
   ggplot(aes(x = log_mean, y = lex_freq)) +
   geom_point(alpha = 0.3, size = 0.01, color = "black") +
-  geom_line(aes(x = log_mean, y = predicted), color = "blue", linewidth = 0.5) +
+  geom_line(aes(x = log_mean, y = predicted), color = "#0077BE", linewidth = 0.5) +
   facet_grid(row_group ~ column_group, scales = "free_x") +
   labs(
-    x = "Log mean usage frequency per million",
+    x = "Mean usage frequency per million",
     y = "Lexicalization score"
   ) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  scale_x_continuous(breaks = log(x_breaks), labels = x_breaks) +
+  scale_y_continuous(breaks = c(0.25, 0.5, 0.75, 1), limits = c(0.25, 1)) +
   theme_minimal(base_size = 9) +
   theme(
     plot.title = element_blank(),
@@ -1565,6 +1568,7 @@ p <- ggplot(d_long, aes(x = type, y = bic, group = predictor, color = tag)) +
       direction = "y",
       hjust = 0,
       segment.size = 0.2,
+      segment.color = "gray",
       show.legend = FALSE,
       force = 30,
       force_pull = 0.5,

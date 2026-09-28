@@ -240,15 +240,17 @@ p1 <- combined_all %>%
   geom_point(aes(color = type), position = position_nudge(x = 0), size = 1) +
   geom_text_repel(
   aes(label = tag, color = type),
-  size = 2.8,
+  size = 2,
   direction = "y",
   hjust = 0,
-  nudge_x = 0.25,
+  nudge_x = 0.05,
   segment.size = 0.2,
   segment.color = "gray",
   max.overlaps = Inf,
   force = 1,
-  force_pull = 0
+  force_pull = 2,
+  box.padding = 0,
+  point.padding = 0
 ) +
   scale_color_manual(values = c(
   "frequency of use"        = "#1b9e77",
@@ -264,6 +266,8 @@ p1 <- combined_all %>%
   "arousal"                 = "#ff7f00",
   "dominance"               = "#984ea3"
 )) +
+  scale_x_discrete(expand = expansion(add = c(0.6, 0.6))) +
+  coord_cartesian(clip = "off") +
   theme_minimal(base_size=9) +
   labs(x = "", y = "BIC") +
   theme(
@@ -272,7 +276,8 @@ p1 <- combined_all %>%
     legend.position = "none",
     axis.line = element_line(color = "gray60", size = 0.3),
     axis.ticks = element_line(color = "black", size = 0.5),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    plot.margin = margin(2, 8, 2, 2)
   )
 
 ids_null <- combined_all %>% filter(outcome == "lex_ids", type == "null") %>% select(BIC) %>% pull()
@@ -284,15 +289,17 @@ p2 <- combined_all %>%
   geom_point(aes(color = type), position = position_nudge(x = 0), size = 1) +
   geom_text_repel(
   aes(label = tag, color = type),
-  size = 2.8,
+  size = 2,
   direction = "y",
   hjust = 0,
-  nudge_x = 0.25,
+  nudge_x = 0.05,
   segment.size = 0.2,
   segment.color = "gray",
   max.overlaps = Inf,
   force = 1,
-  force_pull = 0
+  force_pull = 2,
+  box.padding = 0,
+  point.padding = 0
 ) +
   scale_color_manual(values = c(
   "frequency of use"        = "#1b9e77",
@@ -308,7 +315,8 @@ p2 <- combined_all %>%
   "arousal"                 = "#ff7f00",
   "dominance"               = "#984ea3"
 )) +
-
+  scale_x_discrete(expand = expansion(add = c(0.6, 0.6))) +
+  coord_cartesian(clip = "off") +
   theme_minimal(base_size=9) +
   labs(x = "", y = "BIC") +
   theme(
@@ -317,10 +325,11 @@ p2 <- combined_all %>%
     legend.position = "none",
     axis.line = element_line(color = "gray60", size = 0.3),
     axis.ticks = element_line(color = "black", size = 0.5),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    plot.margin = margin(2, 8, 2, 2)
   )
 
-final_plot <- p2 + p1 + 
+final_plot <- p2 + p1 +
   plot_layout(nrow = 2, heights = c(1, 1)) + plot_annotation(tag_levels = 'A')
 
 ggsave(here("output/figures", "all_pred.pdf"), final_plot, width = 18, height = 21, units = "cm")
