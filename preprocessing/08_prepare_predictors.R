@@ -302,7 +302,7 @@ swow <- read_csv(here("rawdata/swow", "responseStats.SWOW-EN.20180827.csv"), sho
 # we represent contextual diversity as per 10000
 N_cd <- 10000
 
-cd <- read_csv(here("data", "English_counts.csv"), show_col_types = FALSE) %>%
+cd <- read_csv(here("data", "english_counts.csv"), show_col_types = FALSE) %>%
   clean_names()
 
 # find total number of documents for blog and twitter
