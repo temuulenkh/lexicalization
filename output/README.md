@@ -1,10 +1,6 @@
 ## Outputs
 
-This folder contains:
-
-* Figures produced by analysis scripts in `figures` folder
-* Tables produced by analysis scripts in `tables` folder
-* Results produced by analysis scripts in `results` folder: the lists of candidate implicational universals, the Bayesian model results, and the frequentist logistic regression results with macro area as a random effect.
+This folder contains figures, results, and tables produced by analysis scripts.
 
 ### Candidate implicational universals
 
