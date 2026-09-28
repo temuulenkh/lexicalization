@@ -17,7 +17,7 @@ This folder contains the raw data used for preprocessing.
 #### Worldlex
 
 * `limetal_worldlexfrequency.txt` : Preprocessed data on 23 languages was downloaded from https://zenodo.org/records/10417742 and its original name was `word_normalized_frequency_23.txt`.
-* Files in `worldlex` folder : Raw Worldlex data as downloaded from http://worldlex.lexique.org.
+* Files in `worldlex` folder : Raw Worldlex data as downloaded from https://doi.org/10.3758/s13428-015-0621-0.
 
 #### DoReCo
 
