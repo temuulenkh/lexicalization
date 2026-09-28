@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Code and data for 'Usage frequency predicts lexicalization across languages'"
+type: software
+version: 1.0.0
+date-released: "2026-09-29"
+license: CC-BY-NC-SA-4.0
+repository-code: "https://github.com/temuulenkh/lexicalization"
+abstract: >-
+  Code and data for a large-scale quantitative analysis of factors
+  that predict lexicalization across languages, testing the hypothesis that
+  usage frequency predicts lexicalization.
+keywords:
+  - lexicalization
+  - usage frequency
+  - usage-lexicalization hypothesis
+  - linguistic typology
+  - cross-linguistic corpus analysis
+authors:
+  - family-names: Khishigsuren
+    given-names: Temuulen
+    affiliation: "School of Psychological Sciences, University of Melbourne, Australia"
+  - family-names: Mollica
+    given-names: Francis
+    affiliation: "School of Psychological Sciences, University of Melbourne, Australia"
+  - family-names: Vylomova
+    given-names: Ekaterina
+    affiliation: "School of Computing and Information Systems, University of Melbourne, Australia"
+  - family-names: Kemp
+    given-names: Charles
+    affiliation: "School of Psychological Sciences, University of Melbourne, Australia"
