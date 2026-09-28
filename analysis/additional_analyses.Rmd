@@ -3,11 +3,11 @@ title: "Additional analyses"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
-```{r libraries}
+```{r}
 
 library(tidyverse)  
 library(here)
@@ -28,7 +28,7 @@ This notebook contains our additional analysis that examines the relationship be
 
 Load data and standardize variables.
 
-```{r load data, include=TRUE}
+```{r include=TRUE}
 
 set.seed(123)
 
@@ -40,7 +40,7 @@ d_add <- read_csv(here("data", "d_add.csv"), show_col_types = FALSE) %>%
 
 Ordered beta regression analysis (frequentist):
 
-```{r frequentist, include=TRUE}
+```{r include=TRUE}
 run_glmm <- function(data, outcome_var, predictor_var) {
   
   fit_model_with_warnings <- function(formula) {
@@ -163,7 +163,7 @@ f_add <- bind_rows(results_list)
 
 Make figure:
 
-```{r supp fig 1, include=TRUE}
+```{r include=TRUE}
 
 set.seed(123)
 
@@ -329,7 +329,7 @@ ggsave(here("output/figures", "all_pred.pdf"), final_plot, width = 18, height = 
 
 Make table:
 
-```{r supp tab 4 & 5, include=TRUE}
+```{r include=TRUE}
 
 table <- f_add %>%
     select(-warnings) %>%
@@ -452,7 +452,7 @@ print(ids_table, file = here("output", "tables", "all_pred_ids.tex"), include.ro
 
 Make figure:
 
-```{r supp fig 2, include=TRUE}
+```{r include=TRUE}
 
 set.seed(123)
 
@@ -519,7 +519,7 @@ ggsave(here("output/figures", "domain.pdf"), final, width = 18, height = 20.25, 
 
 Load data and log transform frequencies.
 
-```{r load data, include=TRUE}
+```{r include=TRUE}
 
 d_sin_wl <- read_csv(here("data", "d_sin_wl.csv"), show_col_types = FALSE) %>%
   mutate(across(mand1415:swed1254, ~ log(.x))) %>%
@@ -533,7 +533,7 @@ d_sin_do <- read_csv(here("data", "d_sin_do.csv"), show_col_types = FALSE) %>%
 
 Ordered beta regression analysis (frequentist):
 
-```{r additional analysis, include=TRUE}
+```{r include=TRUE}
 
 # Worldlex
 
@@ -585,7 +585,7 @@ f_sin_do <- bind_rows(results_list)
 
 Make table:
 
-```{r supp tab 2 & 3, include=TRUE}
+```{r include=TRUE}
 
 make_table <- function(data) {
 

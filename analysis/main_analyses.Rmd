@@ -3,11 +3,11 @@ title: "Main analyses"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
-```{r libraries}
+```{r}
 library(tidyverse)  
 library(here)
 library(patchwork)
@@ -31,7 +31,7 @@ This notebook contains our main analysis that examines the relationship between 
 
 # Visualize the relation between lexicalization and usage frequency
 
-```{r main fig 1, include=TRUE}
+```{r include=TRUE}
 set.seed(123)
 
 d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE) %>%
@@ -283,7 +283,7 @@ ggsave(here("output/figures", "use_lex.pdf"), final_plot, width = 18, height = 7
 
 Load data and standardize variables.
 
-```{r load data, include=TRUE}
+```{r include=TRUE}
 d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE) %>%
   mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
   mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
@@ -400,7 +400,7 @@ print(
 
 Ordered beta regression analysis (frequentist):
 
-```{r frequentist, include=TRUE}
+```{r include=TRUE}
 run_glmm <- function(data, outcome_var, predictor_var) {
   
   fit_model_with_warnings <- function(formula) {
@@ -525,7 +525,7 @@ f_dev <- bind_rows(results_list)
 
 Make table:
 
-```{r main table 1 and 2, include=TRUE}
+```{r include=TRUE}
 
 make_table <- function(data) {
   
@@ -925,7 +925,7 @@ print(combo_table2, file = here("output", "tables", "model_comparison_pairs_wold
 
 Load data and standardize variables.
 
-```{r load data, include=TRUE}
+```{r include=TRUE}
 d_full_strict <- read_csv(here("data", "d_full_strict.csv"), show_col_types = FALSE) %>%
   mutate(across(c(wl_mean, wl_cvar, en, do_mean, do_cvar, cd), ~ log(.))) %>%
   mutate(across(wl_mean:sens, ~as.numeric(scale(.))))
@@ -993,7 +993,7 @@ print(full_table, file = here("output", "tables", "freq_strict.tex"), include.ro
 
 Ordered beta regression analysis (Bayesian):
 
-```{r bayesian, include=TRUE, eval=FALSE}
+```{r include=TRUE, eval=FALSE}
 
 set.seed(123)
 
@@ -1139,7 +1139,7 @@ b_dev <- bind_rows(results_list) %>%
 
 Make tables:
 
-```{r supp table 1, include=TRUE, eval=FALSE}
+```{r include=TRUE, eval=FALSE}
 b_full <- read_csv(here("output/results", "bayes_full.csv"), show_col_types = FALSE)
 b_dev <- read_csv(here("output/results", "bayes_dev.csv"), show_col_types = FALSE)
 
@@ -1260,7 +1260,7 @@ ids_dev <- ids %>%
 
 We run frequentist logistic regression analysis:
 
-```{r, eval=FALSE}
+```{r eval=FALSE}
 run_freq_logistic <- function(data, predictor_var, dataset_name) {
 
   fit_model_with_warnings <- function(formula) {
@@ -1414,7 +1414,7 @@ print(dev_table, file = here("output", "tables", "freq_dev_log.tex"), include.ro
 
 ## Noun vs. Verb
 
-```{r nouns frequentist, include=TRUE}
+```{r include=TRUE}
 
 d_full <- read_csv(here("data", "d_full.csv"), show_col_types = FALSE)
 
@@ -1455,7 +1455,7 @@ f_dev_v <- run_glmm_for_category(d_dev, c("Verb"), outcome_vars, predictors_dev)
 
 Make table:
 
-```{r supp table 6 & 7, include=TRUE}
+```{r include=TRUE}
 
 combine_table <- function(my_data){
 
@@ -1499,7 +1499,7 @@ print(t_table, file = here("output", "tables", "verb_dev.tex"), include.rownames
 
 Make figure:
 
-```{r supp fig 3, include=TRUE}
+```{r include=TRUE}
 
 set.seed(130)
 

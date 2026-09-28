@@ -3,12 +3,12 @@ title: "Pair analyses"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
 
-```{r libraries}
+```{r}
 
 library(tidyverse) 
 library(here)
@@ -32,7 +32,7 @@ We consider concept pairs from two different sources of data: the Small World of
 
 Load word association data and find matching lemmas.
 
-```{r load concepticon, include=TRUE}
+```{r include=TRUE}
 
 set.seed(123)
 
@@ -250,7 +250,7 @@ wa_ids_result <- analyse_pairs(wa_ids)
 
 ### Pairs from CLICS
 
-```{r semshift, include=FALSE}
+```{r include=FALSE}
 clicsfile = here("rawdata", "clics.sqlite")
 
 mydb <- dbConnect(RSQLite::SQLite(), clicsfile)
@@ -341,7 +341,7 @@ cl_ids_result <- analyse_pairs(cl_ids)
 
 Combine all:
 
-```{r all, include=TRUE}
+```{r include=TRUE}
 
 all_all <- bind_rows(all_wa, all_cl) %>% unique()
 
@@ -355,7 +355,7 @@ all_ids_result <- analyse_pairs(all_ids)
 
 Make a figure based on IDS and DoReCo:
 
-```{r main fig, include=TRUE}
+```{r include=TRUE}
 mytheme <- theme_minimal(base_size = 9) +
   theme(
     legend.position = "none",
@@ -458,7 +458,7 @@ ggsave(here("output/figures", "ipa.pdf"), sp, width = 18, height = 15.75, units 
 
 Make a figure for all datasets:
 
-```{r main fig, include=TRUE}
+```{r include=TRUE}
 
 set.seed(123)
 
@@ -559,7 +559,7 @@ ggsave(here("output/figures", "pairs.pdf"), final_plot, width = 18, height = 18,
 
 Implicational universals:
 
-```{r semantic relation, include=TRUE}
+```{r include=TRUE}
 
 high <- c("hand", "arm", 
           "white", "red", "yellow", "green", 
@@ -971,7 +971,7 @@ print(
 
 Identify new implicational universals:
 
-```{r imp.uni include=TRUE}
+```{r include=TRUE}
 # WOLD
 wold_total <- length(unique(wold$glottocode))
 
