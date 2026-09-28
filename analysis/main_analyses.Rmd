@@ -91,6 +91,8 @@ plot <- dplot_with_pred %>%
     axis.line.y = element_blank(),
     axis.text.x = element_text(size = 6.75),
     axis.text.y = element_text(size = 6.75),
+    axis.ticks = element_line(color = "gray70", linewidth = 0.3),
+    axis.ticks.length = unit(0.08, "cm"),
     panel.border = element_rect(color = "gray70", fill = NA, linewidth = 0.3),
     plot.margin = margin(1, 1, 1, 1)
   )
