@@ -321,30 +321,44 @@ pretty_names <- c(
   sens     = "sensorimotor strength"
 )
 
-# correlation matrix
-cor_matrix <- d_full %>%
-  select(all_of(predictors)) %>%
-  cor(use = "pairwise.complete.obs")
+# build a long-format table of pairwise correlations, one row per pair
+make_long_cor_table <- function(data, predictors, pretty_names) {
+  pairs <- combn(predictors, 2, simplify = FALSE)
 
-rownames(cor_matrix) <- pretty_names[rownames(cor_matrix)]
-colnames(cor_matrix) <- pretty_names[colnames(cor_matrix)]
+  rows <- map_dfr(pairs, function(p) {
+    x <- data[[p[1]]]
+    y <- data[[p[2]]]
+    ct <- cor.test(x, y)
+    tibble(
+      predictor_1 = pretty_names[[p[1]]],
+      predictor_2 = pretty_names[[p[2]]],
+      r = ct$estimate,
+      conf_low = ct$conf.int[1],
+      conf_high = ct$conf.int[2],
+      p_value = ct$p.value
+    )
+  })
 
-cor_table <- round(cor_matrix, 2)
-cor_table[lower.tri(cor_table)] <- NA
+  rows %>%
+    mutate(
+      r = sprintf("%.2f", r),
+      ci = sprintf("[%.2f, %.2f]", conf_low, conf_high),
+      p_value = case_when(
+        p_value < 0.001 ~ "< 0.001",
+        TRUE ~ sprintf("%.3f", p_value)
+      )
+    ) %>%
+    select(predictor_1, predictor_2, r, ci, p_value)
+}
 
-cor_df <- as.data.frame(cor_table, check.names = FALSE) %>%
-  tibble::rownames_to_column(var = "predictor") %>%
-  mutate(across(-predictor, ~ ifelse(is.na(.), "", sprintf("%.2f", .))))
-
-colnames(cor_df)[1] <- ""
-
-out_path <- here("output/tables", "pred_cor_full.tex")
+cor_long_full <- make_long_cor_table(d_full, predictors, pretty_names)
 
 print(
-  xtable(cor_df, align = c("l", "l", rep("c", ncol(cor_df) - 1))),
-  file = out_path,
+  xtable(cor_long_full, align = c("l", "l", "l", "c", "c", "c")),
+  file = here("output/tables", "pred_cor_full.tex"),
   include.rownames = FALSE,
   sanitize.text.function = identity,
+  floating = FALSE,
   comment = FALSE
 )
 
@@ -356,7 +370,7 @@ predictors_dev <- c(
   "conc", "sens"
 )
 
-pretty_names <- c(
+pretty_names_dev <- c(
   wl_mean    = "mean usage (Worldlex)",
   wl_cvar     = "CV of usage (Worldlex)",
   en         = "usage (English only)",
@@ -370,31 +384,12 @@ pretty_names <- c(
   sens       = "sensorimotor strength"
 )
 
-cor_matrix_dev <- d_dev %>%
-  select(all_of(predictors_dev)) %>%
-  cor(use = "pairwise.complete.obs")
-
-rownames(cor_matrix_dev) <- pretty_names[rownames(cor_matrix_dev)]
-colnames(cor_matrix_dev) <- pretty_names[colnames(cor_matrix_dev)]
-
-cor_table_dev <- round(cor_matrix_dev, 2)
-cor_table_dev[lower.tri(cor_table_dev)] <- NA
-
-cor_df_dev <- as.data.frame(cor_table_dev, check.names = FALSE) %>%
-  tibble::rownames_to_column(var = "predictor") %>%
-  mutate(across(-predictor, ~ ifelse(is.na(.), "", sprintf("%.2f", .))))
-colnames(cor_df_dev)[1] <- ""
-
-tab_dev <- xtable(
-  cor_df_dev,
-  align = c("l", "l", rep("c", ncol(cor_df_dev) - 1))
-)
+cor_long_dev <- make_long_cor_table(d_dev, predictors_dev, pretty_names_dev)
 
 print(
-  tab_dev,
+  xtable(cor_long_dev, align = c("l", "l", "l", "c", "c", "c")),
   file = here("output/tables", "pred_cor_dev.tex"),
   include.rownames = FALSE,
-  include.colnames = TRUE,
   sanitize.text.function = identity,
   floating = FALSE,
   comment = FALSE

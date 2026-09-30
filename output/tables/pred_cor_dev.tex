@@ -1,17 +1,61 @@
-\begin{tabular}{lccccccccccc}
+\begin{tabular}{llccc}
   \hline
- & mean usage (Worldlex) & CV of usage (Worldlex) & usage (English only) & mean usage (DoReCo) & CV of usage (DoReCo) & association in-strength & contextual diversity & AoA (self reported) & AoA (parent reported) & concreteness & sensorimotor strength \\ 
+predictor_1 & predictor_2 & r & ci & p_value \\ 
   \hline
-mean usage (Worldlex) & 1.00 & -0.23 & 0.94 & 0.74 & -0.22 & 0.39 & 0.94 & -0.24 & -0.18 & -0.64 & -0.18 \\ 
-  CV of usage (Worldlex) &  & 1.00 & -0.15 & -0.11 & -0.09 & -0.35 & -0.19 & 0.20 & 0.03 & -0.00 & 0.04 \\ 
-  usage (English only) &  &  & 1.00 & 0.72 & -0.26 & 0.37 & 0.98 & -0.26 & -0.13 & -0.66 & -0.19 \\ 
-  mean usage (DoReCo) &  &  &  & 1.00 & -0.04 & 0.31 & 0.74 & -0.25 & -0.14 & -0.42 & -0.21 \\ 
-  CV of usage (DoReCo) &  &  &  &  & 1.00 & 0.08 & -0.24 & 0.02 & -0.02 & 0.29 & 0.13 \\ 
-  association in-strength &  &  &  &  &  & 1.00 & 0.40 & -0.29 & -0.23 & -0.04 & 0.21 \\ 
-  contextual diversity &  &  &  &  &  &  & 1.00 & -0.27 & -0.13 & -0.64 & -0.21 \\ 
-  AoA (self reported) &  &  &  &  &  &  &  & 1.00 & 0.40 & -0.08 & -0.20 \\ 
-  AoA (parent reported) &  &  &  &  &  &  &  &  & 1.00 & -0.21 & -0.36 \\ 
-  concreteness &  &  &  &  &  &  &  &  &  & 1.00 & 0.45 \\ 
-  sensorimotor strength &  &  &  &  &  &  &  &  &  &  & 1.00 \\ 
+mean usage (Worldlex) & CV of usage (Worldlex) & -0.23 & [-0.33, -0.12] & < 0.001 \\ 
+  mean usage (Worldlex) & usage (English only) & 0.94 & [0.93, 0.96] & < 0.001 \\ 
+  mean usage (Worldlex) & mean usage (DoReCo) & 0.74 & [0.69, 0.79] & < 0.001 \\ 
+  mean usage (Worldlex) & CV of usage (DoReCo) & -0.22 & [-0.32, -0.12] & < 0.001 \\ 
+  mean usage (Worldlex) & association in-strength & 0.39 & [0.29, 0.48] & < 0.001 \\ 
+  mean usage (Worldlex) & contextual diversity & 0.94 & [0.93, 0.95] & < 0.001 \\ 
+  mean usage (Worldlex) & AoA (self reported) & -0.24 & [-0.34, -0.14] & < 0.001 \\ 
+  mean usage (Worldlex) & AoA (parent reported) & -0.18 & [-0.28, -0.07] & 0.001 \\ 
+  mean usage (Worldlex) & concreteness & -0.64 & [-0.70, -0.58] & < 0.001 \\ 
+  mean usage (Worldlex) & sensorimotor strength & -0.18 & [-0.29, -0.08] & < 0.001 \\ 
+  CV of usage (Worldlex) & usage (English only) & -0.15 & [-0.26, -0.04] & 0.007 \\ 
+  CV of usage (Worldlex) & mean usage (DoReCo) & -0.11 & [-0.22, -0.00] & 0.044 \\ 
+  CV of usage (Worldlex) & CV of usage (DoReCo) & -0.09 & [-0.20, 0.02] & 0.098 \\ 
+  CV of usage (Worldlex) & association in-strength & -0.35 & [-0.44, -0.25] & < 0.001 \\ 
+  CV of usage (Worldlex) & contextual diversity & -0.19 & [-0.30, -0.09] & < 0.001 \\ 
+  CV of usage (Worldlex) & AoA (self reported) & 0.20 & [0.10, 0.31] & < 0.001 \\ 
+  CV of usage (Worldlex) & AoA (parent reported) & 0.03 & [-0.08, 0.14] & 0.605 \\ 
+  CV of usage (Worldlex) & concreteness & -0.00 & [-0.11, 0.10] & 0.937 \\ 
+  CV of usage (Worldlex) & sensorimotor strength & 0.04 & [-0.07, 0.15] & 0.503 \\ 
+  usage (English only) & mean usage (DoReCo) & 0.72 & [0.66, 0.77] & < 0.001 \\ 
+  usage (English only) & CV of usage (DoReCo) & -0.26 & [-0.36, -0.15] & < 0.001 \\ 
+  usage (English only) & association in-strength & 0.37 & [0.27, 0.46] & < 0.001 \\ 
+  usage (English only) & contextual diversity & 0.98 & [0.97, 0.98] & < 0.001 \\ 
+  usage (English only) & AoA (self reported) & -0.26 & [-0.35, -0.15] & < 0.001 \\ 
+  usage (English only) & AoA (parent reported) & -0.13 & [-0.23, -0.02] & 0.023 \\ 
+  usage (English only) & concreteness & -0.66 & [-0.72, -0.60] & < 0.001 \\ 
+  usage (English only) & sensorimotor strength & -0.19 & [-0.29, -0.08] & < 0.001 \\ 
+  mean usage (DoReCo) & CV of usage (DoReCo) & -0.04 & [-0.15, 0.07] & 0.481 \\ 
+  mean usage (DoReCo) & association in-strength & 0.31 & [0.21, 0.41] & < 0.001 \\ 
+  mean usage (DoReCo) & contextual diversity & 0.74 & [0.69, 0.79] & < 0.001 \\ 
+  mean usage (DoReCo) & AoA (self reported) & -0.25 & [-0.35, -0.15] & < 0.001 \\ 
+  mean usage (DoReCo) & AoA (parent reported) & -0.14 & [-0.24, -0.03] & 0.014 \\ 
+  mean usage (DoReCo) & concreteness & -0.42 & [-0.51, -0.33] & < 0.001 \\ 
+  mean usage (DoReCo) & sensorimotor strength & -0.21 & [-0.31, -0.11] & < 0.001 \\ 
+  CV of usage (DoReCo) & association in-strength & 0.08 & [-0.03, 0.19] & 0.154 \\ 
+  CV of usage (DoReCo) & contextual diversity & -0.24 & [-0.34, -0.14] & < 0.001 \\ 
+  CV of usage (DoReCo) & AoA (self reported) & 0.02 & [-0.09, 0.13] & 0.756 \\ 
+  CV of usage (DoReCo) & AoA (parent reported) & -0.02 & [-0.13, 0.09] & 0.761 \\ 
+  CV of usage (DoReCo) & concreteness & 0.29 & [0.19, 0.39] & < 0.001 \\ 
+  CV of usage (DoReCo) & sensorimotor strength & 0.13 & [0.02, 0.24] & 0.018 \\ 
+  association in-strength & contextual diversity & 0.40 & [0.30, 0.48] & < 0.001 \\ 
+  association in-strength & AoA (self reported) & -0.29 & [-0.39, -0.19] & < 0.001 \\ 
+  association in-strength & AoA (parent reported) & -0.23 & [-0.33, -0.12] & < 0.001 \\ 
+  association in-strength & concreteness & -0.04 & [-0.15, 0.07] & 0.491 \\ 
+  association in-strength & sensorimotor strength & 0.21 & [0.11, 0.31] & < 0.001 \\ 
+  contextual diversity & AoA (self reported) & -0.27 & [-0.37, -0.17] & < 0.001 \\ 
+  contextual diversity & AoA (parent reported) & -0.13 & [-0.24, -0.02] & 0.018 \\ 
+  contextual diversity & concreteness & -0.64 & [-0.70, -0.57] & < 0.001 \\ 
+  contextual diversity & sensorimotor strength & -0.21 & [-0.31, -0.10] & < 0.001 \\ 
+  AoA (self reported) & AoA (parent reported) & 0.40 & [0.31, 0.49] & < 0.001 \\ 
+  AoA (self reported) & concreteness & -0.08 & [-0.18, 0.03] & 0.168 \\ 
+  AoA (self reported) & sensorimotor strength & -0.20 & [-0.30, -0.09] & < 0.001 \\ 
+  AoA (parent reported) & concreteness & -0.21 & [-0.31, -0.10] & < 0.001 \\ 
+  AoA (parent reported) & sensorimotor strength & -0.36 & [-0.45, -0.27] & < 0.001 \\ 
+  concreteness & sensorimotor strength & 0.45 & [0.35, 0.53] & < 0.001 \\ 
    \hline
 \end{tabular}
